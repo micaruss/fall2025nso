@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fall NSO | Mentor Schedule</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    nav {
+      background-color: navy;
+      text-align: center;
+      padding: 12px;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 1rem;
+      font-family: Arial, sans-serif;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .day-section {
+      margin-bottom: 2.5rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+
+    th, td {
+      border: 1px solid #ccc;
+      padding: 12px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #003087;
+      color: white;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+  </style>
+</head>
+<body>
+    <nav id="top-nav">
+        <a href="index.html">🏠 Home</a>
+        <a href="schedule.html">📅 Schedule</a>
+        <a href="maps.html">📍 Mentor Maps</a>
+        <a href="assignments.html">🏫 Mentor Assignments</a>
+        <a href="help.html">⛑️ Help Videos</a>
+        <a href="#" id="login-btn" onclick="startLogin()">🔐 Login</a>
+      </nav>
+
+  <div class="container">
+    <h1>Mentor Schedule – Fall 2025 NSO</h1>
+
+    <!-- Day 1 -->
+    <div class="day-section">
+      <h2>Thursday, August 28</h2>
+      <p>Navy Polo and Nametag</p>
+      <table>
+        <thead>
+          <tr><th>Time</th><th>Responsibility</th><th>Location</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>7:00–8:30 AM</td><td>Mentor Check-In</td><td>North Side of Marriott Center</td></tr>
+          <tr><td>8:30–9:30 AM</td><td>Help with Student Check-In</td><td>Marriott Center Parking Lot</td></tr>
+          <tr><td>10:00–11:00 AM</td><td>Attend Cougar Rally with Students</td><td>Marriott Center</td></tr>
+          <tr><td>11:00–12:00 PM</td><td>Attend Convocation with Students</td><td>Marriott Center</td></tr>
+          <tr><td>12:00–1:00 PM</td><td>Lunch with Students</td><td>Assigned Lunch Spot</td></tr>
+          <tr><td>1:00–3:00 PM</td><td>Attend Becoming BYU with Students</td><td>Assigned Room</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Day 2 -->
+    <div class="day-section">
+      <h2>Friday, August 29</h2>
+      <p>White Shirt and Nametag</p>
+      <table>
+        <thead>
+          <tr><th>Time</th><th>Responsibility</th><th>Location</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>8:00–8:30 AM</td><td>Mentor Check-In</td><td>JFSB Quad</td></tr>
+          <tr><td>8:30 AM</td><td>Meet Up with Group</td><td>Assigned Spot</td></tr>
+          <tr><td>9:00–12:00 PM</td><td>Lead Cougar Crash Course</td><td>Across Campus</td></tr>
+          <tr><td>12:00–1:00 PM</td><td>Lunch with Students</td><td>Assigned Lunch Spot</td></tr>
+          <tr><td>1:00 PM</td><td>Drop Off Students for College Experiences</td><td>Brigham Square</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Day 3 -->
+    <div class="day-section">
+      <h2>Tuesday, September 2</h2>
+      <p>Navy Polo and Nametag</p>
+      <table>
+        <thead>
+          <tr><th>Time</th><th>Responsibility</th><th>Location</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>10:00–10:30 AM</td><td>Mentor Check-In</td><td>Marriott Center</td></tr>
+          <tr><td>10:30 AM</td><td>Meet Up with Group</td><td>Assigned Spot by Marriott Center</td></tr>
+          <tr><td>11:00–12:00 PM</td><td>Attend Devotional with Students</td><td>Marriott Center</td></tr>
+          <tr><td>12:00–1:00 PM</td><td>Lunch with Students</td><td>Grassy Area Near Marriott Center</td></tr>
+          <tr><td>1:00 PM</td><td>Drop Off Students at First-Year Fair</td><td>WSC-Brigham Square Entrance</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+<footer>
+<p>Fall 2025 NSO | BYU First-Year Experience</p>
+</footer>
+
+  <script>
+  const nav = document.getElementById("top-nav");
+
+  function startLogin() {
+    sessionStorage.setItem("returnPage", window.location.pathname);
+    window.location.href = "login.html";
+  }
+
+  function isLoggedIn() {
+    const auth = localStorage.getItem("authenticated");
+    const loginTime = localStorage.getItem("loginTime");
+
+    if (!auth || !loginTime) return false;
+
+    const now = Date.now();
+    const maxSession = 10 * 60 * 1000; // 10 minutes
+
+    if (now - parseInt(loginTime, 10) > maxSession) {
+      localStorage.removeItem("authenticated");
+      localStorage.removeItem("loginTime");
+      return false;
+    }
+
+    return true;
+  }
+
+  if (nav) {
+    const loginBtn = document.getElementById("login-btn");
+
+    if (isLoggedIn()) {
+      if (loginBtn) loginBtn.style.display = "none";
+
+      if (!document.getElementById("coordinator-link")) {
+        nav.innerHTML += `
+          <a href="supervisor.html" id="supervisor-link">🧭 Coordinators & Supervisors</a>
+        `;
+      }
+    } else {
+      if (loginBtn) loginBtn.style.display = "inline-block";
+    }
+  }
+</script>
+</body>
+</html>

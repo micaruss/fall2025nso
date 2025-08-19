@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spot Details | Fall NSO</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body {
+      background-color: white;
+      color: black;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav {
+      background-color: navy;
+      text-align: center;
+      padding: 12px;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+    .spot-container {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 1rem;
+      background-color: #f9f9f9;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      text-align: center;
+    }
+    .spot-container img {
+      width: 100%;
+      max-width: 600px;
+      border-radius: 10px;
+    }
+    .spot-container h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    .spot-container p {
+      font-size: 1.1rem;
+      margin-top: 1rem;
+    }
+    .back-button {
+      display: inline-block;
+      margin-top: 1.5rem;
+      padding: 10px 20px;
+      font-size: 1rem;
+      background-color: #003087;
+      color: white;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: background-color 0.2s ease;
+    }
+    .back-button:hover {
+      background-color: #0055cc;
+    }
+  </style>
+</head>
+<body>
+    <nav id="top-nav">
+        <a href="home.html">🏠 Home</a>
+        <a href="schedule.html">📅 Schedule</a>
+        <a href="maps.html">📍 Mentor Maps</a>
+        <a href="assignments.html">🏫 Mentor Assignments</a>
+        <a href="help.html">⛑️ Help Videos</a>
+        <a href="#" id="login-btn" onclick="startLogin()">🔐 Login</a>
+      </nav>
+
+  <div class="spot-container">
+    <h1 id="spot-title">Spot</h1>
+    <img id="spot-image" src="" alt="Spot image" />
+    <p id="spot-description">Loading...</p>
+    <a href="index.html" class="back-button">⬅️ Back to Map</a>
+  </div>
+
+  <!--Descriptions for the spots-->
+  <script>
+    const spotData = {
+      1: "Benches by south east entrance of KMBL tower",
+      2: "Grass by south east entrance of KMBL Tower",
+      3: "Light pole by the south east entrance of KMBL Tower on the grass, across the way from the ESC stairs",
+      4: "Small tree by the south east entrance of KMBL Tower",
+      5: "KMBL quad triangle with with 2 trees",
+      6: "West side of the south side of ESC on narrow strip of grass. North side of narrow strip",
+      7: "West side of the south side of ESC on narrow strip of grass. South side of narrow strip",
+      8: "Inmost part of the grass directly south of the KMBL tower. By tall bushes. On grass",
+      9: "By small pine tree directly south of KMBL tower. On grass",
+      10: "Southwest side of the KMBL tower. By gutter",
+      11: "Next to lighter green tree enclosed with grass all around it",
+      12: "In between light pole and tree on the southwest side of the lawn south of KMBL Tower. Also on the west side of McKay, but south side of the west side",
+      13: "In the middle of 2 trees on the west side of the KMBL tower south lawn. There is a metal lid on the ground.",
+      14: "Next to the south west entrance of the KMBL tower. Next to 3 trees and a garbage can. On grass",
+      15: "South west side of the McKay on thin strip of grass. On the west side of bike racks.",
+      16: "South west side of the McKay. Small part of grass south of the stairs",
+      17: "On the west side of McKay. Between 2 trees, just north of the south stairs.",
+      18: "On the west side of McKay. Between trees. Next to large tree on the south side about the middle of the west side of the McKay.",
+      19: "On the west side of McKay. Between trees. Next to large tree on the north side about the middle of the west side of the McKay.",
+      20: "On the west side of the McKay, just south to the west side north entrance of the McKay",
+      21: "On the west side of the KMBL tower. Down the stairs",
+      22: "On the north west side of the McKay, close to west side north entrance of McKay",
+      23: "On the north west side of the McKay, just south of the bike rack",
+      24: "By the stone steps by the library signs and the fire hydrant. In between the JKB and library",
+      25: "Under the trees by the JKB entrance right next to the library",
+      26: "Grassy area outside the west side of JKB. In-between the TMCB and JKB. On the south side.",
+      27: "Grassy area right outside the TMCB. Between the TMCB and JKB",
+      28: "On the grassy hill outside the TMCB facing the library",
+      29: "Grassy spot outside of the TMCB South doors",
+      30: "Grassy area by TMCB",
+      31: "Grass in-between the TMCB and JFSB",
+      32: "Circle 1: closest to the TMCB second away from the JFSB",
+      33: "Circle 2: Close to the west side of the library",
+      34: "Circle 3: next to south library doors",
+      35: "Circle 4: next to south JFSB stairs",
+      36: "Circle 5: next to new Eyring building add on",
+      37: "Next to Native American Statue",
+      38: "Meet at BYU Sign outside of WILK.",
+      39: "Meet at the light post in-between the BYU store north outside entrance and the main west entrance of WILK. This light post is right next to the steps and handrailing. It is near a tree with shade and benches.",
+      40: "Meet at the tree near the north entrance to the BYU Store from outside in Brigham Square. This tree has its own plot of land and is in the direct corner of the wilk.",
+      41: "Meet in the north section of the grass field area on the east side of the JKB.",
+      42: "Meet in the south section of the grass field area on the east side of the JKB.",
+      43: "Meet by the grass area directly across the sidewalk from the east side of the JKB. Meet on the north section of the grass area, closest to the ASB.",
+      44: "Meet by the grass area directly across the sidewalk from the east side of the JKB. Meet on the South section of the grass area, closest to the library.",
+      45: "Meet by the stone JKB sign in front of the entrance to the JKB closest to the north side of the library.",
+      46: "Meet on the grass area between the JKB southeast entrance and the west glass entrance to the library. This area has a brown light post.",
+      47: "Meet by chairs, not benches, in the ASB Quad (between the JKB and Arts Building) closest to the JKB.",
+      48: "Meet on the grass area between the construction on the arts building and the east glass entrance to the library.",
+      49: "Meet on the cement terrace/stair/bench on the northeast corner of the library.",
+      50: "Meet at the metal poster holders (2D, bulletin) on the northeast side of the library.",
+      51: "Grass directly east of JKB west side, north entrance.",
+      52: "Chairs/benches east of ASB quad, close to construction.",
+      53: "North side of grass on the west side of JKB.",
+      54: "Benches on the east side of TMCB.",
+      55: "Grass between TMCB and JFSB, east side.",
+      56: "Grass between TMCB and JFSB, west side.",
+      57: "Grass west side of TMCB",
+      58: "Grass east side of library, most north.",
+      59: "Grass east side of library, by emergency exit.", 
+      60: "Grass east side of library, across the way is the north entrance of the BYU store.",
+      61: "Patio on the east side of library.",
+      62: "Grass on the south east side of library on the north side of the grass.",
+      63: "Grass on the south east side of library on the south side of the grass.",
+      64: "North triangle grass south of WILK.",
+      65: "North side of west triangle grass south of WILK.",
+      66: "East side of west triangle grass south of WILK.",
+      67: "West side of south triangle grass south of WILK.",
+      68: "North side of south triangle grass south of WILK.",
+      69: "East side of south triangle grass south of WILK.",
+      70: "East grass between WILK and CB",
+      71: "South side of south triangle grass south of WILK.",
+      72: "South side of west triangle grass south of WILK.",
+      73: "North side grass of Marigold Quad on the north side.",
+      74: "Benches on north side of Marigold Quad.",
+      75: "North side grass of Marigold Quad on the south side.",
+      76: "Grass directly west of W.W. Clyde sign on the wall.",
+      77: "Center grass between CB and MARB on north side.",
+      78: "Center grass between CB and MARB on south side.",
+      79: "West side grass of MARB on north side with sign.",
+      80: "West side grass of MARB on south side.",
+      81: "Triangle grass between CB and MARB.",
+      82: "Grass by Windows of Heaven, north side of Windows of Heaven.",
+      83: "Grass by Windows of Heaven, south side of Windows of Heaven.",
+      84: "Grass outside west entrance of EB, north grass.",
+      85: "Grass outside west entrance of EB, south grass.",
+      86: "Grass across the street from LSB on east side of grass.",
+      87: "Grass across the street from LSB on west side of grass.",
+      88: "East triangle grass south of MARB on south side.",
+      89: "East triangle grass south of MARB on north side.",
+      90: "East middle triangle grass south of MARB on south side.",
+      91: "East middle triangle grass south of MARB on north side.",
+      92: "West middle triangle grass south of MARB on north side.",
+      93: "West middle triangle grass south of MARB on south side.",
+      94: "West triangle grass south of MARB on north side.",
+      95: "West triangle grass south of MARB on south side.",
+      96: "Southwest grass south of MARB on east side.",
+      97: "Southwest grass south of MARB on west side.",
+      98: "Patio/sidewalk by the street near the LSB.",
+      99: "West side of MARB sitting area.",
+      100: "Benches just north of MARB.",
+      101: "Grass north of MARB by entrance.",
+      102: "Grass triangle north of MARB by pine trees.",
+      103: "Grass triangle north of MARB, north side.",
+      104: "Grass in the innermost part of the HRCB.",
+      105: "Grass triangle by HRCB.",
+      106: "North grass of KMBL quad by center light pole.",
+      107: "Large middle grass of KMBL on east side.",
+      108: "Large middle grass of KMBL on north middle side.",
+      109: "Large middle grass of KMBL on northwest side by tree.",
+      110: "Large middle grass of KMBL on southwest side.",
+      111: "Large middle grass of KMBL on southeast side.",
+      112: "Medium-size grass of KMBL by benches.",
+      113: "Medium-size grass of KMBL by tree.",
+      114: "Grass on west side of huge pine tree.",
+      115: "Grass in the middle of two huge pine trees.",
+      116: "Grass on southeast side of two huge pine trees.",
+      117: "Grass triangle on northwest side of Benson.",
+      118: "Rounded grass by Benson on east side.",
+      119: "Rounded grass by Benson on northwest side.",
+      120: "Rounded grass by Benson on west side.",
+      121: "JSB quad south side on north side of JSB.",
+      122: "JSB quad north side on north side of JSB.",
+      123: "Benches outside of Testing Center on northeast side.",
+      124: "Benches outside of Testing Center on east side.",
+      125: "Grass outside of Testing Center on north side by tree.",
+      126: "Grass outside of Testing Center on northwest side by tree.",
+      127: "Large grass between BRMB and Testing Center on northeast side by light pole.",
+      128: "Large grass between BRMB and Testing Center on southeast side.",
+      129: "Large grass between BRMB and Testing Center on south middle east side by light pole.",
+      130: "Large grass between BRMB and Testing Center on south middle west side by light pole.",
+      131: "Large grass between MSRB and Testing Center on south side by light pole.",
+      132: "Large grass close to MSRB by trees on west side.",
+      133: "Large grass between BRMB and Testing Center south of bushes on north side of grass.",
+      134: "Large grass by road and between BRMB and MSRB by tree.",
+      135: "Triangle grass west of BRMB on south side.",
+      136: "Triangle grass west of BRMB on north side.",
+      137: "Triangle grass on northwest side of Testing Center on east side by trees.",
+      138: "Triangle grass on northwest side of Testing Center on west side.",
+      139: "Triangle grass on northwest side of Testing Center on south side by light pole.",
+      140: "Tree on west side of Testing Center near west entrance.",
+      141: "Triangle grass on west side of Testing Center on south side by tree.",
+      142: "Triangle grass on west side of Testing Center on north side by tree.",
+      143: "Grass on east side of MSRB on south side of stairs by tree.",
+      144: "Grass on the southeast corner of MSRB near fire hydrants.",
+      145: "Grass on west side of MSRB by the crosswalk on southwest side.",
+      146: "Grass on west side of MSRB by the stairs on northeast side.",
+      147: "Grass by MSRB northeast side by tree.",
+      148: "Grass by MSRB and road and bike rack.",
+      149: "Grass by Former Presidents' Home sign.",
+      150: "Grass directly north of BRMB.",
+      151: "Grass southwest side of MCKB.",
+      152: "Grass south side of MCKB.",
+      153: "Grass between JSB and MCKB and BRMB on west side.",
+      154: "Grass between JSB and MCKB and BRMB by Tree of Wisdom.",
+      155: "Grass on west side of MCKB southwest entrance by bike racks.",
+      156: "Triangle grass on west side of MCKB by entrance.",
+      157: "Grass on west side of MCKB by bench.",
+      158: "Grass on west side of MCKB by sign.",
+      159: "Benches on north side of KMBL south of JFSB.",
+      160: "Grass between library and HRCB.",
+      161: "161",
+      162: "162",
+      163: "163",
+      164: "164",
+      165: "165",
+      166: "166",
+      167: "167",
+      168: "168",
+      169: "169",
+      170: "170",
+      171: "171",
+      172: "172",
+      173: "173",
+      174: "174",
+      175: "175",
+      176: "176",
+      177: "177",
+      178: "178",
+      179: "179",
+      180: "180",
+      181: "181",
+      182: "182",
+      183: "183",
+    };
+
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get("id");
+
+    const title = document.getElementById("spot-title");
+    const image = document.getElementById("spot-image");
+    const description = document.getElementById("spot-description");
+
+    if (spotData[id]) {
+      title.textContent = `Spot ${id}`;
+      image.src = `images/spot-${id}.jpeg`;
+      image.alt = `Spot ${id}`;
+      description.textContent = spotData[id];
+    } else {
+      title.textContent = "Spot Not Found";
+      description.textContent = "This spot does not exist.";
+      image.style.display = "none";
+    }
+  </script>
+
+
+<script>
+  const nav = document.getElementById("top-nav");
+
+  function startLogin() {
+    sessionStorage.setItem("returnPage", window.location.pathname);
+    window.location.href = "login.html";
+  }
+
+  function isLoggedIn() {
+    const auth = localStorage.getItem("authenticated");
+    const loginTime = localStorage.getItem("loginTime");
+
+    if (!auth || !loginTime) return false;
+
+    const now = Date.now();
+    const maxSession = 10 * 60 * 1000; // 10 minutes
+
+    if (now - parseInt(loginTime, 10) > maxSession) {
+      localStorage.removeItem("authenticated");
+      localStorage.removeItem("loginTime");
+      return false;
+    }
+
+    return true;
+  }
+
+  if (nav) {
+    const loginBtn = document.getElementById("login-btn");
+
+    if (isLoggedIn()) {
+      if (loginBtn) loginBtn.style.display = "none";
+
+      if (!document.getElementById("coordinator-link")) {
+        nav.innerHTML += `
+          <a href="supervisor.html" id="supervisor-link">🧭 Coordinators & Supervisors</a>
+        `;
+      }
+    } else {
+      if (loginBtn) loginBtn.style.display = "inline-block";
+    }
+  }
+</script>
+
+</body>
+</html>

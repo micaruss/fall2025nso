@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fall NSO | Help Videos</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    nav {
+      background-color: navy;
+      text-align: center;
+      padding: 12px;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 1rem;
+      font-family: Arial, sans-serif;
+    }
+
+    h1, h2 {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 20px;
+      margin-top: 2rem;
+    }
+
+    iframe {
+      width: 100%;
+      height: 180px;
+      border: none;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+  <nav id="top-nav">
+    <a href="index.html">🏠 Home</a>
+    <a href="schedule.html">📅 Schedule</a>
+    <a href="maps.html">📍 Mentor Maps</a>
+    <a href="assignments.html">🏫 Mentor Assignments</a>
+    <a href="help.html">⛑️ Help Videos</a>
+    <a href="#" id="login-btn" onclick="startLogin()">🔐 Login</a>
+  </nav>
+
+  <div class="container">
+    <h1>NSO Help Videos</h1>
+    <h2>Extra Training & Help</h2>
+
+    <div class="video-grid">
+  <div class="video-block">
+  <p>Tips for Tools slides</p>
+  <iframe src="https://www.youtube.com/embed/pxcnWzzEUCw" title="Video 1" allowfullscreen></iframe>
+</div>
+<div class="video-block">
+  <p>Tips for Share Your Y</p>
+  <iframe src="https://www.youtube.com/embed/ofOFkdSp2zY" title="Video 2" allowfullscreen></iframe>
+</div>
+<div class="video-block">
+  <p>Tips for Rhythm of the Semester</p>
+  <iframe src="https://www.youtube.com/embed/RIfanqLxmEI" title="Video 3" allowfullscreen></iframe>
+</div>
+<div class="video-block">
+  <p>Tips for Early Alert</p>
+  <iframe src="https://www.youtube.com/embed/XNBFzPm1HAs" title="Video 4" allowfullscreen></iframe>
+</div>
+<div class="video-block">
+  <p>Example of Team Games</p>
+  <iframe src="https://www.youtube.com/embed/GxVhC8zM1Sk" title="Video 5" allowfullscreen></iframe>
+</div>
+</div>
+  </div>
+
+<footer>
+<p>Fall 2025 NSO | BYU First-Year Experience</p>
+</footer>
+
+  <script>
+  const nav = document.getElementById("top-nav");
+
+  function startLogin() {
+    sessionStorage.setItem("returnPage", window.location.pathname);
+    window.location.href = "login.html";
+  }
+
+  function isLoggedIn() {
+    const auth = localStorage.getItem("authenticated");
+    const loginTime = localStorage.getItem("loginTime");
+
+    if (!auth || !loginTime) return false;
+
+    const now = Date.now();
+    const maxSession = 10 * 60 * 1000; // 10 minutes
+
+    if (now - parseInt(loginTime, 10) > maxSession) {
+      localStorage.removeItem("authenticated");
+      localStorage.removeItem("loginTime");
+      return false;
+    }
+
+    return true;
+  }
+
+  if (nav) {
+    const loginBtn = document.getElementById("login-btn");
+
+    if (isLoggedIn()) {
+      if (loginBtn) loginBtn.style.display = "none";
+
+      if (!document.getElementById("coordinator-link")) {
+        nav.innerHTML += `
+          <a href="supervisor.html" id="supervisor-link">🧭 Coordinators & Supervisors</a>
+        `;
+      }
+    } else {
+      if (loginBtn) loginBtn.style.display = "inline-block";
+    }
+  }
+</script>
+</body>
+</html>
+
+
+    

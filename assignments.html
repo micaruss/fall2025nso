@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mentor Assignments | Fall NSO</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    nav {
+      background-color: navy;
+      text-align: center;
+      padding: 12px;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 1rem;
+      font-family: Arial, sans-serif;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1.5rem;
+    }
+
+    th, td {
+      border: 1px solid #ccc;
+      padding: 12px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #003087;
+      color: white;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+
+    .group-label {
+      margin-top: 2rem;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #003087;
+    }
+  </style>
+</head>
+<body>
+    <nav id="top-nav">
+        <a href="index.html">🏠 Home</a>
+        <a href="schedule.html">📅 Schedule</a>
+        <a href="maps.html">📍 Mentor Maps</a>
+        <a href="assignments.html">🏫 Mentor Assignments</a>
+        <a href="help.html">⛑️ Help Videos</a>
+        <a href="#" id="login-btn" onclick="startLogin()">🔐 Login</a>
+      </nav>
+
+  <div class="container">
+    <h1>Room and Spot Assignments by Supervisor Group</h1>
+    <p>Use control-f or command-f to find your name</p>
+
+    <!-- Example Group Section -->
+    <div class="group-section">
+      <p class="group-label">Anjilee's Supervisor Group</p>
+      <table>
+        <thead>
+          <tr><th>Mentor</th><th>Room</th><th>Spot</th><th>Color #</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Alex Rosas</td><td>BRMB 250</td><td>147</td><td>Yellow 1</td></tr>
+          <tr><td>Alysa Melo</td><td>JSB 179</td><td>123</td><td>Yellow 2</td></tr>
+          <tr><td>Bekah White</td><td>BRMB 220</td><td>142</td><td>Yellow 4</td></tr>
+          <tr><td>Brigitte Garcia</td><td>BRMB 264</td><td>148</td><td>Yellow 5</td></tr>
+          <tr><td>Brody Duncan</td><td>MSRB 250</td><td>145</td><td>Yellow 6</td></tr>
+          <tr><td>Brooke Lau</td><td>MCKB 277</td><td>132</td><td>Yellow 7</td></tr>
+          <tr><td>Cade Ramsey</td><td>BRMB 270</td><td>143</td><td>Yellow 8</td></tr>
+          <tr><td>Caitin Blankenagel</td><td>BRMB 380</td><td>144</td><td>Yellow 9</td></tr>
+          <tr><td>Cara Johnson</td><td>JSB 106</td><td>138</td><td>Yellow 11</td></tr>
+          <tr><td>Chloe Humble</td><td>JSB 202</td><td>125</td><td>Yellow 12</td></tr>
+          <tr><td>Crew Jenkins</td><td>JSB 171</td><td>131</td><td>Yellow 13</td></tr>
+          <tr><td>Damin Luedke</td><td>KMBL 1150</td><td>129</td><td>Yellow 14</td></tr>
+          <tr><td>David Woolley</td><td>KMBL 280</td><td>124</td><td>Yellow 15</td></tr>
+          <tr><td>Eden Craven</td><td>JSB 182</td><td>126</td><td>Yellow 16</td></tr>
+          <tr><td>Emma Heywood</td><td>MSRB 321</td><td>146</td><td>Yellow 17</td></tr>
+          <tr><td>Ethan Martin</td><td>JFSB B142</td><td>149</td><td>Yellow 18</td></tr>
+          <tr><td>Hazel Green</td><td>KMBL 245</td><td>128</td><td>Yellow 19</td></tr>
+          <tr><td>Isaac Tholl</td><td>JSB 107</td><td>140</td><td>Yellow 20</td></tr>
+          <tr><td>Isabella Pizorno</td><td>JSB 103</td><td>141</td><td>Yellow 21</td></tr>
+          <tr><td>Jamin Thompson</td><td>JSB 110</td><td>139</td><td>Yellow 22</td></tr>
+          <tr><td>Kate Taylor</td><td>JSB 114</td><td>137</td><td>Yellow 23</td></tr>
+          <tr><td>Kaylee Porter</td><td>JSB 170</td><td>130</td><td>Yellow 24</td></tr>
+          <tr><td>Lana Westover</td><td>JSB 203</td><td>127</td><td>Yellow 25</td></tr>
+          <tr><td>Madi Blakley</td><td>JFSB B150</td><td>136</td><td>Yellow 26</td></tr>
+          <tr><td>Payton Newbold</td><td>JSB 175</td><td>134</td><td>Yellow 28</td></tr>
+          <tr><td>Sean Butler</td><td>CB 384</td><td>67</td><td>Yellow 29</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="group-section">
+        <p class="group-label">Danja's Supervisor Group</p>
+        <table>
+          <thead>
+            <tr><th>Mentor</th><th>Room</th><th>Spot</th><th>Color #</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Adam Jenson</td><td>BNSN W002</td><td>116</td><td>Green 1</td></tr>
+            <tr><td>Ally Zollinger</td><td>BNSN W003</td><td>121</td><td>Green 2</td></tr>
+            <tr><td>Andrew Manwaring</td><td>KMBL 240</td><td>158</td><td>Green 3</td></tr>
+            <tr><td>Anna Lemke</td><td>MARB 120</td><td>114</td><td>Green 4</td></tr>
+            <tr><td>Annabel Woolstenhulme</td><td>BNSN W142</td><td>110</td><td>Green 5</td></tr>
+            <tr><td>Ava Pulsipher</td><td>ESC C247</td><td>15</td><td>Green 6</td></tr>
+            <tr><td>Brandon Rasmussen</td><td>ESC C255</td><td>108</td><td>Green 7</td></tr>
+            <tr><td>Calianne Skinner</td><td>MARB 109</td><td>117</td><td>Green 8</td></tr>
+            <tr><td>Calvin Blackson</td><td>MCKB 220</td><td>155</td><td>Green 9</td></tr>
+            <tr><td>Darren Tingey</td><td>MCKB 230</td><td>156</td><td>Green 10</td></tr>
+            <tr><td>David Percival</td><td>MCKB 270</td><td>154</td><td>Green 11</td></tr>
+            <tr><td>Ian Schow</td><td>MARB 129</td><td>115</td><td>Green 14</td></tr>
+            <tr><td>Kaija Sorensen</td><td>BNSN W005</td><td>122</td><td>Green 15</td></tr>
+            <tr><td>Kenna Johns</td><td>BNSN W011</td><td>151</td><td>Green 16</td></tr>
+            <tr><td>Kylie Brown</td><td>MARB 122</td><td>119</td><td>Green 17</td></tr>
+            <tr><td>Luke Bunkall</td><td>KMBL 262</td><td>109</td><td>Green 19</td></tr>
+            <tr><td>Morgan Hanna</td><td>MCKB 238</td><td>157</td><td>Green 22</td></tr>
+            <tr><td>Morgan Lynn</td><td>MARB 123</td><td>113</td><td>Green 23</td></tr>
+            <tr><td>Nathan Thomas</td><td>ESC C285</td><td>111</td><td>Green 24</td></tr>
+            <tr><td>Nathan Thornton</td><td>BNSN W009</td><td>153</td><td>Green 25</td></tr>
+            <tr><td>Sariah Dunstan</td><td>BNSN W012</td><td>152</td><td>Green 26</td></tr>
+            <tr><td>Tanner Sessions</td><td>ESC C261</td><td>107</td><td>Green 27</td></tr>
+            <tr><td>Tanner Shupe</td><td>MARB 128</td><td>112</td><td>Green 28</td></tr>
+            <tr><td>Zander Kahuhu</td><td>BNSN W010</td><td>150</td><td>Green 30</td></tr>
+            <tr><td>Zoey Cherniske</td><td>MARB 108</td><td>118</td><td>Green 31</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="group-section">
+        <p class="group-label">Jeanne's Supervisor Group</p>
+        <table>
+          <thead>
+            <tr><th>Mentor</th><th>Room</th><th>Spot</th><th>Color #</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Braden Haddock</td><td>BNSN W006</td><td>17</td><td>Pink 2</td></tr>
+            <tr><td>Brett Rasmussen</td><td>MCKB 359</td><td>13</td><td>Pink 3</td></tr>
+            <tr><td>Camilla Silvester</td><td>MCKB 283</td><td>10</td><td>Pink 4</td></tr>
+            <tr><td>Drake Johnson</td><td>JFSB B140</td><td>2</td><td>Pink 6</td></tr>
+            <tr><td>Ethan Spencer</td><td>KMBL 230</td><td>16</td><td>Pink 7</td></tr>
+            <tr><td>Grace Morales</td><td>TMCB 104</td><td>34</td><td>Pink 8</td></tr>
+            <tr><td>Hannah Boyle</td><td>HBLL 3710</td><td>159</td><td>Pink 9</td></tr>
+            <tr><td>Hannah Williams</td><td>HBLL 3712</td><td>36</td><td>Pink 10</td></tr>
+            <tr><td>Jaqueline Maombi</td><td>MCKB 341</td><td>12</td><td>Pink 11</td></tr>
+            <tr><td>Jessica Lee</td><td>JFSB B132</td><td>3</td><td>Pink 13</td></tr>
+            <tr><td>Jesslyn Leeper</td><td>JFSB B030</td><td>23</td><td>Pink 14</td></tr>
+            <tr><td>Jocelyn Escobar</td><td>JFSB B099</td><td>1</td><td>Pink 15</td></tr>
+            <tr><td>Juliana Cosme</td><td>MCKB 355</td><td>14</td><td>Pink 16</td></tr>
+            <tr><td>Kaden McKnight</td><td>JFSB B042</td><td>9</td><td>Pink 17</td></tr>
+            <tr><td>Kohler Barton</td><td>JSB 178</td><td>20</td><td>Pink 19</td></tr>
+            <tr><td>Lesieli Fifita</td><td>TMCB 108</td><td>35</td><td>Pink 20</td></tr>
+            <tr><td>Lucy Palmer</td><td>JFSB B032</td><td>22</td><td>Pink 21</td></tr>
+            <tr><td>Maddie Anderson</td><td>MCKB 331</td><td>11</td><td>Pink 22</td></tr>
+            <tr><td>Maddy Chen</td><td>JFSB B040</td><td>21</td><td>Pink 23</td></tr>
+            <tr><td>Maren McGinn</td><td>JFSB B050</td><td>5</td><td>Pink 24</td></tr>
+            <tr><td>Nick Reeves</td><td>JFSB B060</td><td>8</td><td>Pink 25</td></tr>
+            <tr><td>Paige Watson</td><td>MCKB 26</td><td>106</td><td>Pink 26</td></tr>
+            <tr><td>Rachael Leifson</td><td>JFSB B103</td><td>7</td><td>Pink 27</td></tr>
+            <tr><td>Ryan Bird</td><td>MCKB 276</td><td>18</td><td>Pink 28</td></tr>
+            <tr><td>Sierra Mills</td><td>JKB 3024</td><td>4</td><td>Pink 29</td></tr>
+            <tr><td>Sinalei Ah Loe</td><td>JFSB B106</td><td>6</td><td>Pink 30</td></tr>
+            <tr><td>Tyler Scott</td><td>JSB 174</td><td>19</td><td>Pink 32</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="group-section">
+        <p class="group-label">Debi's Supervisor Group</p>
+        <table>
+          <thead>
+            <tr><th>Mentor</th><th>Room</th><th>Spot</th><th>Color #</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Adam McMullin</td><td>EB 321</td><td>85</td><td>Blue 1</td></tr>
+            <tr><td>Alex Halpren</td><td>LSB 2004</td><td>98</td><td>Blue 2</td></tr>
+            <tr><td>Alyssa Calder</td><td>MARB 121</td><td>82</td><td>Blue 3</td></tr>
+            <tr><td>Amelia Burrell</td><td>MARB 127</td><td>89</td><td>Blue 4</td></tr>
+            <tr><td>Ammon Shearer</td><td>MARB 130</td><td>91</td><td>Blue 5</td></tr>
+            <tr><td>April Francom</td><td>TNRB 184</td><td>164</td><td>Purple 5</td></tr>
+            <tr><td>Chanler Bushman</td><td>MARB B114</td><td>93</td><td>Blue 6</td></tr>
+            <tr><td>Clara Gunnerson</td><td>HRCB 123</td><td>79</td><td>Blue 7</td></tr>
+            <tr><td>Cory Clay</td><td>TNRB W210</td><td>51</td><td>Pink 5</td></tr>
+            <tr><td>Dezirae Gracia</td><td>MARB B119</td><td>92</td><td>Blue 8</td></tr>
+            <tr><td>Ella Morley</td><td>MARB B124</td><td>94</td><td>Blue 9</td></tr>
+            <tr><td>Emily Barton</td><td>BNSN W141</td><td>73</td><td>Blue 10</td></tr>
+            <tr><td>Ethan Hooley</td><td>HRCB 151</td><td>81</td><td>Blue 11</td></tr>
+            <tr><td>Evan Gamett</td><td>MARB 126</td><td>83</td><td>Blue 12</td></tr>
+            <tr><td>Gracey Brady</td><td>CB 383</td><td>65</td><td>Blue 13</td></tr>
+            <tr><td>Haley Johnson</td><td>HRCB 154</td><td>99</td><td>Blue 14</td></tr>
+            <tr><td>Hannah Larson</td><td>MARB B107</td><td>87</td><td>Blue 15</td></tr>
+            <tr><td>Heidi West</td><td>MARB B112</td><td>97</td><td>Blue 16</td></tr>
+            <tr><td>Jacob Woodrum</td><td>HRCB 125</td><td>78</td><td>Blue 17</td></tr>
+            <tr><td>John Hamilton</td><td>CB 385</td><td>72</td><td>Blue 18</td></tr>
+            <tr><td>Jose Ramirez Ozaeta</td><td>CTB 240</td><td>70</td><td>Blue 19</td></tr>
+            <tr><td>Katie White</td><td>HRCB 117</td><td>76</td><td>Blue 20</td></tr>
+            <tr><td>Lauren Willford</td><td>HRCB 150</td><td>80</td><td>Blue 21</td></tr>
+            <tr><td>Lexie LaFeber</td><td>CB 369</td><td>64</td><td>Blue 22</td></tr>
+            <tr><td>Michael Stevenson</td><td>CB 406</td><td>71</td><td>Blue 23</td></tr>
+            <tr><td>Mickayla Offermann</td><td>HRCB 116</td><td>75</td><td>Blue 24</td></tr>
+            <tr><td>Miranda Richards</td><td>EB 325</td><td>84</td><td>Blue 25</td></tr>
+            <tr><td>Nathan Putnam</td><td>MARB B105</td><td>88</td><td>Blue 26</td></tr>
+            <tr><td>Noah Perry</td><td>CTB 340</td><td>68</td><td>Blue 27</td></tr>
+            <tr><td>Paige Braswell</td><td>CTB 250</td><td>69</td><td>Blue 28</td></tr>
+            <tr><td>Ryan Edwards</td><td>MARB B106</td><td>86</td><td>Blue 29</td></tr>
+            <tr><td>Sadie Buttars</td><td>MARB B113</td><td>95</td><td>Blue 30</td></tr>
+            <tr><td>Savannah Anderson</td><td>MARB 131</td><td>90</td><td>Blue 31</td></tr>
+            <tr><td>Talmage Jones</td><td>LSB 2006</td><td>96</td><td>Blue 32</td></tr>
+            <tr><td>Toby Zheng</td><td>HRCB 122</td><td>77</td><td>Blue 33</td></tr>
+            <tr><td>William Wayne</td><td>CB 392</td><td>66</td><td>Blue 34</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="group-section">
+        <p class="group-label">Becky's Supervisor Group</p>
+        <table>
+          <thead>
+            <tr><th>Mentor</th><th>Room</th><th>Spot</th><th>Color #</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Bethany Hurt</td><td>JKB 1103</td><td>60</td><td>Orange 11</td></tr>
+            <tr><td>Braxton Russell</td><td>JFSB B105</td><td>101</td><td>Orange 12</td></tr>
+            <tr><td>Caroline Sanford</td><td>JKB 1012</td><td>63</td><td>Orange 13</td></tr>
+            <tr><td>Danielle Cardoza</td><td>JKB 1020</td><td>61</td><td>Orange 14</td></tr>
+            <tr><td>David Sandidge</td><td>JKB 1127</td><td>37</td><td>Orange 15</td></tr>
+            <tr><td>Elle Crockett</td><td>JKB 1105</td><td>40</td><td>Orange 16</td></tr>
+            <tr><td>Ellie Moser</td><td>HBLL 3718</td><td>102</td><td>Orange 17</td></tr>
+            <tr><td>Emma Winward</td><td>JKB 1002</td><td>103</td><td>Orange 18</td></tr>
+            <tr><td>Holly Hatch</td><td>JKB 1010</td><td>169</td><td>Orange 19</td></tr>
+            <tr><td>Kamiah Johns</td><td>JKB 2009</td><td>45</td><td>Pink 18</td></tr>
+            <tr><td>Laura Bond</td><td>JKB 1013</td><td>160</td><td>Orange 20</td></tr>
+            <tr><td>Marcus Madsen</td><td>JFSB B190</td><td>100</td><td>Orange 21</td></tr>
+            <tr><td>Marshall Short</td><td>JKB 1018</td><td>62</td><td>Orange 22</td></tr>
+            <tr><td>Molly Blair</td><td>JKB 1005</td><td>104</td><td>Orange 23</td></tr>
+            <tr><td>Seth Dorian</td><td>JKB 1006</td><td>74</td><td>Orange 25</td></tr>
+            <tr><td>Sof Patey</td><td>JKB 1008</td><td>161</td><td>Orange 26</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+
+      <div class="group-section">
+        <p class="group-label">Sam's Supervisor Group</p>
+        <table>
+          <thead>
+            <tr><th>Mentor</th><th>Room</th><th>Spot</th><th>Color #</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Alana Crawford</td><td>JKB 1125</td><td>172</td><td>Purple 2</td></tr>
+            <tr><td>Alyssa Naegle</td><td>TNRB W110</td><td>43</td><td>Purple 3</td></tr>
+            <tr><td>Andrew Nelson</td><td>TNRB 260</td><td>47</td><td>Purple 4</td></tr>
+            <tr><td>Annalisa Schmitt</td><td>TNRB W118</td><td>52</td><td>Pink 1</td></tr>
+            <tr><td>Arya Shaffer</td><td>JKB 3016</td><td>50</td><td>Purple 6</td></tr>
+            <tr><td>Aydon DeSpain</td><td>TMCB 116</td><td>46</td><td>Yellow 3</td></tr>
+            <tr><td>Cannon Frye</td><td>TMCB 134</td><td>24</td><td>Yellow 10</td></tr>
+            <tr><td>Carly Watson</td><td>JKB 1106</td><td>39</td><td>Purple 10</td></tr>
+            <tr><td>Daniela Busse</td><td>JKB 1107</td><td>59</td><td>Purple 12</td></tr>
+            <tr><td>Felicity Michaelis</td><td>JSFB B037</td><td>38</td><td>Purple 14</td></tr>
+            <tr><td>Grace Moore</td><td>TMCB 120</td><td>42</td><td>Green 12</td></tr>
+            <tr><td>Graham Warren</td><td>JKB 2110</td><td>48</td><td>Green 13</td></tr>
+            <tr><td>Jason Reyelts</td><td>CB 381</td><td>180</td><td>Pink 12</td></tr>
+            <tr><td>Olivia Davis</td><td>JKB 1004</td><td>105</td><td>Orange 14</td></tr>
+            <tr><td>Lizzie Fairbanks</td><td>JKB 1108</td><td>58</td><td>Green 18</td></tr>
+            <tr><td>Madelyn White</td><td>JKB 1126</td><td>171</td><td>Green 20</td></tr>
+            <tr><td>Michaela Robertson</td><td>TMCB 121</td><td>44</td><td>Green 21</td></tr>
+            <tr><td>Olivia Trone</td><td>TMCB 112</td><td>25</td><td>Yellow 27</td></tr>
+            <tr><td>Sophie Richards</td><td>JKB 1121</td><td>173</td><td>Pink 31</td></tr>
+            <tr><td>Tyler Nelson</td><td>JKB 2104</td><td>49</td><td>Green 29</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="group-section">
+        <p class="group-label">Sandi's Supervisor Group</p>
+        <table>
+          <thead>
+            <tr><th>Mentor</th><th>Room</th><th>Spot</th><th>Color #</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Abbi Ayers</td><td>TNRB 484</td><td>177</td><td>Purple 1</td></tr>
+            <tr><td>Brooklyn Stevens</td><td>JKB 2105</td><td>33</td><td>Purple 7</td></tr>
+            <tr><td>Caitlyn Gomez</td><td>TMCB 136</td><td>183</td><td>Purple 8</td></tr>
+            <tr><td>Camille McDaniel</td><td>JKB 2011</td><td>176</td><td>Purple 9</td></tr>
+            <tr><td>Courtney Kelly</td><td>TNRB W108</td><td>179</td><td>Purple 11</td></tr>
+            <tr><td>Drew Erickson</td><td>TNRB 164</td><td>55</td><td>Purple 13</td></tr>
+            <tr><td>Gavin Speaks</td><td>TNRB 180</td><td>57</td><td>Purple 15</td></tr>
+            <tr><td>Gracie Joffs</td><td>JKB 2112</td><td>163</td><td>Purple 16</td></tr>
+            <tr><td>Jackson Brown</td><td>JKB 3012</td><td>167</td><td>Purple 17</td></tr>
+            <tr><td>Jaelyn Gardner</td><td>TNRB 110</td><td>182</td><td>Purple 18</td></tr>
+            <tr><td>Kanani Mastny</td><td>TNRB 374</td><td>162</td><td>Purple 19</td></tr>
+            <tr><td>Makenna Dockter</td><td>TNRB 120</td><td>31</td><td>Purple 20</td></tr>
+            <tr><td>Michelle Quintero</td><td>TNRB 284</td><td>53</td><td>Purple 21</td></tr>
+            <tr><td>Miriam Nielson</td><td>TNRB 280</td><td>26</td><td>Purple 22</td></tr>
+            <tr><td>Mirielle Kent</td><td>TNRB 130</td><td>29</td><td>Purple 23</td></tr>
+            <tr><td>Nataleigh Faylor</td><td>TNRB W208</td><td>168</td><td>Purple 24</td></tr>
+            <tr><td>Nate Summit</td><td>TNRB 170</td><td>56</td><td>Purple 25</td></tr>
+            <tr><td>Piper Barron</td><td>TNRB 270</td><td>27</td><td>Purple 26</td></tr>
+            <tr><td>Rachel May</td><td>TNRB 230</td><td>54</td><td>Purple 27</td></tr>
+            <tr><td>Ryan Martin</td><td>TNRB 210</td><td>165</td><td>Purple 28</td></tr>
+            <tr><td>Sarah Bills</td><td>JFSB B002</td><td>32</td><td>Purple 29</td></tr>
+            <tr><td>Spencer Landen</td><td>TNRB 174</td><td>178</td><td>Purple 30</td></tr>
+            <tr><td>Teija Johnson Fastabend</td><td>TNRB 220</td><td>28</td><td>Purple 31</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+
+  </div>
+
+<footer>
+<p>Fall 2025 NSO | BYU First-Year Experience</p>
+</footer>
+
+<script>
+  const nav = document.getElementById("top-nav");
+
+  function startLogin() {
+    sessionStorage.setItem("returnPage", window.location.pathname);
+    window.location.href = "login.html";
+  }
+
+  function isLoggedIn() {
+    const auth = localStorage.getItem("authenticated");
+    const loginTime = localStorage.getItem("loginTime");
+
+    if (!auth || !loginTime) return false;
+
+    const now = Date.now();
+    const maxSession = 10 * 60 * 1000; // 10 minutes
+
+    if (now - parseInt(loginTime, 10) > maxSession) {
+      localStorage.removeItem("authenticated");
+      localStorage.removeItem("loginTime");
+      return false;
+    }
+
+    return true;
+  }
+
+  if (nav) {
+    const loginBtn = document.getElementById("login-btn");
+
+    if (isLoggedIn()) {
+      if (loginBtn) loginBtn.style.display = "none";
+
+      if (!document.getElementById("coordinator-link")) {
+        nav.innerHTML += `
+          <a href="supervisor.html" id="supervisor-link">🧭 Coordinators & Supervisors</a>
+        `;
+      }
+    } else {
+      if (loginBtn) loginBtn.style.display = "inline-block";
+    }
+  }
+</script>
+
+</body>
+</html>

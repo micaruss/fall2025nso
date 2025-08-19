@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Mentor Map Spots | Fall NSO</title>
+<!--Link to external stylesheet-->
+<link href="css/styles.css" rel="stylesheet"/>
+<!--Inline styles for the nav bar-->
+<style>
+    nav {
+      background-color: navy;
+      text-align: center;
+      padding: 12px;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <!--Navigation menu-->
+<nav id="top-nav">
+        <a href="index.html">🏠 Home</a>
+        <a href="schedule.html">📅 Schedule</a>
+        <a href="maps.html">📍 Mentor Maps</a>
+        <a href="assignments.html">🏫 Mentor Assignments</a>
+        <a href="help.html">⛑️ Help Videos</a>
+        <a href="#" id="login-btn" onclick="startLogin()">🔐 Login</a>
+</nav>
+
+<!--Page header-->
+<h1>Fall NSO Mentor Spots Day 1 & 2</h1>
+
+
+<!--Map container with clickable mentor spots-->
+<div id="map-container">
+<img alt="BYU Campus Map" id="map" src="images/updatedmap.png"/>
+
+<!--Spot #1-->
+<a class="map-spot" data-group="pink" href="spot.html?id=1" id="spot-1" style="left: 34%; top: 56%;">1</a>
+<div class="image-preview" id="preview-1"><img alt="Preview of Spot 1" src="images/spot-1.jpeg"/></div>
+
+<!--Additional spots continue in the smae format. Color is determined by location on the map.-->
+<!--Each anchor tag marks the clickable circle-->
+<!--Each corresponding div below shows the image preview-->
+<!--Spots are color-coded by group using theri color-group (e.g., green, yellow, pink)-->
+
+<a class="map-spot" data-group="pink" href="spot.html?id=2" id="spot-2" style="left: 35.5%; top: 54.5%;">2</a>
+<div class="image-preview" id="preview-2"><img alt="Preview of Spot 2" src="images/spot-2.jpeg"/></div>
+
+<a class="map-spot" data-group="pink" href="spot.html?id=3" id="spot-3" style="left: 35.7%; top: 57%;">3</a>
+<div class="image-preview" id="preview-3"><img alt="Preview of Spot 3" src="images/spot-3.jpeg"/></div>
+
+<a class="map-spot" data-group="pink" href="spot.html?id=4" id="spot-4" style="left: 34.7%; top: 58.5%;">4</a>
+<div class="image-preview" id="preview-4"><img alt="Preview of Spot 4" src="images/spot-4.jpeg"/></div>
+
+<a class="map-spot" data-group="pink" href="spot.html?id=5" id="spot-5" style="left: 35.5%; top: 61%;">5</a>
+<div class="image-preview" id="preview-5"><img alt="Preview of Spot 5" src="images/spot-5.jpeg"/></div>
+
+<a class="map-spot" data-group="pink" href="spot.html?id=6" id="spot-6" style="left: 37%; top: 60%;">6</a>
+<div class="image-preview" id="preview-6"><img alt="Preview of Spot 6" src="images/spot-6.jpeg"/></div>
+
+<a class="map-spot" data-group="pink" href="spot.html?id=7" id="spot-7" style="left: 37%; top: 61.7%;">7</a>
+<div class="image-preview" id="preview-7"><img alt="Preview of Spot 7" src="images/spot-7.jpeg"/></div>
+
+<a class="map-spot" data-group="pink" href="spot.html?id=8" id="spot-8" style="left: 33.8%; top: 57.7%;">8</a>
+<div class="image-preview" id="preview-8"><img alt="Preview of Spot 8" src="images/spot-8.jpeg"/></div>
+
+<a class="map-spot" data-group="pink" href="spot.html?id=9" id="spot-9" style="left: 32.7%; top: 58%;">9</a>
+<div class="image-preview" id="preview-9"><img alt="Preview of Spot 9" src="images/spot-9.jpeg"/></div>
+
+<a class="map-spot" data-group="pink" href="spot.html?id=10" id="spot-10" style="left: 31.3%; top: 56.5%;">10</a>
+<div class="image-preview" id="preview-10"><img alt="Preview of Spot 10" src="images/spot-10.jpeg"/></div>
+
+<a class="map-spot" data-group="pink" href="spot.html?id=11" id="spot-11" style="left: 30.8%; top: 58%;">11</a>
+<div class="image-preview" id="preview-11"><img alt="Preview of Spot 11" src="images/spot-11.jpeg"/></div>
+
+<a class="map-spot" data-group="pink" href="spot.html?id=12" id="spot-12" style="left: 30%; top: 60%;">12</a>
+<div class="image-preview" id="preview-12"><img alt="Preview of Spot 12" src="images/spot-12.jpeg"/></div>
+
+<a class="map-spot" data-group="pink" href="spot.html?id=13" id="spot-13" style="left: 29.3%; top: 58.2%;">13</a>
+<div class="image-preview" id="preview-13"><img alt="Preview of Spot 13" src="images/spot-13.jpeg"/></div>
+
+<a class="map-spot" data-group="pink" href="spot.html?id=14" id="spot-14" style="left: 30%; top: 56.2%;">14</a>
+<div class="image-preview" id="preview-14"><img alt="Preview of Spot 14" src="images/spot-14.jpeg"/></div>
+
+<a class="map-spot" data-group="green" href="spot.html?id=15" id="spot-15" style="left: 28.3%; top: 65%;">15</a>
+<div class="image-preview" id="preview-15"><img alt="Preview of Spot 15" src="images/spot-15.jpeg"/></div>
+
+<a class="map-spot" data-group="pink" href="spot.html?id=16" id="spot-16" style="left: 28%; top: 63.2%;">16</a>
+<div class="image-preview" id="preview-16"><img alt="Preview of Spot 16" src="images/spot-16.jpeg"/></div>
+
+<a class="map-spot" data-group="pink" href="spot.html?id=17" id="spot-17" style="left: 28%; top: 60%;">17</a>
+<div class="image-preview" id="preview-17"><img alt="Preview of Spot 17" src="images/spot-17.jpeg"/></div>
+
+<a class="map-spot" data-group="pink" href="spot.html?id=18" id="spot-18" style="left: 28%; top: 58.3%;">18</a>
+<div class="image-preview" id="preview-18"><img alt="Preview of Spot 18" src="images/spot-18.jpeg"/></div>
+
+<a class="map-spot" data-group="pink" href="spot.html?id=19" id="spot-19" style="left: 28%; top: 56.2%;">19</a>
+<div class="image-preview" id="preview-19"><img alt="Preview of Spot 19" src="images/spot-19.jpeg"/></div>
+
+<a class="map-spot" data-group="pink" href="spot.html?id=20" id="spot-20" style="left: 28%; top: 54.3%;">20</a>
+<div class="image-preview" id="preview-20"><img alt="Preview of Spot 20" src="images/spot-20.jpeg"/></div>
+
+<a class="map-spot" data-group="pink" href="spot.html?id=21" id="spot-21" style="left: 29.6%; top: 52%;">21</a>
+<div class="image-preview" id="preview-21"><img alt="Preview of Spot 21" src="images/spot-21.jpeg"/></div>
+
+<a class="map-spot" data-group="pink" href="spot.html?id=22" id="spot-22" style="left: 28%; top: 51.2%;">22</a>
+<div class="image-preview" id="preview-22"><img alt="Preview of Spot 22" src="images/spot-22.jpeg"/></div>
+
+<a class="map-spot" data-group="pink" href="spot.html?id=23" id="spot-23" style="left: 28%; top: 49.7%;">23</a>
+<div class="image-preview" id="preview-23"><img alt="Preview of Spot 23" src="images/spot-23.jpeg"/></div>
+
+<a class="map-spot" data-group="yellow" href="spot.html?id=24" id="spot-24" style="left: 46%; top: 26%;">24</a>
+<div class="image-preview" id="preview-24"><img alt="Preview of Spot 24" src="images/spot-24.jpeg"/></div>
+
+<a class="map-spot" data-group="yellow" href="spot.html?id=25" id="spot-25" style="left: 46%; top: 21.5%;">25</a>
+<div class="image-preview" id="preview-25"><img alt="Preview of Spot 25" src="images/spot-25.jpeg"/></div>
+
+<a class="map-spot" data-group="purple" href="spot.html?id=26" id="spot-26" style="left: 41.5%; top: 19.5%;">26</a>
+<div class="image-preview" id="preview-26"><img alt="Preview of Spot 26" src="images/spot-26.jpeg"/></div>
+
+<a class="map-spot" data-group="purple" href="spot.html?id=27" id="spot-27" style="left: 39.7%; top: 21%;">27</a>
+<div class="image-preview" id="preview-27"><img alt="Preview of Spot 27" src="images/spot-27.jpeg"/></div>
+
+<a class="map-spot" data-group="purple" href="spot.html?id=28" id="spot-28" style="left: 42%; top: 24%;">28</a>
+<div class="image-preview" id="preview-28"><img alt="Preview of Spot 28" src="images/spot-28.jpeg"/></div>
+
+<a class="map-spot" data-group="purple" href="spot.html?id=29" id="spot-29" style="left: 39%; top: 28%;">29</a>
+<div class="image-preview" id="preview-29"><img alt="Preview of Spot 29" src="images/spot-29.jpeg"/></div>
+
+<a class="map-spot" data-group="purple" href="spot.html?id=30" id="spot-30" style="left: 42%; top: 28.5%;">30</a>
+<div class="image-preview" id="preview-30"><img alt="Preview of Spot 30" src="images/spot-30.jpeg"/></div>
+
+<a class="map-spot" data-group="purple" href="spot.html?id=31" id="spot-31" style="left: 36.5%; top: 28.5%;">31</a>
+<div class="image-preview" id="preview-31"><img alt="Preview of Spot 31" src="images/spot-31.jpeg"/></div>
+
+<a class="map-spot" data-group="purple" href="spot.html?id=32" id="spot-32" style="left: 40%; top: 31.2%;">32</a>
+<div class="image-preview" id="preview-32"><img alt="Preview of Spot 32" src="images/spot-32.jpeg"/></div>
+
+<a class="map-spot" data-group="purple" href="spot.html?id=33" id="spot-33" style="left: 41.5%; top: 32.3%;">33</a>
+<div class="image-preview" id="preview-33"><img alt="Preview of Spot 33" src="images/spot-33.jpeg"/></div>
+
+<a class="map-spot" data-group="pink" href="spot.html?id=34" id="spot-34" style="left: 41.5%; top: 41.5%;">34</a>
+<div class="image-preview" id="preview-34"><img alt="Preview of Spot 34" src="images/spot-34.jpeg"/></div>
+
+<a class="map-spot" data-group="pink" href="spot.html?id=35" id="spot-35" style="left: 39.5%; top: 42%;">35</a>
+<div class="image-preview" id="preview-35"><img alt="Preview of Spot 35" src="images/spot-35.jpeg"/></div>
+
+<a class="map-spot" data-group="pink" href="spot.html?id=36" id="spot-36" style="left: 40.5%; top: 43.5%;">36</a>
+<div class="image-preview" id="preview-36"><img alt="Preview of Spot 36" src="images/spot-36.jpeg"/></div>
+
+<a class="map-spot" data-group="orange" href="spot.html?id=37" id="spot-37" style="left: 45.5%; top: 40.5%;">37</a>
+<div class="image-preview" id="preview-37"><img alt="Preview of Spot 37" src="images/spot-37.jpeg"/></div>
+
+<a class="map-spot" data-group="purple" href="spot.html?id=38" id="spot-38" style="left: 64%; top: 23%;">38</a>
+<div class="image-preview" id="preview-38"><img alt="Preview of Spot 38" src="images/spot-38.jpeg"/></div>
+
+<a class="map-spot" data-group="purple" href="spot.html?id=39" id="spot-39" style="left: 61%; top: 32%;">39</a>
+<div class="image-preview" id="preview-39"><img alt="Preview of Spot 39" src="images/spot-39.jpeg"/></div>
+
+<a class="map-spot" data-group="orange" href="spot.html?id=40" id="spot-40" style="left: 59.3%; top: 32%;">40</a>
+<div class="image-preview" id="preview-40"><img alt="Preview of Spot 40" src="images/spot-40.jpeg"/></div>
+
+<a class="map-spot" data-group="purple" href="spot.html?id=41" id="spot-41" style="left: 46.2%; top: 14.5%;">41</a>
+<div class="image-preview" id="preview-41"><img alt="Preview of Spot 41" src="images/spot-41.jpeg"/></div>
+
+<a class="map-spot" data-group="green" href="spot.html?id=42" id="spot-42" style="left: 46.2%; top: 17.5%;">42</a>
+<div class="image-preview" id="preview-42"><img alt="Preview of Spot 42" src="images/spot-42.jpeg"/></div>
+
+<a class="map-spot" data-group="purple" href="spot.html?id=43" id="spot-43" style="left: 48%; top: 16%;">43</a>
+<div class="image-preview" id="preview-43"><img alt="Preview of Spot 43" src="images/spot-43.jpeg"/></div>
+
+<a class="map-spot" data-group="green" href="spot.html?id=44" id="spot-44" style="left: 48%; top: 18%;">44</a>
+<div class="image-preview" id="preview-44"><img alt="Preview of Spot 44" src="images/spot-44.jpeg"/></div>
+
+<a class="map-spot" data-group="pink" href="spot.html?id=45" id="spot-45" style="left: 60%; top: 23%;">45</a>
+<div class="image-preview" id="preview-45"><img alt="Preview of Spot 45" src="images/spot-45.jpeg"/></div>
+
+<a class="map-spot" data-group="yellow" href="spot.html?id=46" id="spot-46" style="left: 48.5%; top: 21%;">46</a>
+<div class="image-preview" id="preview-46"><img alt="Preview of Spot 46" src="images/spot-46.jpeg"/></div>
+
+<a class="map-spot" data-group="purple" href="spot.html?id=47" id="spot-47" style="left: 49.5%; top: 17%;">47</a>
+<div class="image-preview" id="preview-47"><img alt="Preview of Spot 47" src="images/spot-47.jpeg"/></div>
+
+<a class="map-spot" data-group="green" href="spot.html?id=48" id="spot-48" style="left: 52.5%; top: 21%;">48</a>
+<div class="image-preview" id="preview-48"><img alt="Preview of Spot 48" src="images/spot-48.jpeg"/></div>
+
+<a class="map-spot" data-group="green" href="spot.html?id=49" id="spot-49" style="left: 56.4%; top: 26%;">49</a>
+<div class="image-preview" id="preview-49"><img alt="Preview of Spot 49" src="images/spot-49.jpeg"/></div>
+
+<a class="map-spot" data-group="purple" href="spot.html?id=50" id="spot-50" style="left: 54.7%; top: 25%;">50</a>
+<div class="image-preview" id="preview-50"><img alt="Preview of Spot 50" src="images/spot-50.jpeg"/></div>
+
+<a class="map-spot" data-group="pink" href="spot.html?id=51" id="spot-51" style="left: 48%; top: 13%;">51</a>
+<div class="image-preview" id="preview-51"><img alt="Preview of Spot 51" src="images/spot-51.jpeg"/></div>
+
+<a class="map-spot" data-group="pink" href="spot.html?id=52" id="spot-52" style="left: 52%; top: 17%;">52</a>
+<div class="image-preview" id="preview-52"><img alt="Preview of Spot 52" src="images/spot-52.jpeg"/></div>
+
+<a class="map-spot" data-group="purple" href="spot.html?id=53" id="spot-53" style="left: 41.5%; top: 17%;">53</a>
+<div class="image-preview" id="preview-53"><img alt="Preview of Spot 53" src="images/spot-53.jpeg"/></div>
+
+<a class="map-spot" data-group="purple" href="spot.html?id=54" id="spot-54" style="left: 40%; top: 24%;">54</a>
+<div class="image-preview" id="preview-54"><img alt="Preview of Spot 54" src="images/spot-54.jpeg"/></div>
+
+<a class="map-spot" data-group="purple" href="spot.html?id=55" id="spot-55" style="left: 34%; top: 27.5%;">55</a>
+<div class="image-preview" id="preview-55"><img alt="Preview of Spot 55" src="images/spot-55.jpeg"/></div>
+
+<a class="map-spot" data-group="purple" href="spot.html?id=56" id="spot-56" style="left: 32%; top: 27.5%;">56</a>
+<div class="image-preview" id="preview-56"><img alt="Preview of Spot 56" src="images/spot-56.jpeg"/></div>
+
+<a class="map-spot" data-group="purple" href="spot.html?id=57" id="spot-57" style="left: 27.8%; top: 24%;">57</a>
+<div class="image-preview" id="preview-57"><img alt="Preview of Spot 57" src="images/spot-57.jpeg"/></div>
+
+<a class="map-spot" data-group="green" href="spot.html?id=58" id="spot-58" style="left: 56.5%; top: 29.3%;">58</a>
+<div class="image-preview" id="preview-58"><img alt="Preview of Spot 58" src="images/spot-58.jpeg"/></div>
+
+<a class="map-spot" data-group="purple" href="spot.html?id=59" id="spot-59" style="left: 56%; top: 31%;">59</a>
+<div class="image-preview" id="preview-59"><img alt="Preview of Spot 59" src="images/spot-59.jpeg"/></div>
+
+<a class="map-spot" data-group="orange" href="spot.html?id=60" id="spot-60" style="left: 56%; top: 32.5%;">60</a>
+<div class="image-preview" id="preview-60"><img alt="Preview of Spot 60" src="images/spot-60.jpeg"/></div>
+
+<a class="map-spot" data-group="orange" href="spot.html?id=61" id="spot-61" style="left: 55%; top: 36.5%;">61</a>
+<div class="image-preview" id="preview-61"><img alt="Preview of Spot 61" src="images/spot-61.jpeg"/></div>
+
+<a class="map-spot" data-group="orange" href="spot.html?id=62" id="spot-62" style="left: 56%; top: 38.5%;">62</a>
+<div class="image-preview" id="preview-62"><img alt="Preview of Spot 62" src="images/spot-62.jpeg"/></div>
+
+<a class="map-spot" data-group="orange" href="spot.html?id=63" id="spot-63" style="left: 56%; top: 40.5%;">63</a>
+<div class="image-preview" id="preview-63"><img alt="Preview of Spot 63" src="images/spot-63.jpeg"/></div>
+
+<a class="map-spot" data-group="blue" href="spot.html?id=64" id="spot-64" style="left: 63%; top: 47%;">64</a>
+<div class="image-preview" id="preview-64"><img alt="Preview of Spot 64" src="images/spot-64.jpeg"/></div>
+
+<a class="map-spot" data-group="blue" href="spot.html?id=65" id="spot-65" style="left: 61%; top: 47.2%;">65</a>
+<div class="image-preview" id="preview-65"><img alt="Preview of Spot 65" src="images/spot-65.jpeg"/></div>
+
+<a class="map-spot" data-group="blue" href="spot.html?id=66" id="spot-66" style="left: 61.6%; top: 48.6%;">66</a>
+<div class="image-preview" id="preview-66"><img alt="Preview of Spot 66" src="images/spot-66.jpeg"/></div>
+
+<a class="map-spot" data-group="yellow" href="spot.html?id=67" id="spot-67" style="left: 61.3%; top: 52%;">67</a>
+<div class="image-preview" id="preview-67"><img alt="Preview of Spot 67" src="images/spot-67.jpeg"/></div>
+
+<a class="map-spot" data-group="blue" href="spot.html?id=68" id="spot-68" style="left: 63.2%; top: 50%;">68</a>
+<div class="image-preview" id="preview-68"><img alt="Preview of Spot 68" src="images/spot-68.jpeg"/></div>
+
+<a class="map-spot" data-group="blue" href="spot.html?id=69" id="spot-69" style="left: 65%; top: 52%;">69</a>
+<div class="image-preview" id="preview-69"><img alt="Preview of Spot 69" src="images/spot-69.jpeg"/></div>
+
+<a class="map-spot" data-group="blue" href="spot.html?id=70" id="spot-70" style="left: 64.8%; top: 48%;">70</a>
+<div class="image-preview" id="preview-70"><img alt="Preview of Spot 70" src="images/spot-70.jpeg"/></div>
+
+<a class="map-spot" data-group="blue" href="spot.html?id=71" id="spot-71" style="left: 63.2%; top: 52%;">71</a>
+<div class="image-preview" id="preview-71"><img alt="Preview of Spot 71" src="images/spot-71.jpeg"/></div>
+
+<a class="map-spot" data-group="blue" href="spot.html?id=72" id="spot-72" style="left: 60%; top: 51%;">72</a>
+<div class="image-preview" id="preview-72"><img alt="Preview of Spot 72" src="images/spot-72.jpeg"/></div>
+
+<a class="map-spot" data-group="blue" href="spot.html?id=73" id="spot-73" style="left: 56%; top: 52%;">73</a>
+<div class="image-preview" id="preview-73"><img alt="Preview of Spot 73" src="images/spot-73.jpeg"/></div>
+
+<a class="map-spot" data-group="orange" href="spot.html?id=74" id="spot-74" style="left: 56%; top: 49%;">74</a>
+<div class="image-preview" id="preview-74"><img alt="Preview of Spot 74" src="images/spot-74.jpeg"/></div>
+
+<a class="map-spot" data-group="blue" href="spot.html?id=75" id="spot-75" style="left: 56%; top: 54%;">75</a>
+<div class="image-preview" id="preview-75"><img alt="Preview of Spot 75" src="images/spot-75.jpeg"/></div>
+
+<a class="map-spot" data-group="blue" href="spot.html?id=76" id="spot-76" style="left: 56%; top: 56%;">76</a>
+<div class="image-preview" id="preview-76"><img alt="Preview of Spot 76" src="images/spot-76.jpeg"/></div>
+
+<a class="map-spot" data-group="blue" href="spot.html?id=77" id="spot-77" style="left: 56%; top: 59.8%;">77</a>
+<div class="image-preview" id="preview-77"><img alt="Preview of Spot 77" src="images/spot-77.jpeg"/></div>
+
+<a class="map-spot" data-group="blue" href="spot.html?id=78" id="spot-78" style="left: 56%; top: 61.5%;">78</a>
+<div class="image-preview" id="preview-78"><img alt="Preview of Spot 78" src="images/spot-78.jpeg"/></div>
+
+<a class="map-spot" data-group="blue" href="spot.html?id=79" id="spot-79" style="left: 54%; top: 60.3%;">79</a>
+<div class="image-preview" id="preview-79"><img alt="Preview of Spot 79" src="images/spot-79.jpeg"/></div>
+
+<a class="map-spot" data-group="blue" href="spot.html?id=80" id="spot-80" style="left: 54%; top: 62.5%;">80</a>
+<div class="image-preview" id="preview-80"><img alt="Preview of Spot 80" src="images/spot-80.jpeg"/></div>
+
+<a class="map-spot" data-group="blue" href="spot.html?id=81" id="spot-81" style="left: 56%; top: 63.7%;">81</a>
+<div class="image-preview" id="preview-81"><img alt="Preview of Spot 81" src="images/spot-81.jpeg"/></div>
+
+<a class="map-spot" data-group="blue" href="spot.html?id=82" id="spot-82" style="left: 56%; top: 65.5%;">82</a>
+<div class="image-preview" id="preview-82"><img alt="Preview of Spot 82" src="images/spot-82.jpeg"/></div>
+
+<a class="map-spot" data-group="blue" href="spot.html?id=83" id="spot-83" style="left: 56%; top: 67%;">83</a>
+<div class="image-preview" id="preview-83"><img alt="Preview of Spot 83" src="images/spot-83.jpeg"/></div>
+
+<a class="map-spot" data-group="blue" href="spot.html?id=84" id="spot-84" style="left: 56%; top: 68.5%;">84</a>
+<div class="image-preview" id="preview-84"><img alt="Preview of Spot 84" src="images/spot-84.jpeg"/></div>
+
+<a class="map-spot" data-group="blue" href="spot.html?id=85" id="spot-85" style="left: 56%; top: 72%;">85</a>
+<div class="image-preview" id="preview-85"><img alt="Preview of Spot 85" src="images/spot-85.jpeg"/></div>
+
+<a class="map-spot" data-group="blue" href="spot.html?id=86" id="spot-86" style="left: 54.3%; top: 71.5%;">86</a>
+<div class="image-preview" id="preview-86"><img alt="Preview of Spot 86" src="images/spot-86.jpeg"/></div>
+
+<a class="map-spot" data-group="blue" href="spot.html?id=87" id="spot-87" style="left: 52.7%; top: 71.5%;">87</a>
+<div class="image-preview" id="preview-87"><img alt="Preview of Spot 87" src="images/spot-87.jpeg"/></div>
+
+<a class="map-spot" data-group="blue" href="spot.html?id=88" id="spot-88" style="left: 53.3%; top: 69.5%;">88</a>
+<div class="image-preview" id="preview-88"><img alt="Preview of Spot 88" src="images/spot-88.jpeg"/></div>
+
+<a class="map-spot" data-group="blue" href="spot.html?id=89" id="spot-89" style="left: 54.2%; top: 67.5%;">89</a>
+<div class="image-preview" id="preview-89"><img alt="Preview of Spot 89" src="images/spot-89.jpeg"/></div>
+
+<a class="map-spot" data-group="blue" href="spot.html?id=90" id="spot-90" style="left: 52.3%; top: 68.2%;">90</a>
+<div class="image-preview" id="preview-90"><img alt="Preview of Spot 90" src="images/spot-90.jpeg"/></div>
+
+<a class="map-spot" data-group="blue" href="spot.html?id=91" id="spot-91" style="left: 52.7%; top: 66.8%;">91</a>
+<div class="image-preview" id="preview-91"><img alt="Preview of Spot 91" src="images/spot-91.jpeg"/></div>
+
+<a class="map-spot" data-group="blue" href="spot.html?id=92" id="spot-92" style="left: 49.3%; top: 66.8%;">92</a>
+<div class="image-preview" id="preview-92"><img alt="Preview of Spot 92" src="images/spot-92.jpeg"/></div>
+
+<a class="map-spot" data-group="blue" href="spot.html?id=93" id="spot-93" style="left: 50%; top: 68%;">93</a>
+<div class="image-preview" id="preview-93"><img alt="Preview of Spot 93" src="images/spot-93.jpeg"/></div>
+
+<a class="map-spot" data-group="blue" href="spot.html?id=94" id="spot-94" style="left: 47.7%; top: 67.5%;">94</a>
+<div class="image-preview" id="preview-94"><img alt="Preview of Spot 94" src="images/spot-94.jpeg"/></div>
+
+<a class="map-spot" data-group="blue" href="spot.html?id=95" id="spot-95" style="left: 48.3%; top: 69.5%;">95</a>
+<div class="image-preview" id="preview-95"><img alt="Preview of Spot 95" src="images/spot-95.jpeg"/></div>
+
+<a class="map-spot" data-group="blue" href="spot.html?id=96" id="spot-96" style="left: 49.5%; top: 72%;">96</a>
+<div class="image-preview" id="preview-96"><img alt="Preview of Spot 96" src="images/spot-96.jpeg"/></div>
+
+<a class="map-spot" data-group="blue" href="spot.html?id=97" id="spot-97" style="left: 48%; top: 71.5%;">97</a>
+<div class="image-preview" id="preview-97"><img alt="Preview of Spot 97" src="images/spot-97.jpeg"/></div>
+
+<a class="map-spot" data-group="blue" href="spot.html?id=98" id="spot-98" style="left: 53%; top: 74.3%;">98</a>
+<div class="image-preview" id="preview-98"><img alt="Preview of Spot 98" src="images/spot-98.jpeg"/></div>
+
+<a class="map-spot" data-group="blue" href="spot.html?id=99" id="spot-99" style="left: 46.5%; top: 64.5%;">99</a>
+<div class="image-preview" id="preview-99"><img alt="Preview of Spot 99" src="images/spot-99.jpeg"/></div>
+
+<a class="map-spot" data-group="orange" href="spot.html?id=100" id="spot-100" style="left: 49.5%; top: 56%;">100</a>
+<div class="image-preview" id="preview-100"><img alt="Preview of Spot 100" src="images/spot-100.jpeg"/></div>
+
+<a class="map-spot" data-group="orange" href="spot.html?id=101" id="spot-101" style="left: 52.3%; top: 57%;">101</a>
+<div class="image-preview" id="preview-101"><img alt="Preview of Spot 101" src="images/spot-101.jpeg"/></div>
+
+<a class="map-spot" data-group="orange" href="spot.html?id=102" id="spot-102" style="left: 53.5%; top: 55%;">102</a>
+<div class="image-preview" id="preview-102"><img alt="Preview of Spot 102" src="images/spot-102.jpeg"/></div>
+
+<a class="map-spot" data-group="orange" href="spot.html?id=103" id="spot-103" style="left: 53.8%; top: 52.5%;">103</a>
+<div class="image-preview" id="preview-103"><img alt="Preview of Spot 103" src="images/spot-103.jpeg"/></div>
+
+<a class="map-spot" data-group="orange" href="spot.html?id=104" id="spot-104" style="left: 51.5%; top: 50%;">104</a>
+<div class="image-preview" id="preview-104"><img alt="Preview of Spot 104" src="images/spot-104.jpeg"/></div>
+
+<a class="map-spot" data-group="orange" href="spot.html?id=105" id="spot-105" style="left: 51.8%; top: 52%;">105</a>
+<div class="image-preview" id="preview-105"><img alt="Preview of Spot 105" src="images/spot-105.jpeg"/></div>
+
+<a class="map-spot" data-group="pink" href="spot.html?id=106" id="spot-106" style="left: 33%; top: 60%;">106</a>
+<div class="image-preview" id="preview-106"><img alt="Preview of Spot 106" src="images/spot-106.jpeg"/></div>
+
+<a class="map-spot" data-group="green" href="spot.html?id=107" id="spot-107" style="left: 33.2%; top: 61.7%;">107</a>
+<div class="image-preview" id="preview-107"><img alt="Preview of Spot 107" src="images/spot-107.jpeg"/></div>
+
+<a class="map-spot" data-group="green" href="spot.html?id=108" id="spot-108" style="left: 31.5%; top: 61.7%;">108</a>
+<div class="image-preview" id="preview-108"><img alt="Preview of Spot 108" src="images/spot-108.jpeg"/></div>
+
+<a class="map-spot" data-group="green" href="spot.html?id=109" id="spot-109" style="left: 29.8%; top: 61.7%;">109</a>
+<div class="image-preview" id="preview-109"><img alt="Preview of Spot 109" src="images/spot-109.jpeg"/></div>
+
+<a class="map-spot" data-group="green" href="spot.html?id=110" id="spot-110" style="left: 29.5%; top: 64.5%;">110</a>
+<div class="image-preview" id="preview-110"><img alt="Preview of Spot 110" src="images/spot-110.jpeg"/></div>
+
+<a class="map-spot" data-group="green" href="spot.html?id=111" id="spot-111" style="left: 31.3%; top: 63.8%;">111</a>
+<div class="image-preview" id="preview-111"><img alt="Preview of Spot 111" src="images/spot-111.jpeg"/></div>
+
+<a class="map-spot" data-group="green" href="spot.html?id=112" id="spot-112" style="left: 33.3%; top: 64.3%;">112</a>
+<div class="image-preview" id="preview-112"><img alt="Preview of Spot 112" src="images/spot-112.jpeg"/></div>
+
+<a class="map-spot" data-group="green" href="spot.html?id=113" id="spot-113" style="left: 35.3%; top: 63.5%;">113</a>
+<div class="image-preview" id="preview-113"><img alt="Preview of Spot 113" src="images/spot-113.jpeg"/></div>
+
+<a class="map-spot" data-group="green" href="spot.html?id=114" id="spot-114" style="left: 35%; top: 67%;">114</a>
+<div class="image-preview" id="preview-114"><img alt="Preview of Spot 114" src="images/spot-114.jpeg"/></div>
+
+<a class="map-spot" data-group="green" href="spot.html?id=115" id="spot-115" style="left: 33%; top: 67.5%;">115</a>
+<div class="image-preview" id="preview-115"><img alt="Preview of Spot 115" src="images/spot-115.jpeg"/></div>
+
+<a class="map-spot" data-group="green" href="spot.html?id=116" id="spot-116" style="left: 31.3%; top: 67.8%;">116</a>
+<div class="image-preview" id="preview-116"><img alt="Preview of Spot 116" src="images/spot-116.jpeg"/></div>
+
+<a class="map-spot" data-group="green" href="spot.html?id=117" id="spot-117" style="left: 36.2%; top: 68%;">117</a>
+<div class="image-preview" id="preview-117"><img alt="Preview of Spot 117" src="images/spot-117.jpeg"/></div>
+
+<a class="map-spot" data-group="green" href="spot.html?id=118" id="spot-118" style="left: 36.7%; top: 70.5%;">118</a>
+<div class="image-preview" id="preview-118"><img alt="Preview of Spot 118" src="images/spot-118.jpeg"/></div>
+
+<a class="map-spot" data-group="green" href="spot.html?id=119" id="spot-119" style="left: 34.8%; top: 70.7%;">119</a>
+<div class="image-preview" id="preview-119"><img alt="Preview of Spot 119" src="images/spot-119.jpeg"/></div>
+
+<a class="map-spot" data-group="green" href="spot.html?id=120" id="spot-120" style="left: 33.5%; top: 72.5%;">120</a>
+<div class="image-preview" id="preview-120"><img alt="Preview of Spot 120" src="images/spot-120.jpeg"/></div>
+
+<a class="map-spot" data-group="green" href="spot.html?id=121" id="spot-121" style="left: 29.5%; top: 72.5%;">121</a>
+<div class="image-preview" id="preview-121"><img alt="Preview of Spot 121" src="images/spot-121.jpeg"/></div>
+
+<a class="map-spot" data-group="green" href="spot.html?id=122" id="spot-122" style="left: 29.5%; top: 71%;">122</a>
+<div class="image-preview" id="preview-122"><img alt="Preview of Spot 122" src="images/spot-122.jpeg"/></div>
+
+<a class="map-spot" data-group="yellow" href="spot.html?id=123" id="spot-123" style="left: 22.3%; top: 78.5%;">123</a>
+<div class="image-preview" id="preview-123"><img alt="Preview of Spot 123" src="images/spot-123.jpeg"/></div>
+
+<a class="map-spot" data-group="yellow" href="spot.html?id=124" id="spot-124" style="left: 23.5%; top: 82.5%;">124</a>
+<div class="image-preview" id="preview-124"><img alt="Preview of Spot 124" src="images/spot-124.jpeg"/></div>
+
+<a class="map-spot" data-group="yellow" href="spot.html?id=125" id="spot-125" style="left:19.5%; top: 79.5%;">125</a>
+<div class="image-preview" id="preview-125"><img alt="Preview of Spot 125" src="images/spot-125.jpeg"/></div>
+
+<a class="map-spot" data-group="yellow" href="spot.html?id=126" id="spot-126" style="left: 18%; top: 80.5%;">126</a>
+<div class="image-preview" id="preview-126"><img alt="Preview of Spot 126" src="images/spot-126.jpeg"/></div>
+
+<a class="map-spot" data-group="yellow" href="spot.html?id=127" id="spot-127" style="left: 17.8%; top: 75%;">127</a>
+<div class="image-preview" id="preview-127"><img alt="Preview of Spot 127" src="images/spot-127.jpeg"/></div>
+
+<a class="map-spot" data-group="yellow" href="spot.html?id=128" id="spot-128" style="left: 18.8%; top: 77%;">128</a>
+<div class="image-preview" id="preview-128"><img alt="Preview of Spot 128" src="images/spot-128.jpeg"/></div>
+
+<a class="map-spot" data-group="yellow" href="spot.html?id=129" id="spot-129" style="left: 17.5%; top: 77.7%;">129</a>
+<div class="image-preview" id="preview-129"><img alt="Preview of Spot 129" src="images/spot-129.jpeg"/></div>
+
+<a class="map-spot" data-group="yellow" href="spot.html?id=130" id="spot-130" style="left: 16%; top: 78.8%;">130</a>
+<div class="image-preview" id="preview-130"><img alt="Preview of Spot 130" src="images/spot-130.jpeg"/></div>
+
+<a class="map-spot" data-group="yellow" href="spot.html?id=131" id="spot-131" style="left: 13.4%; top: 80.6%;">131</a>
+<div class="image-preview" id="preview-131"><img alt="Preview of Spot 131" src="images/spot-131.jpeg"/></div>
+
+<a class="map-spot" data-group="yellow" href="spot.html?id=132" id="spot-132" style="left: 13.3%; top: 78.2%;">132</a>
+<div class="image-preview" id="preview-132"><img alt="Preview of Spot 132" src="images/spot-132.jpeg"/></div>
+
+<a class="map-spot" data-group="yellow" href="spot.html?id=133" id="spot-133" style="left: 15.5%; top: 76%;">133</a>
+<div class="image-preview" id="preview-133"><img alt="Preview of Spot 133" src="images/spot-133.jpeg"/></div>
+
+<a class="map-spot" data-group="yellow" href="spot.html?id=134" id="spot-134" style="left: 13.8%; top: 76.2%;">134</a>
+<div class="image-preview" id="preview-134"><img alt="Preview of Spot 134" src="images/spot-134.jpeg"/></div>
+
+<a class="map-spot" data-group="yellow" href="spot.html?id=135" id="spot-135" style="left: 16.2%; top: 73.2%;">135</a>
+<div class="image-preview" id="preview-135"><img alt="Preview of Spot 135" src="images/spot-135.jpeg"/></div>
+
+<a class="map-spot" data-group="yellow" href="spot.html?id=136" id="spot-136" style="left: 17.8%; top: 71.8%;">136</a>
+<div class="image-preview" id="preview-136"><img alt="Preview of Spot 136" src="images/spot-136.jpeg"/></div>
+
+<a class="map-spot" data-group="yellow" href="spot.html?id=137" id="spot-137" style="left: 16%; top: 81%;">137</a>
+<div class="image-preview" id="preview-137"><img alt="Preview of Spot 137" src="images/spot-137.jpeg"/></div>
+
+<a class="map-spot" data-group="yellow" href="spot.html?id=138" id="spot-138" style="left: 14.5%; top: 82%;">138</a>
+<div class="image-preview" id="preview-138"><img alt="Preview of Spot 138" src="images/spot-138.jpeg"/></div>
+
+<a class="map-spot" data-group="yellow" href="spot.html?id=139" id="spot-139" style="left: 15.7%; top: 82.7%;">139</a>
+<div class="image-preview" id="preview-139"><img alt="Preview of Spot 139" src="images/spot-139.jpeg"/></div>
+
+<a class="map-spot" data-group="yellow" href="spot.html?id=140" id="spot-140" style="left: 16.5%; top: 84.5%;">140</a>
+<div class="image-preview" id="preview-140"><img alt="Preview of Spot 140" src="images/spot-140.jpeg"/></div>
+
+<a class="map-spot" data-group="yellow" href="spot.html?id=141" id="spot-141" style="left: 14.5%; top: 84.5%;">141</a>
+<div class="image-preview" id="preview-141"><img alt="Preview of Spot 141" src="images/spot-141.jpeg"/></div>
+
+<a class="map-spot" data-group="yellow" href="spot.html?id=142" id="spot-142" style="left: 13.5%; top: 83%;">142</a>
+<div class="image-preview" id="preview-142"><img alt="Preview of Spot 142" src="images/spot-142.jpeg"/></div>
+
+<a class="map-spot" data-group="yellow" href="spot.html?id=143" id="spot-143" style="left: 12.8%; top: 84.8%;">143</a>
+<div class="image-preview" id="preview-143"><img alt="Preview of Spot 143" src="images/spot-143.jpeg"/></div>
+
+<a class="map-spot" data-group="yellow" href="spot.html?id=144" id="spot-144" style="left: 13.7%; top: 86.2%;">144</a>
+<div class="image-preview" id="preview-144"><img alt="Preview of Spot 144" src="images/spot-144.jpeg"/></div>
+
+<a class="map-spot" data-group="yellow" href="spot.html?id=145" id="spot-145" style="left: 7%; top: 87.5%;">145</a>
+<div class="image-preview" id="preview-145"><img alt="Preview of Spot 145" src="images/spot-145.jpeg"/></div>
+
+<a class="map-spot" data-group="yellow" href="spot.html?id=146" id="spot-146" style="left: 7.5%; top: 84.6%;">146</a>
+<div class="image-preview" id="preview-146"><img alt="Preview of Spot 146" src="images/spot-146.jpeg"/></div>
+
+<a class="map-spot" data-group="yellow" href="spot.html?id=147" id="spot-147" style="left: 10.3%; top: 81%;">147</a>
+<div class="image-preview" id="preview-147"><img alt="Preview of Spot 147" src="images/spot-147.jpeg"/></div>
+
+<a class="map-spot" data-group="yellow" href="spot.html?id=148" id="spot-148" style="left: 10.6%; top: 79.3%;">148</a>
+<div class="image-preview" id="preview-148"><img alt="Preview of Spot 148" src="images/spot-148.jpeg"/></div>
+
+<a class="map-spot" data-group="yellow" href="spot.html?id=149" id="spot-149" style="left: 15%; top: 70%;">149</a>
+<div class="image-preview" id="preview-149"><img alt="Preview of Spot 149" src="images/spot-149.jpeg"/></div>
+
+<a class="map-spot" data-group="green" href="spot.html?id=150" id="spot-150" style="left: 22%; top: 67%;">150</a>
+<div class="image-preview" id="preview-150"><img alt="Preview of Spot 150" src="images/spot-150.jpeg"/></div>
+
+<a class="map-spot" data-group="green" href="spot.html?id=151" id="spot-151" style="left: 23.2%; top: 64.6%;">151</a>
+<div class="image-preview" id="preview-151"><img alt="Preview of Spot 151" src="images/spot-151.jpeg"/></div>
+
+<a class="map-spot" data-group="green" href="spot.html?id=152" id="spot-152" style="left: 25.3%; top: 64.6%;">152</a>
+<div class="image-preview" id="preview-152"><img alt="Preview of Spot 152" src="images/spot-152.jpeg"/></div>
+
+<a class="map-spot" data-group="green" href="spot.html?id=153" id="spot-153" style="left: 25.2%; top: 67.7%;">153</a>
+<div class="image-preview" id="preview-153"><img alt="Preview of Spot 153" src="images/spot-153.jpeg"/></div>
+
+<a class="map-spot" data-group="green" href="spot.html?id=154" id="spot-154" style="left: 27.5%; top: 67.7%;">154</a>
+<div class="image-preview" id="preview-154"><img alt="Preview of Spot 154" src="images/spot-154.jpeg"/></div>
+
+<a class="map-spot" data-group="green" href="spot.html?id=155" id="spot-155" style="left: 24%; top: 58.3%;">155</a>
+<div class="image-preview" id="preview-155"><img alt="Preview of Spot 155" src="images/spot-155.jpeg"/></div>
+
+<a class="map-spot" data-group="green" href="spot.html?id=156" id="spot-156" style="left: 24.3%; top: 56.7%;">156</a>
+<div class="image-preview" id="preview-156"><img alt="Preview of Spot 156" src="images/spot-156.jpeg"/></div>
+
+<a class="map-spot" data-group="green" href="spot.html?id=157" id="spot-157" style="left: 24.3%; top: 54%;">157</a>
+<div class="image-preview" id="preview-157"><img alt="Preview of Spot 157" src="images/spot-157.jpeg"/></div>
+
+<a class="map-spot" data-group="green" href="spot.html?id=158" id="spot-158" style="left: 24.3%; top: 51%;">158</a>
+<div class="image-preview" id="preview-158"><img alt="Preview of Spot 158" src="images/spot-158.jpeg"/></div>
+
+<a class="map-spot" data-group="pink" href="spot.html?id=159" id="spot-159" style="left: 32.5%; top: 45.5%;">159</a>
+<div class="image-preview" id="preview-159"><img alt="Preview of Spot 159" src="images/spot-159.jpeg"/></div>
+
+<a class="map-spot" data-group="orange" href="spot.html?id=160" id="spot-160" style="left: 47.5%; top: 44.5%;">160</a>
+<div class="image-preview" id="preview-160"><img alt="Preview of Spot 160" src="images/spot-160.jpeg"/></div>
+
+<a class="map-spot" data-group="orange" href="spot.html?id=161" id="spot-161" style="left: 56%; top: 46.5%;">161</a>
+<div class="image-preview" id="preview-161"><img alt="Preview of Spot 161" src="images/spot-161.jpeg"/></div>
+
+<a class="map-spot" data-group="purple" href="spot.html?id=162" id="spot-162" style="left: 41.5%; top: 36%;">162</a>
+<div class="image-preview" id="preview-162"><img alt="Preview of Spot 162" src="images/spot-162.jpeg"/></div>
+
+<a class="map-spot" data-group="purple" href="spot.html?id=163" id="spot-163" style="left: 41.5%; top: 38.5%;">163</a>
+<div class="image-preview" id="preview-163"><img alt="Preview of Spot 163" src="images/spot-163.jpeg"/></div>
+
+<a class="map-spot" data-group="purple" href="spot.html?id=164" id="spot-164" style="left: 24.5%; top: 16%;">164</a>
+<div class="image-preview" id="preview-164"><img alt="Preview of Spot 164" src="images/spot-164.jpeg"/></div>
+
+<a class="map-spot" data-group="purple" href="spot.html?id=165" id="spot-165" style="left: 25.3%; top: 14%;">165</a>
+<div class="image-preview" id="preview-165"><img alt="Preview of Spot 165" src="images/spot-165.jpeg"/></div>
+
+<a class="map-spot" data-group="purple" href="spot.html?id=166" id="spot-166" style="left: 28.2%; top: 27%;">166</a>
+<div class="image-preview" id="preview-166"><img alt="Preview of Spot 166" src="images/spot-166.jpeg"/></div>
+
+<a class="map-spot" data-group="purple" href="spot.html?id=167" id="spot-167" style="left: 33%; top: 39%;">167</a>
+<div class="image-preview" id="preview-167"><img alt="Preview of Spot 167" src="images/spot-167.jpeg"/></div>
+
+<a class="map-spot" data-group="purple" href="spot.html?id=168" id="spot-168" style="left: 33%; top: 35%;">168</a>
+<div class="image-preview" id="preview-168"><img alt="Preview of Spot 168" src="images/spot-168.jpeg"/></div>
+
+<a class="map-spot" data-group="orange" href="spot.html?id=169" id="spot-169" style="left: 58%; top: 44%;">169</a>
+<div class="image-preview" id="preview-169"><img alt="Preview of Spot 169" src="images/spot-169.jpeg"/></div>
+
+<a class="map-spot" data-group="black" href="spot.html?id=170" id="spot-170" style="left: 72.7%; top: 24%;">170</a>
+<div class="image-preview" id="preview-170"><img alt="Preview of Spot 170" src="images/spot-170.jpeg"/></div>
+
+<a class="map-spot" data-group="green" href="spot.html?id=171" id="spot-171" style="left: 75%; top: 24%;">171</a>
+<div class="image-preview" id="preview-171"><img alt="Preview of Spot 171" src="images/spot-171.jpeg"/></div>
+
+<a class="map-spot" data-group="purple" href="spot.html?id=172" id="spot-172" style="left: 78.5%; top: 24%;">172</a>
+<div class="image-preview" id="preview-172"><img alt="Preview of Spot 172" src="images/spot-172.jpeg"/></div>
+
+<a class="map-spot" data-group="pink" href="spot.html?id=173" id="spot-173" style="left: 81.8%; top: 24%;">173</a>
+<div class="image-preview" id="preview-173"><img alt="Preview of Spot 173" src="images/spot-173.jpeg"/></div>
+
+<a class="map-spot" data-group="pink" href="spot.html?id=174" id="spot-174" style="left: 81.8%; top: 27%;">174</a>
+<div class="image-preview" id="preview-174"><img alt="Preview of Spot 174" src="images/spot-174.jpeg"/></div>
+
+<a class="map-spot" data-group="blue" href="spot.html?id=175" id="spot-175" style="left: 84%; top: 27%;">175</a>
+<div class="image-preview" id="preview-175"><img alt="Preview of Spot 175" src="images/spot-175.jpeg"/></div>
+
+<a class="map-spot" data-group="purple" href="spot.html?id=176" id="spot-176" style="left: 35%; top: 37%;">176</a>
+<div class="image-preview" id="preview-176"><img alt="Preview of Spot 176" src="images/spot-176.jpeg"/></div>
+
+<a class="map-spot" data-group="purple" href="spot.html?id=177" id="spot-177" style="left: 48.5%; top: 4%;">177</a>
+<div class="image-preview" id="preview-177"><img alt="Preview of Spot 177" src="images/spot-177.jpeg"/></div>
+
+<a class="map-spot" data-group="purple" href="spot.html?id=178" id="spot-178" style="left: 52%; top: 4%;">178</a>
+<div class="image-preview" id="preview-178"><img alt="Preview of Spot 178" src="images/spot-178.jpeg"/></div>
+
+<a class="map-spot" data-group="purple" href="spot.html?id=179" id="spot-179" style="left: 45.5%; top: 1%;">179</a>
+<div class="image-preview" id="preview-179"><img alt="Preview of Spot 179" src="images/spot-179.jpeg"/></div>
+
+<a class="map-spot" data-group="pink" href="spot.html?id=180" id="spot-180" style="left: 60%; top: 29.5%;">180</a>
+<div class="image-preview" id="preview-180"><img alt="Preview of Spot 180" src="images/spot-180.jpeg"/></div>
+
+<a class="map-spot" data-group="pink" href="spot.html?id=181" id="spot-181" style="left: 61.3%; top: 27.5%;">181</a>
+<div class="image-preview" id="preview-181"><img alt="Preview of Spot 181" src="images/spot-181.jpeg"/></div>
+
+<a class="map-spot" data-group="purple" href="spot.html?id=182" id="spot-182" style="left: 56%; top: 6%;">182</a>
+<div class="image-preview" id="preview-182"><img alt="Preview of Spot 182" src="images/spot-182.jpeg"/></div>
+
+<a class="map-spot" data-group="purple" href="spot.html?id=183" id="spot-183" style="left: 39%; top: 36.5%;">183</a>
+<div class="image-preview" id="preview-183"><img alt="Preview of Spot 183" src="images/spot-183.jpeg"/></div>
+
+
+
+</div>
+
+<section style="background-color: white; padding: 2rem 1rem; text-align: center;">
+  <h2 style="color: #003087; margin-bottom: 1rem;">Check-In Map: Thursday, August 28</h2>
+  <img src="images/Day1check-inmap.jpeg" alt="NSO Check-In Map" style="max-width: 600px; width: 100%; height: auto; border: 1px solid #ccc; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+  <p style="margin-top: 1rem; color: #333; max-width: 800px; margin-left: auto; margin-right: auto;">
+    Please refer to this map for check-in locations. Mentors should be present at their assigned colored zones. Each student will receive merch (cinch bags, student booklets, HUB pens) from the labeled tables. Security and signage will guide students throughout the process.
+  </p>
+</section>
+
+<div id="day3-info" style="text-align: center; margin: 40px auto;">
+  <h2 style="color: #003087;">NSO Day 3 Spot Layout</h2>
+  <p style="max-width: 800px; margin: 0 auto 20px; font-size: 1.1rem; color: #333;">
+    On Day 3, mentors may choose any specific location within their assigned zone to meet with their students—as long as they stay within their designated area. The colors align with the color group for your supervisor group.
+  </p>
+  <img src="images/day3spots.jpeg" alt="NSO Day 3 Spot Layout" style="max-width: 90%; height: auto; border: 2px solid #003087; border-radius: 10px;" />
+</div>
+
+
+<!--Footer-->
+<footer>
+<p>Fall 2025 NSO | BYU First-Year Experience</p>
+</footer>
+
+
+<!--JavaScript functionality (e.g., interactivity for spots)-->
+<script src="js/main.js"></script>
+
+<script>
+  const nav = document.getElementById("top-nav");
+
+  function startLogin() {
+    sessionStorage.setItem("returnPage", window.location.pathname);
+    window.location.href = "login.html";
+  }
+
+  function isLoggedIn() {
+    const auth = localStorage.getItem("authenticated");
+    const loginTime = localStorage.getItem("loginTime");
+
+    if (!auth || !loginTime) return false;
+
+    const now = Date.now();
+    const maxSession = 10 * 60 * 1000; // 10 minutes
+
+    if (now - parseInt(loginTime, 10) > maxSession) {
+      localStorage.removeItem("authenticated");
+      localStorage.removeItem("loginTime");
+      return false;
+    }
+
+    return true;
+  }
+
+  if (nav) {
+    const loginBtn = document.getElementById("login-btn");
+
+    if (isLoggedIn()) {
+      if (loginBtn) loginBtn.style.display = "none";
+
+      if (!document.getElementById("coordinator-link")) {
+        nav.innerHTML += `
+          <a href="supervisor.html" id="supervisor-link">🧭 Coordinators & Supervisors</a>
+        `;
+      }
+    } else {
+      if (loginBtn) loginBtn.style.display = "inline-block";
+    }
+  }
+</script>
+
+</body>
+</html>

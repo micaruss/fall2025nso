@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fall NSO | Coordinator & Supervisor Dashboard</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    nav {
+      background-color: navy;
+      text-align: center;
+      padding: 12px;
+    }
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 16px;
+    }
+    nav a:hover { text-decoration: underline; }
+
+    .container {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 1rem;
+      font-family: Arial, sans-serif;
+    }
+    h1, h2 { text-align: center; margin-bottom: 1rem; }
+    .section-spacer { margin-top: 2.25rem; }
+
+    .table-wrap { overflow-x: auto; border-radius: 8px; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+      min-width: 520px;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 12px;
+      text-align: left;
+    }
+    th { background-color: #003087; color: white; }
+    tr:nth-child(even) { background-color: #f2f2f2; }
+
+    .day-section h3 { margin-top: 1.5rem; margin-bottom: 0.5rem; }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem 1rem;
+      color: #555;
+    }
+
+    /* --- Dropdown rows --- */
+    .row-toggle {
+      background: none; border: 0; padding: 0; margin: 0;
+      color: #003087; font-weight: 600; cursor: pointer; text-decoration: underline;
+    }
+    .row-toggle:focus { outline: 2px solid #9ec5ff; outline-offset: 2px; }
+    .details-row td {
+      background: #f9fbff;
+      border-top: 1px solid #cfe0ff;
+      padding: 14px 12px;
+    }
+    .details-row h4 { margin: 0 0 .25rem; font-size: 1rem; }
+    .details-row p  { margin: 0 0 .5rem; color: #333; }
+    .details-row ul { margin: .25rem 0 0 1.25rem; }
+
+    /* --- Day filter --- */
+    .day-filter {
+      display: flex;
+      justify-content: center;
+      gap: .5rem;
+      margin: 1rem 0 .25rem;
+    }
+    .day-btn {
+      appearance: none;
+      border: 1px solid #003087;
+      background: white;
+      color: #003087;
+      padding: .4rem .75rem;
+      border-radius: 9999px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      cursor: pointer;
+    }
+    .day-btn:hover { background: #eef4ff; }
+    .day-btn.active {
+      background: #003087;
+      color: white;
+    }
+    .hint {
+      text-align: center;
+      color: #666;
+      font-size: .9rem;
+      margin-top: .25rem;
+    }
+  </style>
+</head>
+<body>
+  <nav id="top-nav">
+    <a href="index.html">🏠 Home</a>
+    <a href="schedule.html">📅 Schedule</a>
+    <a href="maps.html">📍 Mentor Maps</a>
+    <a href="assignments.html">🏫 Mentor Assignments</a>
+    <a href="help.html">⛑️ Help Videos</a>
+    <a href="supervisor.html">🧭 Coordinators & Supervisors</a>
+  </nav>
+
+  <div class="container">
+    <h1>Coordinator & Supervisor Dashboard</h1>
+
+    <!-- ===================== COORDINATOR FIRST ===================== -->
+    <h2 id="coordinator-schedule">📅 Coordinator Schedule</h2>
+
+    <div class="day-section">
+      <h3>Thursday, August 28</h3>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th scope="col">Time</th><th scope="col">Assignment</th><th scope="col">Location</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>6:30–7:00 AM</td><td>Coordinator Check-in</td><td>North Side of Marriott Center</td></tr>
+            <tr><td>7:00–7:30 AM</td><td>Mentor Check-In</td><td>North Side of Marriott Center</td></tr>
+            <tr><td>7:30–8:30 AM</td><td>Prepare for Student Check-in</td><td>Marriott Center Parking Lot</td></tr>
+            <tr><td>8:30–9:30 AM</td><td>Student Check-in</td><td>Marriott Center Parking Lot</td></tr>
+            <tr><td>9:30–10:00 AM</td><td>Help Seat Students</td><td>Marriott Center</td></tr>
+            <tr><td>10:00–11:00 AM</td><td>Cougar Rally</td><td>Marriott Center</td></tr>
+            <tr><td>11:00–12:00 PM</td><td>Convocation</td><td>Marriott Center</td></tr>
+            <tr><td>12:00–1:00 PM</td><td>Lunch</td><td>JFSB Quad / Marigold / Maeser</td></tr>
+            <tr><td>1:00–3:00 PM</td><td>On Call for Becoming BYU</td><td>JFSB Quad</td></tr>
+            <tr><td>3:00–3:30 PM</td><td>Clean Up</td><td>JKB</td></tr>
+            <tr><td>6:00–9:30 PM</td><td>YAY Set-Up / T-shirt Team (select)</td><td>WSC / Vans / Various</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="day-section">
+      <h3>Friday, August 29</h3>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th scope="col">Time</th><th scope="col">Assignment</th><th scope="col">Location</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>7:45–8:00 AM</td><td>Coordinator Check-in</td><td>JFSB Quad</td></tr>
+            <tr><td>8:00–8:15 AM</td><td>Mentor Check-in — Breakfast</td><td>JFSB Quad</td></tr>
+            <tr><td>8:15–8:30 AM</td><td>Help Mentors Find their Spots</td><td>JFSB Quad</td></tr>
+            <tr><td>8:30–12:00 PM</td><td>Cougar Crash Course / Title IX / Ice Cream / Late Check-in</td><td>Across Campus</td></tr>
+            <tr><td>12:00–12:30 PM</td><td>Laptop Set Up (North/South)</td><td>Brigham Square (Wilk Way)</td></tr>
+            <tr><td>12:30–1:30 PM</td><td>College Experiences — Signage & Directional</td><td>Brigham Square & Colleges</td></tr>
+            <tr><td>1:15–1:30 PM</td><td>Clean Up</td><td>JKB</td></tr>
+            <tr><td>3:30–8:00 PM</td><td>Perspectives of BYU — Stations / Culinary Crawl</td><td>Brigham Square & Venues</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <h2 id="coordinator-assignments" class="section-spacer">📋 Coordinator Assignment Breakdown</h2>
+
+    <!-- Day filter -->
+    <div class="day-filter" role="group" aria-label="Day filter">
+      <button type="button" class="day-btn active" data-day="DAY1">Day 1 · Thurs</button>
+      <button type="button" class="day-btn" data-day="DAY2">Day 2 · Fri</button>
+    </div>
+    <div class="hint">Filter affects the details inside each person’s dropdown.</div>
+
+    <div class="table-wrap">
+      <table id="coordinator-assignments-table">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Role</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><button class="row-toggle" data-person="Avery" data-role="yellow" aria-expanded="false" aria-controls="detail-avery">Avery</button></td><td>🟡 Yellow Color Rep</td></tr>
+          <tr><td><button class="row-toggle" data-person="Sage" data-role="yellow" aria-expanded="false" aria-controls="detail-sage">Sage</button></td><td>🟡 Yellow Color Rep</td></tr>
+          <tr><td><button class="row-toggle" data-person="Matthew" data-role="purple" aria-expanded="false" aria-controls="detail-matthew">Matthew</button></td><td>🟣 Purple Color Rep</td></tr>
+          <tr><td><button class="row-toggle" data-person="Emily" data-role="orange" aria-expanded="false" aria-controls="detail-emily">Emily</button></td><td>🟠 Orange Color Rep</td></tr>
+          <tr><td><button class="row-toggle" data-person="Marissa" data-role="daidres-army" aria-expanded="false" aria-controls="detail-marissa">Marissa</button></td><td>Daidre's Army</td></tr>
+          <tr><td><button class="row-toggle" data-person="Katie" data-role="pink" aria-expanded="false" aria-controls="detail-katie">Katie</button></td><td>🔴 Pink Color Rep</td></tr>
+          <tr><td><button class="row-toggle" data-person="Ben" data-role="green" aria-expanded="false" aria-controls="detail-ben">Ben</button></td><td>🟢 Green Color Rep</td></tr>
+          <tr><td><button class="row-toggle" data-person="Isaac" data-role="green" aria-expanded="false" aria-controls="detail-isaac">Isaac</button></td><td>🟢 Green Color Rep</td></tr>
+          <tr><td><button class="row-toggle" data-person="Madeline" data-role="blue" aria-expanded="false" aria-controls="detail-madeline">Madeline</button></td><td>🔵 Blue Color Rep</td></tr>
+          <tr><td><button class="row-toggle" data-person="Monte" data-role="daidres-army" aria-expanded="false" aria-controls="detail-monte">Monte</button></td><td>Daidre's Army</td></tr>
+          <tr><td><button class="row-toggle" data-person="Spencer" data-role="blue" aria-expanded="false" aria-controls="detail-spencer">Spencer</button></td><td>🔵 Blue Color Rep</td></tr>
+          <tr><td><button class="row-toggle" data-person="Allie" data-role="temp-staff-coordinator" aria-expanded="false" aria-controls="detail-allie">Allie</button></td><td>Temp Staff Coordinator</td></tr>
+          <tr><td><button class="row-toggle" data-person="Jonah" data-role="daidres-army" aria-expanded="false" aria-controls="detail-jonah">Jonah</button></td><td>Daidre's Army</td></tr>
+          <tr><td><button class="row-toggle" data-person="Natalie" data-role="daidres-army" aria-expanded="false" aria-controls="detail-natalie">Natalie</button></td><td>Daidre's Army</td></tr>
+          <tr><td><button class="row-toggle" data-person="Nicole" data-role="pink" aria-expanded="false" aria-controls="detail-nicole">Nicole</button></td><td>🔴 Pink Color Rep</td></tr>
+          <tr><td><button class="row-toggle" data-person="Rachel" data-role="color-reps-coordinator" aria-expanded="false" aria-controls="detail-rachel">Rachel</button></td><td>Color Reps Coordinator</td></tr>
+          <tr><td><button class="row-toggle" data-person="Amanda" data-role="shadowing-micah" aria-expanded="false" aria-controls="detail-amanda">Amanda</button></td><td>Shadowing Micah</td></tr>
+          <tr><td><button class="row-toggle" data-person="Logan" data-role="silver" aria-expanded="false" aria-controls="detail-logan">Logan</button></td><td>⚪️ Silver Color Rep</td></tr>
+          <tr><td><button class="row-toggle" data-person="Jared" data-role="daidres-army-coordinator" aria-expanded="false" aria-controls="detail-jared">Jared</button></td><td>Daidre's Army Coordinator</td></tr>
+          <tr><td><button class="row-toggle" data-person="Daisy" data-role="purple" aria-expanded="false" aria-controls="detail-daisy">Daisy</button></td><td>🟣 Purple Color Rep</td></tr>
+          <tr><td><button class="row-toggle" data-person="Emma" data-role="daidres-army" aria-expanded="false" aria-controls="detail-emma">Emma</button></td><td>Daidre's Army</td></tr>
+          <tr><td><button class="row-toggle" data-person="Jae" data-role="daidres-army" aria-expanded="false" aria-controls="detail-jae">Jae</button></td><td>Daidre's Army</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ===================== SUPERVISOR SCHEDULE ===================== -->
+    <h2 id="supervisor-schedule" class="section-spacer">📅 Supervisor Schedule</h2>
+
+    <div class="day-section">
+      <h3>Thursday, August 28</h3>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th scope="col">Time</th><th scope="col">Assignment</th><th scope="col">Location</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>7:00 AM</td><td>Arrive</td><td>North Side of Marriott Center</td></tr>
+            <tr><td>7:00–7:30 AM</td><td>Help with Mentor Check-In</td><td>North Side of Marriott Center</td></tr>
+            <tr><td>7:30–8:30 AM</td><td>Prepare for Student Check-in</td><td>Marriott Center Parking Lot</td></tr>
+            <tr><td>8:30–9:30 AM</td><td>Student Check-in</td><td>Marriott Center Parking Lot</td></tr>
+            <tr><td>9:30–10:00 AM</td><td>Help Coordinators Seat Students</td><td>Marriott Center</td></tr>
+            <tr><td>10:00–11:00 AM</td><td>Enjoy Cougar Rally</td><td>Marriott Center</td></tr>
+            <tr><td>11:00–11:40 AM</td><td>Convocation</td><td>Marriott Center</td></tr>
+            <tr><td>11:40–1:00 PM</td><td>Help with Lunch</td><td>JFSB Quad</td></tr>
+            <tr><td>1:00–3:00 PM</td><td>Free to do what you want</td><td>JFSB Quad</td></tr>
+            <tr><td>3:00–3:30 PM</td><td>Clean Up</td><td>JKB</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="day-section">
+      <h3>Friday, August 29</h3>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th scope="col">Time</th><th scope="col">Assignment</th><th scope="col">Location</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>7:45–8:00 AM</td><td>Supervisor Check-in</td><td>JFSB Quad</td></tr>
+            <tr><td>8:00–8:15 AM</td><td>Help with Mentor Check-in</td><td>JFSB Quad</td></tr>
+            <tr><td>8:15–8:30 AM</td><td>Help Mentors and Coordinators as needed</td><td>JFSB Quad</td></tr>
+            <tr><td>8:30–12:00 PM</td><td>Help with Late Check-in</td><td>JFSB Quad</td></tr>
+            <tr><td>9:00–11:40 AM</td><td>Free to do what you want</td><td>Across Campus</td></tr>
+            <tr><td>11:40–12:45 PM</td><td>Help with Lunch</td><td>JFSB Quad</td></tr>
+            <tr><td>12:45–1:15 PM</td><td>Help College Experiences</td><td>Brigham Square</td></tr>
+            <tr><td>1:15–1:30 PM</td><td>Clean Up</td><td>JKB</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ===================== SUPERVISOR INTERACTIVE TABLE ===================== -->
+    <h2 id="supervisor-assignments" class="section-spacer">🧭 Supervisor Assignment Breakdown</h2>
+    <div class="table-wrap">
+      <table id="supervisor-assignments-table">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Role</th>
+            <th scope="col">Color Group</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><button class="row-toggle" data-person="Anjilee" aria-expanded="false">Anjilee</button></td><td>Supervisor</td><td>🟡 Yellow</td></tr>
+          <tr><td><button class="row-toggle" data-person="Becky" aria-expanded="false">Becky</button></td><td>Supervisor</td><td>🟠 Orange</td></tr>
+          <tr><td><button class="row-toggle" data-person="Danja" aria-expanded="false">Danja</button></td><td>Supervisor</td><td>🟢 Green</td></tr>
+          <tr><td><button class="row-toggle" data-person="Debi" aria-expanded="false">Debi</button></td><td>Supervisor</td><td>🔵 Blue</td></tr>
+          <tr><td><button class="row-toggle" data-person="Jeanne" aria-expanded="false">Jeanne</button></td><td>Supervisor</td><td>🔴 Pink</td></tr>
+          <tr><td><button class="row-toggle" data-person="Sam" aria-expanded="false">Sam</button></td><td>Supervisor</td><td>Every Color</td></tr>
+          <tr><td><button class="row-toggle" data-person="Sandi" aria-expanded="false">Sandi</button></td><td>Supervisor</td><td>🟣 Purple</td></tr>
+          <tr><td><button class="row-toggle" data-person="Bryce" aria-expanded="false">Bryce</button></td><td>Bryce</td><td>None</td></tr>
+          <tr><td><button class="row-toggle" data-person="Dave" aria-expanded="false">Dave</button></td><td>Dave</td><td>None</td></tr>
+          <tr><td><button class="row-toggle" data-person="Lindsey" aria-expanded="false">Lindsey</button></td><td>Lindsey</td><td>None</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <footer>
+    <p>Fall 2025 NSO | BYU First-Year Experience</p>
+  </footer>
+
+  <script>
+    /* ---------------- Session/auth check ---------------- */
+    const loginTime = localStorage.getItem("loginTime");
+    const maxSession = 10 * 60 * 1000; // 10 minutes
+    if (!localStorage.getItem("authenticated") || !loginTime || Date.now() - parseInt(loginTime, 10) > maxSession) {
+      alert("Access denied or session expired. Please sign in again.");
+      localStorage.removeItem("authenticated");
+      localStorage.removeItem("loginTime");
+      window.location.href = "login.html";
+    }
+
+    /* ==================== WINDOWS / LABELS ==================== */
+    const CHECKIN_WINDOW_SETUP     = "Check-in Set Up (7:00–8:15 AM)";
+    const CHECKIN_WINDOW_STUDENTS  = "Student Check-In (8:30–9:28 AM)";
+    const CHECKIN_WINDOW_MARRIOTT  = "Directing Students into the Marriott Center (9:28–10:00 AM)";
+    const LUNCH_WINDOW             = "Lunch (11:00–1:00 PM)";
+
+    const DAY1 = "Thursday, Aug 28";
+    const DAY2 = "Friday, Aug 29";
+
+    /* ==================== PEOPLE GROUPS ==================== */
+    const COLOR_REPS = ["Ben","Isaac","Avery","Sage","Emily","Logan","Matthew","Daisy","Nicole","Katie","Madeline","Spencer"];
+    const ARMY       = ["Marissa","Monte","Jonah","Emma","Jae","Natalie"];
+    const MANAGERS   = ["Jared","Rachel","Allie"]; // coordinators/managers
+
+    /* Supervisors (interactive) */
+    const SUPERVISORS = ["Anjilee","Becky","Danja","Debi","Jeanne","Sam","Sandi","Bryce","Dave","Lindsey"];
+
+    /* ==================== SHARED CHECK-IN SETUP ==================== */
+    const SHARED_CHECKIN_SETUP = [
+      "Two tables for check-in with wristbands (at front/end of color section facing Marriott Center — see check-in map).",
+      "Large Olympic banner sign with color stated.",
+      "Three merch tables: booklets, cinch sacks, bandanas.",
+      "Chalk bins spread throughout your areas.",
+      "Each mentor group has name tags and markers."
+    ];
+
+    /* ==================== MICRO-ROLES (SETUP + SUPPORT) ==================== */
+    const MICRO_ROLES = {
+      "Organizer": {
+        label: "Organizer",
+        bullets: [
+          "Stage wristbands at the front/end tables; keep sizes/quantities tidy.",
+          "Keep merch tables neat and clearly labeled (booklets / cinch sacks / bandanas).",
+          "Ensure each mentor group has name tags + markers and replenish as needed.",
+          "Keep lanes clear and signage visible; adjust table spacing if lines grow."
+        ]
+      },
+      "Unpacker": {
+        label: "Unpacker",
+        bullets: [
+          "Monitor stock levels on each merch table and restock proactively.",
+          "Open boxes of cinch sacks, booklets, and bandanas; break down cardboard.",
+          "Pre-fan wristbands by size/color to speed up distribution.",
+          "Stage backup inventory close to the lane for quick refills."
+        ]
+      },
+      "Floater": {
+        label: "Floater",
+        bullets: [
+          "Fill gaps (Organizer or Unpacker) where the lane is backing up.",
+          "Cover short breaks so tables stay staffed.",
+          "Run quick fixes (extra markers, tape, signage tweaks)."
+        ]
+      },
+      "Runner": {
+        label: "Runner",
+        bullets: [
+          "Fetch supplies from storage or other lanes as requested.",
+          "Relay information between coordinators/supervisors and lanes.",
+          "Assist with urgent needs (e.g., more wristbands, replacement signage)."
+        ]
+      },
+      "Extra Hands": {
+        label: "Extra Hands",
+        bullets: [
+          "Jump in where needed (check-in lanes, supply moves, line management).",
+          "Help with moving vans, breaking down boxes, and quick setups/teardowns.",
+          "Ask coordinators/supervisors for the next highest-need task; rotate frequently."
+        ]
+      },
+      "Manager": {
+        label: "Manager",
+        bullets: [
+          "Coordinate staffing and coverage (Color Reps, Temp Staff, Daidre’s Army).",
+          "Monitor hotspots and reassign people to relieve bottlenecks.",
+          "Handle escalations/logistics and communicate updates to supervisors."
+        ]
+      },
+      "Greeter / QR Code Holder": {
+        label: "Greeter / QR Code Holder",
+        bullets: [
+          "Welcome students and ask them to scan the QR code.",
+          "Direct them to their color’s check-in table once scanned.",
+          "If an error appears, send them to the troubleshooting desk just west of the DJ."
+        ]
+      },
+      /* ---- LUNCH ---- */
+      "Swig Vouchers": {
+        label: "Swig Vouchers",
+        bullets: [
+          "Hand out free Swig vouchers to students in your lunch area.",
+          "One of you is BYU-ed out in merch; the other acts as the helper.",
+          "Keep the line moving; answer quick questions and redirect as needed."
+        ]
+      }
+    };
+
+    /* ==================== STUDENT CHECK-IN ROLES (8:30–9:28) ==================== */
+    const STUDENT_ROLES = {
+      "color-check-in": {
+        label: "Color Check-In",
+        bullets: [
+          "Verify the student shows the appropriate check-in screen on their phone.",
+          "Write the shown number on the colored wristband and put it on the student.",
+          "Fold over any extra wristband slack into the clip.",
+          "Instruct them to grab merch, then find their group.",
+          "If an error message appears, send them to the troubleshooting desk just west of the DJ.",
+          "Move quickly to keep the line flowing."
+        ]
+      }
+    };
+
+    /* ==================== MARRIOTT FLOW ROLES (9:28–10:00) ==================== */
+    const FLOW_ROLES_COLOR = {
+      "color-leader": {
+        label: "Color Leader",
+        bullets: [
+          "Lead your color to the correct Marriott Center entry route.",
+          "Know when your color should start walking; coordinate timing.",
+          "Enter with your color and help seat them. Do not leave empty seats between groups."
+        ]
+      },
+      "color-check-in": {
+        label: "Check-In",
+        bullets: [
+          "Continue checking in students; keep them moving to find their group before entering.",
+          "After your color has left the lot, hold later arrivals together under your color.",
+          "When your line is finished, walk in with your group and sit together.",
+          "Remind students to find their correct group at lunch."
+        ]
+      }
+    };
+
+    const FLOW_ROLES_ARMY = {
+      "back-of-line": {
+        label: "Back of the Line",
+        bullets: [
+          "Position at the back of the parking lot near trailing colors.",
+          "Encourage mentor groups to be ready; signal when to move.",
+          "Once a color moves, shift to the next trailing color."
+        ]
+      },
+      "key-locations": {
+        label: "Key Locations",
+        bullets: [
+          "Stand at a key choke point along the route to the Marriott Center.",
+          "Keep students moving; minimize stoppages while staying cheerful.",
+          "If multiple lines exist, help balance flow between them."
+        ]
+      },
+      "get-moving": {
+        label: "Get Them Moving",
+        bullets: [
+          "Release colors at the right time to start moving.",
+          "Signal the color leader at the front of each group when it’s their turn.",
+          "Give the following color an early heads-up so they’re on deck."
+        ]
+      }
+    };
+
+    /* ==================== ROLE DETAILS (GENERAL PER COLOR) ==================== */
+    const ROLE_DETAILS = {
+      yellow: { title: "Yellow Color Rep",  intro: "Yellow lane lead for check-in and flow." },
+      blue:   { title: "Blue Color Rep",    intro: "Blue lane lead for check-in and flow." },
+      green:  { title: "Green Color Rep",   intro: "Green lane lead for check-in and flow." },
+      pink:   { title: "Pink Color Rep",    intro: "Pink lane lead for check-in and flow." },
+      purple: { title: "Purple Color Rep",  intro: "Purple lane lead for check-in and flow." },
+      orange: { title: "Orange Color Rep",  intro: "Orange lane lead for check-in and flow." },
+      silver: { title: "Silver Color Rep",  intro: "Floater cohort; assist any color lane." },
+      "color-reps-coordinator": {
+        title: "Color Reps Coordinator",
+        intro: "Oversees all color lanes; reallocates help to hotspots."
+      },
+      "daidres-army": {
+        title: "Daidre’s Army",
+        intro: "Flexible response team for high-need tasks."
+      },
+      "daidres-army-coordinator": {
+        title: "Daidre’s Army Coordinator",
+        intro: "Dispatches and tracks Army tasks."
+      },
+      "temp-staff-coordinator": {
+        title: "Temp Staff Coordinator",
+        intro: "Onboards and places temp staff."
+      },
+      "shadowing-micah": {
+        title: "Shadowing Micah",
+        intro: "Learns global flow; assists with comms and quick fixes."
+      }
+    };
+
+    /* ==================== ASSIGNMENTS ==================== */
+
+    // Setup micro-roles for 7:00–8:15 AM (from guidebook)
+    const PERSON_CHECKIN_ASSIGNMENTS = {
+      // Unpackers (6): Sage, Daisy, Isaac, Spencer, Katie, Logan
+      "Sage":"Unpacker","Daisy":"Unpacker","Isaac":"Unpacker","Spencer":"Unpacker","Katie":"Unpacker","Logan":"Unpacker",
+      // Organizers (6): Avery, Emily, Matthew, Ben, Madeline, Nicole
+      "Avery":"Organizer","Emily":"Organizer","Matthew":"Organizer","Ben":"Organizer","Madeline":"Organizer","Nicole":"Organizer",
+      // Army defaults
+      "Marissa":"Extra Hands","Monte":"Extra Hands","Jonah":"Extra Hands","Natalie":"Extra Hands","Emma":"Extra Hands","Jae":"Extra Hands",
+      // Managers
+      "Rachel":"Manager","Jared":"Manager","Allie":"Manager",
+      // Other
+      "Amanda":"Floater"
+    };
+
+    // Student Check-In (8:30–9:28 AM) — pairs per color (+ notes)
+    const PERSON_STUDENT_ASSIGNMENTS = {
+      // Green
+      "Ben":      { roleKey: "color-check-in", note: "" },
+      "Isaac":    { roleKey: "color-check-in", note: "" },
+      // Yellow
+      "Avery":    { roleKey: "color-check-in", note: "" },
+      "Sage":     { roleKey: "color-check-in", note: "" },
+      // Orange
+      "Emily":    { roleKey: "color-check-in", note: "FlexGE staff will help." },
+      // Silver
+      "Logan":    { roleKey: "color-check-in", note: "Transfer staff will help." },
+      // Purple
+      "Matthew":  { roleKey: "color-check-in", note: "" },
+      "Daisy":    { roleKey: "color-check-in", note: "" },
+      // Pink
+      "Nicole":   { roleKey: "color-check-in", note: "" },
+      "Katie":    { roleKey: "color-check-in", note: "" },
+      // Blue
+      "Madeline": { roleKey: "color-check-in", note: "" },
+      "Spencer":  { roleKey: "color-check-in", note: "" }
+    };
+
+    // Daidre’s Army Greeters/QR during Student Check-In (guidebook: Marissa, Monte, Jonah, Jae)
+    const DAIDRES_ARMY_GREETERS = new Set(["Marissa","Monte","Jonah","Jae"]);
+
+    // Directing to Marriott (9:28–10:00 AM) — Color Reps leader vs check-in
+    const PERSON_FLOW_ASSIGNMENTS = {
+      // Green
+      "Ben":      { roleKey: "color-leader" },
+      "Isaac":    { roleKey: "color-check-in" },
+      // Yellow
+      "Avery":    { roleKey: "color-leader" },
+      "Sage":     { roleKey: "color-check-in" },
+      // Orange
+      "Emily":    { roleKey: "color-leader", note: "FlexGE staff will help." },
+      // Silver
+      "Logan":    { roleKey: "color-leader", note: "Transfer staff will help." },
+      // Purple
+      "Matthew":  { roleKey: "color-leader" },
+      "Daisy":    { roleKey: "color-check-in" },
+      // Pink
+      "Nicole":   { roleKey: "color-leader" },
+      "Katie":    { roleKey: "color-check-in" },
+      // Blue
+      "Madeline": { roleKey: "color-leader" },
+      "Spencer":  { roleKey: "color-check-in" }
+    };
+
+    // Army during Marriott Flow (guidebook): Jae Back of Line; Marissa & Jonah Key Locations; Monte & Jared Get Them Moving
+    const DAIDRES_ARMY_BACK_OF_LINE = new Set(["Jae"]);
+    const DAIDRES_ARMY_KEY_LOCATIONS = new Set(["Marissa","Jonah"]);
+    const DAIDRES_ARMY_GET_MOVING    = new Set(["Monte","Jared"]);
+
+    /* ---------------- LUNCH ASSIGNMENTS (11:00–1:00 Thu) ---------------- */
+    const LUNCH_ASSIGNMENTS = {
+      JFSB:     new Set(["Jared","Marissa"]),
+      Marigold: new Set(["Jonah","Monte"]),
+      Maeser:   new Set(["Emma","Jae"])
+    };
+
+    /* ==================== PERSON-SPECIFIC + DAY 1/2 EXTRAS ==================== */
+
+    const PERSON_EXTRA_ASSIGNMENTS = {
+      "Natalie": [
+        {
+          window: `${DAY1} — Cougar Rally Team (9:00–11:00 AM)`,
+          role: "Runner",
+          bullets: [
+            "Assist Ellie in greeting performers backstage.",
+            "Cue performers when to go on stage at the right time."
+          ],
+          notes: ["Must attend Aug 27 Dress Rehearsal."]
+        },
+        {
+          window: `${DAY1} — Parent Breakout Session Team (12:15–3:15 PM)`,
+          role: "Breakout: Parent Signage & Counts",
+          bullets: [
+            "Have all Parent signage set up by 1:00 PM (refer to map).",
+            "Take headcounts on your assigned JKB floor."
+          ]
+        },
+        {
+          window: `${DAY2} — JSB Title IX (8:30 AM–12:00 PM)`,
+          role: "Greeter/Counter",
+          bullets: [
+            "Greet students and take attendance counts during each presentation."
+          ]
+        }
+      ],
+      "Emma": [
+        {
+          window: `${DAY1} — Parent Team (8:00–10:00 AM)`,
+          role: "Y-Clings & HUB Pens",
+          bullets: [
+            "Pass out Y-Clings and HUB pens to parents.",
+            "Direct parents to seating for Cougar Rally / Convocation."
+          ]
+        },
+        {
+          window: `${DAY1} — Clean Up Check-In (10:00–10:30 AM)`,
+          role: "Extra Hands",
+          bullets: [
+            "Assist with packing bins (cinch sacks, booklets, bandanas, wristbands) and signage."
+          ]
+        },
+        {
+          window: `${DAY2} — Late Check-In (8:30 AM–12:00 PM)`,
+          role: "Chauffeur",
+          bullets: [
+            "Walk late-arriving students to their Cougar Crash Course group."
+          ]
+        }
+      ],
+      "Marissa": [
+        {
+          window: `${DAY2} — WSC Title IX (8:30 AM–12:00 PM)`,
+          role: "Greeter/Counter",
+          bullets: [
+            "Greet students and take a count for each session."
+          ]
+        }
+      ],
+      "Jared": [
+        {
+          window: `${DAY1} — Directing Students (9:28–10:00 AM)`,
+          role: "Get Them Moving",
+          bullets: [
+            "Release color groups at proper cadence.",
+            "Give the next color an early heads-up."
+          ]
+        },
+        {
+          window: `${DAY1} — Clean Up Check-In (10:00–10:30 AM)`,
+          role: "Extra Hands",
+          bullets: [
+            "Ensure bins and equipment are returned to office and unloaded."
+          ]
+        },
+        {
+          window: `${DAY1} — YAY Set-Up (6:00–9:30 PM)`,
+          role: "Extra Hands",
+          bullets: [
+            "Assist with t-shirt unloading, signage, and general setup; support Ashley’s directives."
+          ]
+        }
+        // NOTE: Jared REMOVED from Perspectives of BYU leaders per your update
+      ],
+      "Rachel": [
+        {
+          window: `${DAY2} — Late Check-In (8:30 AM–12:00 PM)`,
+          role: "Chauffeur",
+          bullets: ["Walk late check-ins to their CCC group."]
+        },
+        {
+          window: `${DAY1} — YAY (evening)`,
+          role: "Extra Hands",
+          bullets: ["Support t-shirts/signage as needed; assist Ashley."]
+        }
+      ],
+      "Allie": [
+        {
+          window: `${DAY1} — Check-In Blocks (7:00–10:30 AM)`,
+          role: "Temp Staff Coordinator",
+          bullets: ["Coordinate breakfast, signage crews, merch teams, chalk, archways, and restock."]
+        },
+        {
+          window: `${DAY1} — YAY (evening)`,
+          role: "Extra Hands",
+          bullets: ["Assist with t-shirts/signage; help shuttle roles as needed."]
+        }
+      ],
+      "Amanda": [
+        {
+          window: `${DAY2} — Late Check-In (8:30 AM–12:00 PM)`,
+          role: "Chauffeur",
+          bullets: ["Escort students to CCC groups."]
+        },
+        {
+          window: `${DAY2} — Perspectives of BYU (3:30–8:00 PM)`,
+          role: "Culinary Crawl Leader",
+          bullets: ["Lead a Culinary Crawl group per map schedule."]
+        }
+      ],
+      "Emily": [
+        {
+          window: `${DAY2} — Perspectives of BYU (3:30–8:00 PM)`,
+          role: "First-Generation Dinner",
+          bullets: ["Greet pizza delivery and support dinner operations."]
+        }
+      ]
+    };
+
+    function addExtra(person, window, role, bullets = [], notes = []) {
+      if (!PERSON_EXTRA_ASSIGNMENTS[person]) PERSON_EXTRA_ASSIGNMENTS[person] = [];
+      PERSON_EXTRA_ASSIGNMENTS[person].push({ window, role, bullets, notes });
+    }
+
+    // Day 1 — Clean Up Check-In (Army group)
+    ["Emma","Jae","Marissa","Jonah","Monte","Jared"].forEach(p => {
+      addExtra(p, `${DAY1} — Clean Up Check-In (10:00–10:30 AM)`, "Extra Hands",
+        ["Pack signage, consolidate bins, load vans, unload back at office."]);
+    });
+
+    // Day 1 — Welcome to the Y Late Check-In (1:00–3:00 PM) — ALL Color Reps = Chauffeur
+    COLOR_REPS.forEach(p => {
+      addExtra(
+        p,
+        `${DAY1} — Welcome to the Y Late Check-In (1:00–3:00 PM)`,
+        "Chauffeur",
+        ["Walk students who check in late to their Welcome to the Y classroom."]
+      );
+    });
+
+    // Day 2 — CCC Directional: Color Group Leaders (all color reps)
+    COLOR_REPS.forEach(p => {
+      addExtra(p, `${DAY2} — Cougar Crash Course (8:30 AM–12:00 PM)`, "Color Group Leader",
+        ["Lead your color through Cougar Crash Course; keep groups moving and together."]);
+    });
+
+    // Day 2 — Late Check-In Chauffeur
+    ["Emma","Jae","Rachel","Amanda"].forEach(p => {
+      addExtra(p, `${DAY2} — Late Check-In (8:30 AM–12:00 PM)`, "Chauffeur",
+        ["Walk late-arriving students to their CCC group."]);
+    });
+
+    // Day 2 — Ice Cream leads: Marigold = Monte, Maeser = Jonah
+    addExtra("Monte", `${DAY2} — Marigold Ice Cream (8:30 AM–12:00 PM)`, "Ice Cream",
+      ["Meet vendor ~8:15, help direct and hand out ice cream."]);
+    addExtra("Jonah", `${DAY2} — Maeser Ice Cream (8:30 AM–12:00 PM)`, "Ice Cream",
+      ["Meet vendor ~8:15, help direct and hand out ice cream."]);
+
+    // Day 2 — Laptop Set Up North/South
+    ["Ben","Isaac","Avery","Sage","Emily","Logan"].forEach(p => {
+      addExtra(p, `${DAY2} — Laptop Set Up (12:00–12:30 PM)`, "North Laptops",
+        ["Set up tables and sleeves on north side of Wilk Way; hand out sleeves; return extras to office."]);
+    });
+    ["Matthew","Daisy","Nicole","Katie","Madeline","Spencer"].forEach(p => {
+      addExtra(p, `${DAY2} — Laptop Set Up (12:00–12:30 PM)`, "South Laptops",
+        ["Set up tables and sleeves on south side of Wilk Way; hand out sleeves; return extras to office."]);
+    });
+
+    // Day 2 — College Experiences (all coordinators)
+    [...COLOR_REPS, ...ARMY, ...MANAGERS, "Amanda"].forEach(p => {
+      addExtra(p, `${DAY2} — College Experiences (12:30–1:30 PM)`, "Signage & Directional",
+        ["Hold college signs until relieved; help direct students; pick up signs ~1:20; count rooms and report to Ellie; return signs to office."]);
+    });
+
+    // Day 2 — Perspectives of BYU — Culinary Crawl leaders (Jared REMOVED)
+    ["Nicole","Jonah","Ben","Amanda","Isaac","Avery","Matthew","Logan","Daisy","Sage"].forEach(p => {
+      addExtra(p, `${DAY2} — Perspectives of BYU (3:30–8:00 PM)`, "Culinary Crawl Leader",
+        ["Lead group through Culinary Crawl stops; keep timing tight; follow the map."]);
+    });
+
+    /* ==================== DAY FILTER STATE ==================== */
+    let CURRENT_DAY = "DAY1"; // default to Day 1 · Thurs
+    function isDayMatch(item) {
+      if (!item || !item.window) return false;
+      if (CURRENT_DAY === "DAY1") return item.window.includes("Thursday, Aug 28");
+      if (CURRENT_DAY === "DAY2") return item.window.includes("Friday, Aug 29");
+      return true;
+    }
+
+    /* ==================== HELPERS ==================== */
+    function slug(s) {
+      return String(s).trim().toLowerCase().replace(/[^a-z0-9]+/g, '-');
+    }
+    function buildList(items) {
+      const ul = document.createElement('ul');
+      items.forEach(txt => { const li = document.createElement('li'); li.textContent = txt; ul.appendChild(li); });
+      return ul;
+    }
+    function boldLabel(text) {
+      const p = document.createElement('p'); p.style.fontWeight = '600'; p.textContent = text; return p;
+    }
+    function whoLunchWhere(person) {
+      for (const [site, set] of Object.entries(LUNCH_ASSIGNMENTS)) {
+        if (set.has(person)) return site;
+      }
+      return null;
+    }
+
+    /* ==================== COORDINATOR DROPDOWN ==================== */
+    function buildCoordinatorDetailsCell(person, roleKey) {
+      const roleMeta = ROLE_DETAILS[roleKey] || { title: "Role", intro: "" };
+
+      const td = document.createElement('td');
+      td.colSpan = 2;
+
+      // Heading
+      const h = document.createElement('h4');
+      h.textContent = `${roleMeta.title} — ${person}`;
+      td.appendChild(h);
+
+      // Intro
+      if (roleMeta.intro) { const p = document.createElement('p'); p.textContent = roleMeta.intro; td.appendChild(p); }
+
+      /* ----- Day 1 core blocks ----- */
+      if (CURRENT_DAY === "DAY1") {
+        // (1) Setup
+        td.appendChild(boldLabel(CHECKIN_WINDOW_SETUP));
+        td.appendChild(document.createElement('p')).textContent = "Check-in setup (all colors):";
+        td.appendChild(buildList(SHARED_CHECKIN_SETUP));
+
+        const assignedSetup = PERSON_CHECKIN_ASSIGNMENTS[person] || "Unassigned";
+        const micro = MICRO_ROLES[assignedSetup];
+        const setupRoleTitle = document.createElement('p');
+        setupRoleTitle.style.marginTop = '0.35rem';
+        setupRoleTitle.innerHTML = `Your setup micro-role: <strong>${assignedSetup}</strong>`;
+        td.appendChild(setupRoleTitle);
+        td.appendChild(buildList(micro ? micro.bullets : ["(Coordinator: assign a setup role above.)"]));
+
+        // (2) Student Check-In
+        td.appendChild(boldLabel(CHECKIN_WINDOW_STUDENTS));
+        const student = PERSON_STUDENT_ASSIGNMENTS[person];
+        if (student) {
+          const def = STUDENT_ROLES[student.roleKey];
+          const t = document.createElement('p');
+          t.innerHTML = `Your student check-in role: <strong>${def.label}</strong>`;
+          td.appendChild(t);
+          if (student.note) {
+            const note = document.createElement('p');
+            note.style.margin = '0 0 .25rem';
+            note.textContent = student.note;
+            td.appendChild(note);
+          }
+          td.appendChild(buildList(def.bullets));
+        } else {
+          const none = document.createElement('p');
+          none.textContent = "No specific student check-in assignment listed.";
+          td.appendChild(none);
+        }
+
+        // (3) Direct to Marriott
+        td.appendChild(boldLabel(CHECKIN_WINDOW_MARRIOTT));
+        const flow = PERSON_FLOW_ASSIGNMENTS[person];
+        if (flow) {
+          const def = FLOW_ROLES_COLOR[flow.roleKey];
+          const t = document.createElement('p');
+          t.innerHTML = `Your role: <strong>${def.label}</strong>`;
+          td.appendChild(t);
+          if (flow.note) { const note = document.createElement('p'); note.style.margin = '0 0 .25rem'; note.textContent = flow.note; td.appendChild(note); }
+          td.appendChild(buildList(def.bullets));
+        } else {
+          const none = document.createElement('p'); none.textContent = "No specific Marriott flow assignment listed."; td.appendChild(none);
+        }
+
+        // (4) Lunch (Thu)
+        td.appendChild(boldLabel(LUNCH_WINDOW));
+        const site = whoLunchWhere(person);
+        if (site) {
+          const t = document.createElement('p');
+          t.innerHTML = `Location: <strong>${site}</strong> — Role: <strong>${MICRO_ROLES["Swig Vouchers"].label}</strong>`;
+          td.appendChild(t);
+          td.appendChild(buildList(MICRO_ROLES["Swig Vouchers"].bullets));
+          if (site === "JFSB" && person === "Jared") {
+            const note = document.createElement('p'); note.textContent = "Note: Jared must be one of the two at JFSB."; td.appendChild(note);
+          }
+        } else {
+          const none = document.createElement('p'); none.textContent = "No specific lunch assignment listed."; td.appendChild(none);
+        }
+      }
+
+      /* ----- Additional Day 1/2 Assignments ----- */
+      if (PERSON_EXTRA_ASSIGNMENTS && PERSON_EXTRA_ASSIGNMENTS[person]) {
+        const filtered = PERSON_EXTRA_ASSIGNMENTS[person].filter(isDayMatch);
+        if (filtered.length) {
+          const extraTitle = document.createElement('p');
+          extraTitle.style.fontWeight = '600';
+          extraTitle.style.marginTop = CURRENT_DAY === "DAY1" ? '0.5rem' : '0';
+          extraTitle.textContent = CURRENT_DAY === "DAY1" ? "Additional Assignments (Thu)" : "Assignments (Fri)";
+          td.appendChild(extraTitle);
+
+          filtered.forEach(item => {
+            const win = document.createElement('p'); win.style.margin = '0.25rem 0 0'; win.innerHTML = `<strong>${item.window}</strong>`; td.appendChild(win);
+            const r = document.createElement('p'); r.style.margin = '0 0 .25rem'; r.innerHTML = `Role: <strong>${item.role}</strong>`; td.appendChild(r);
+            td.appendChild(buildList(item.bullets || []));
+            (item.notes || []).forEach(n => { const note = document.createElement('p'); note.style.margin = '.25rem 0 0'; note.textContent = n; td.appendChild(note); });
+          });
+        } else if (CURRENT_DAY === "DAY2") {
+          const none = document.createElement('p'); none.style.marginTop = '.25rem'; none.textContent = "No assignments listed for Friday in this dropdown."; td.appendChild(none);
+        }
+      } else if (CURRENT_DAY === "DAY2") {
+        const none = document.createElement('p'); none.style.marginTop = '.25rem'; none.textContent = "No assignments listed for Friday in this dropdown."; td.appendChild(none);
+      }
+
+      return td;
+    }
+
+    /* ==================== SUPERVISOR DROPDOWN ==================== */
+    // Day 1 — Student Check-In roles for Supervisors
+    const SUP_STUDENT_GREETERS = new Set(["Anjilee","Jeanne","Sam","Sandi"]);
+    const SUP_STUDENT_LINE_MON = new Set(["Dave","Bryce"]);
+
+    // Day 1 — Directing into Marriott roles for Supervisors
+    const SUP_BACK_OF_LINE = new Set(["Sam"]);
+    const SUP_KEY_LOCATIONS = new Set(["Anjilee","Jeanne","Sandi","Dave","Bryce"]);
+
+    // Day 1 — Parent Team: FYE Booth
+    const SUP_PARENT_FYE = new Set(["Lindsey","Debi"]);
+
+    function buildSupervisorDetailsCell(person) {
+      const td = document.createElement('td');
+      td.colSpan = 2;
+
+      const h = document.createElement('h4');
+      h.textContent = `Supervisor — ${person}`;
+      td.appendChild(h);
+
+      // Day 1 sections
+      if (CURRENT_DAY === "DAY1") {
+        // Student Check-In (Greeter/QR or Line Monitor)
+        td.appendChild(boldLabel(CHECKIN_WINDOW_STUDENTS));
+
+        if (SUP_STUDENT_GREETERS.has(person)) {
+          const t = document.createElement('p');
+          t.innerHTML = `Your student check-in role: <strong>Greeter / QR Code Holder</strong>`;
+          td.appendChild(t);
+          td.appendChild(buildList(MICRO_ROLES["Greeter / QR Code Holder"].bullets));
+        } else if (SUP_STUDENT_LINE_MON.has(person)) {
+          const t = document.createElement('p');
+          t.innerHTML = `Your student check-in role: <strong>Line Monitor</strong>`;
+          td.appendChild(t);
+          td.appendChild(buildList([
+            "Walk the color lines to ensure students have scanned the QR code and are in the right place.",
+            "If lines get too long, hand out wristbands with group numbers while in line."
+          ]));
+        } else {
+          const none = document.createElement('p'); none.textContent = "No specific student check-in assignment listed."; td.appendChild(none);
+        }
+
+        // Directing Students into Marriott Center
+        td.appendChild(boldLabel(CHECKIN_WINDOW_MARRIOTT));
+        if (SUP_BACK_OF_LINE.has(person)) {
+          const t = document.createElement('p'); t.innerHTML = `Your role: <strong>Back of the Line</strong>`; td.appendChild(t);
+          td.appendChild(buildList(FLOW_ROLES_ARMY["back-of-line"].bullets));
+        } else if (SUP_KEY_LOCATIONS.has(person)) {
+          const t = document.createElement('p'); t.innerHTML = `Your role: <strong>Key Locations</strong>`; td.appendChild(t);
+          td.appendChild(buildList(FLOW_ROLES_ARMY["key-locations"].bullets));
+        } else {
+          const none = document.createElement('p'); none.textContent = "No specific Marriott flow assignment listed."; td.appendChild(none);
+        }
+
+        // Parent Team — FYE Booth
+        td.appendChild(boldLabel("Parent Team (8:00–10:00 AM)"));
+        if (SUP_PARENT_FYE.has(person)) {
+          const t = document.createElement('p'); t.innerHTML = `Your role: <strong>Run FYE Booth</strong>`; td.appendChild(t);
+          td.appendChild(buildList([
+            "Help run the FYE booth at the Parent Info Fair.",
+            "Answer questions and guide parents to resources."
+          ]));
+        } else {
+          const none = document.createElement('p'); none.textContent = "No specific Parent Team assignment listed."; td.appendChild(none);
+        }
+      } else {
+        // Day 2: no explicit supervisor-specific assignments provided
+        const none = document.createElement('p'); none.textContent = "No supervisor assignments listed for Friday in this dropdown."; td.appendChild(none);
+      }
+
+      return td;
+    }
+
+    /* ==================== TOGGLERS ==================== */
+    function toggleRowGeneric(btn, tableElem, buildCellFn) {
+      const person = btn.getAttribute('data-person') || btn.textContent.trim();
+      const row    = btn.closest('tr');
+      const tbody  = row.parentElement;
+      const next   = row.nextElementSibling;
+
+      // Collapse if already open
+      if (next && next.classList.contains('details-row')) {
+        tbody.removeChild(next);
+        btn.setAttribute('aria-expanded', 'false');
+        return;
+      }
+
+      // Tidy mode: only one open at a time
+      tbody.querySelectorAll('.details-row').forEach(r => r.remove());
+      tbody.querySelectorAll('.row-toggle[aria-expanded="true"]').forEach(b => b.setAttribute('aria-expanded','false'));
+
+      const detailsTr = document.createElement('tr');
+      detailsTr.className = 'details-row';
+      detailsTr.id = 'detail-' + slug(person);
+      detailsTr.appendChild(buildCellFn(person));
+      tbody.insertBefore(detailsTr, row.nextElementSibling);
+
+      btn.setAttribute('aria-expanded', 'true');
+    }
+
+    // Coordinator table events
+    const coordTable = document.getElementById('coordinator-assignments-table');
+    function buildCoordinatorCellWrapper(person) {
+      const btn = coordTable.querySelector(`.row-toggle[data-person="${CSS.escape(person)}"]`);
+      const role = btn ? (btn.getAttribute('data-role') || '').toLowerCase() : '';
+      return buildCoordinatorDetailsCell(person, role);
+    }
+    coordTable?.addEventListener('click', (e) => {
+      const btn = e.target.closest('.row-toggle');
+      if (!btn) return;
+      e.preventDefault();
+      toggleRowGeneric(btn, coordTable, buildCoordinatorCellWrapper);
+    });
+
+    // Supervisor table events
+    const supTable = document.getElementById('supervisor-assignments-table');
+    supTable?.addEventListener('click', (e) => {
+      const btn = e.target.closest('.row-toggle');
+      if (!btn) return;
+      e.preventDefault();
+      toggleRowGeneric(btn, supTable, buildSupervisorDetailsCell);
+    });
+
+    /* ==================== DAY FILTER HANDLING ==================== */
+    const dayBtns = document.querySelectorAll('.day-btn');
+    function setDay(dayKey) {
+      if (CURRENT_DAY === dayKey) return;
+      CURRENT_DAY = dayKey;
+
+      // update button styles
+      dayBtns.forEach(b => b.classList.toggle('active', b.dataset.day === dayKey));
+
+      // Rebuild any open detail rows (both tables)
+      [coordTable, supTable].forEach(t => {
+        if (!t) return;
+        t.querySelectorAll('.row-toggle[aria-expanded="true"]').forEach(openBtn => {
+          const tr = openBtn.closest('tr');
+          const next = tr.nextElementSibling;
+          if (next && next.classList.contains('details-row')) next.remove();
+          openBtn.setAttribute('aria-expanded','false');
+          // reopen with new content
+          if (t === coordTable) toggleRowGeneric(openBtn, coordTable, buildCoordinatorCellWrapper);
+          else toggleRowGeneric(openBtn, supTable, buildSupervisorDetailsCell);
+        });
+      });
+
+      // Optional: persist day in URL
+      const url = new URL(window.location);
+      url.searchParams.set('day', dayKey);
+      history.replaceState(null, '', url);
+    }
+
+    dayBtns.forEach(btn => btn.addEventListener('click', () => setDay(btn.dataset.day)));
+
+    // Deep-linking: ?day=DAY2 and/or #person=Name
+    window.addEventListener('load', () => {
+      const url = new URL(window.location);
+      const dayParam = url.searchParams.get('day');
+      if (dayParam === 'DAY2' || dayParam === 'DAY1') setDay(dayParam);
+
+      const hash = location.hash.replace(/^#/, '');
+      const [k, v] = hash.split('=');
+      if ((k || '').toLowerCase() === 'person' && v) {
+        const target = document.querySelector(`.row-toggle[data-person="${CSS.escape(decodeURIComponent(v))}"]`)
+                      || Array.from(document.querySelectorAll('#supervisor-assignments-table .row-toggle'))
+                          .find(b => b.textContent.trim() === decodeURIComponent(v));
+        if (target) {
+          const tableEl = target.closest('table').id === 'coordinator-assignments-table' ? coordTable : supTable;
+          toggleRowGeneric(target, tableEl, tableEl === coordTable ? buildCoordinatorCellWrapper : buildSupervisorDetailsCell);
+        }
+      }
+    });
+  </script>
+</body>
+</html>

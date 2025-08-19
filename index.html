@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fall NSO | Home</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      color: white;
+      scroll-behavior: smooth;
+    }
+
+   
+
+    nav {
+      background-color: navy;
+      text-align: center;
+      padding: 12px;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .hero {
+        background-image: url('images/yphoto2.jpeg');
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        min-height: 90vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 40px 20px;
+        position: relative;
+    }
+
+    .content-overlay {
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 2rem;
+      max-width: 800px;
+      border-radius: 12px;
+    }
+
+    .fadeout {
+      position: relative;
+      height: 100px;
+      margin-top: -100px;
+      z-index: 1;
+    }
+
+    .fadeout::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), white);
+      z-index: 2;
+    }
+
+    .pdf-section {
+      background-color: white;
+      color: black;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .pdf-section h2 {
+      color: #003087;
+    }
+
+    iframe {
+      width: 100%;
+      max-width: 900px;
+      height: 600px;
+      border: none;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      margin-top: 1rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: navy;
+      font-size: 14px;
+      color: white;
+    }
+    
+  </style>
+</head>
+<body>
+  <nav id="top-nav">
+    <a href="index.html">🏠 Home</a>
+    <a href="schedule.html">📅 Schedule</a>
+    <a href="maps.html">📍 Mentor Maps</a>
+    <a href="assignments.html">🏫 Mentor Assignments</a>
+    <a href="help.html">⛑️ Help Videos</a>
+    <a href="#" id="login-btn" onclick="startLogin()">🔐 Login</a>
+  </nav>
+
+  <div class="hero">
+    <div class="content-overlay">
+      <h1>Welcome to Fall 2025 NSO!</h1>
+      <p>This is your one-stop hub for everything related to Mentor schedules, maps, assignments, and support tools during BYU's New Student Orientation.</p>
+      <p>Use the navigation above to access your schedule, mentor map, help videos, and more. Let’s help new students have the best start possible!</p>
+      <p>NEED TO KNOW THINGS BELOW</p>
+    </div>
+  </div>
+
+  <div class="fadeout"></div>
+
+  <div style="background: white; padding: 40px; color: black; max-width: 800px; margin: 2rem auto;">
+  <h2>NSO Team</h2>
+  <table style="width: 100%; border-collapse: collapse; margin-bottom: 40px;">
+    <thead>
+      <tr style="border-bottom: 2px solid #ccc;">
+        <th style="text-align: left; padding: 10px;">Name</th>
+        <th style="text-align: left; padding: 10px;">Role</th>
+        <th style="text-align: left; padding: 10px;">Phone Number</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="padding: 10px;">Micah Russell</td>
+        <td style="padding: 10px;">NSO Lead</td>
+        <td style="padding: 10px;">435-705-8277</td>
+      </tr>
+      <tr>
+        <td style="padding: 10px;">Allie Wright</td>
+        <td style="padding: 10px;">Temp Staff Coordaintor</td>
+        <td style="padding: 10px;">208-984-9187</td>
+      </tr>
+      <tr>
+        <td style="padding: 10px;">Jared Phelan</td>
+        <td style="padding: 10px;">Extra Hands Coordinator</td>
+        <td style="padding: 10px;">928-642-0834</td>
+      </tr>
+      <tr>
+        <td style="padding: 10px;">Rachel Olson</td>
+        <td style="padding: 10px;">Color Reps Coordinator</td>
+        <td style="padding: 10px;">801-634-1787</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Color Reps</h2>
+  <table style="width: 100%; border-collapse: collapse;">
+    <thead>
+      <tr style="border-bottom: 2px solid #ccc;">
+        <th style="text-align: left; padding: 10px;">Name</th>
+        <th style="text-align: left; padding: 10px;">Color Group</th>
+        <th style="text-align: left; padding: 10px;">Phone Number</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Blue -->
+      <tr>
+        <td style="padding: 10px;">Spencer Harding</td>
+        <td style="padding: 10px; color: #0057b8;">Blue Color Rep</td>
+        <td style="padding: 10px;">208-716-7805</td>
+      </tr>
+      <tr>
+        <td style="padding: 10px;">Madeline McCauley</td>
+        <td style="padding: 10px; color: #0057b8;">Blue Color Rep</td>
+        <td style="padding: 10px;">971-300-8977</td>
+      </tr>
+
+      <!-- Green -->
+      <tr>
+        <td style="padding: 10px;">Ben Pinnock</td>
+        <td style="padding: 10px; color: #007f3f">Green Color Rep</td>
+        <td style="padding: 10px;">801-707-7182</td>
+      </tr>
+      <tr>
+        <td style="padding: 10px;">Isaac Speirs</td>
+        <td style="padding: 10px; color: #007f3f">Green Color Rep</td>
+        <td style="padding: 10px;">208-849-2305</td>
+      </tr>
+
+      <!-- Orange -->
+      <tr>
+        <td style="padding: 10px;">Emily Knote</td>
+        <td style="padding: 10px; color: #e66100">Orange/Flex GE Color Rep</td>
+        <td style="padding: 10px;">308-760-1129</td>
+      </tr>
+
+      <!-- Pink -->
+      <tr>
+        <td style="padding: 10px;">Katie Githuka</td>
+        <td style="padding: 10px; color: #d6336c">Pink Color Rep</td>
+        <td style="padding: 10px;">801-636-3843</td>
+      </tr>
+      <tr>
+        <td style="padding: 10px;">Nicole Priest</td>
+        <td style="padding: 10px; color: #d6336c">Pink Color Rep</td>
+        <td style="padding: 10px;">760-317-7617</td>
+      </tr>
+
+      <!-- Purple -->
+      <tr>
+        <td style="padding: 10px;">Matthew Jordan</td>
+        <td style="padding: 10px; color: #8e44ad">Purple Color Rep</td>
+        <td style="padding: 10px;">801-347-3386</td>
+      </tr>
+      <tr>
+        <td style="padding: 10px;">Daisy Bohon</td>
+        <td style="padding: 10px; color: #8e44ad">Purple Color Rep</td>
+        <td style="padding: 10px;">385-236-6353</td>
+      </tr>
+
+      <!-- Yellow -->
+      <tr>
+        <td style="padding: 10px;">Avery Jones</td>
+        <td style="padding: 10px; color: #f1c40f">Yellow Color Rep</td>
+        <td style="padding: 10px;">240-848-8376</td>
+      </tr>
+      <tr>
+        <td style="padding: 10px;">Sage Shoell</td>
+        <td style="padding: 10px; color: #f1c40f">Yellow Color Rep</td>
+        <td style="padding: 10px;">385-471-4516</td>
+      </tr>
+
+      <!-- Silver/Transfers -->
+      <tr>
+        <td style="padding: 10px;">Logan Felix</td>
+        <td style="padding: 10px; color: #7f8c8d">Silver/Transfers Color Rep</td>
+        <td style="padding: 10px;">208-971-8267</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+  <section class="pdf-section">
+    <h2>📄 NSO Student Schedule</h2>
+    <p>View the official student NSO schedule below.</p>
+    <iframe src="pdfs/Fall 2025 NSO Student Schedule.pdf"></iframe>
+  </section>
+
+  <footer>
+    <p>Fall 2025 NSO | BYU First-Year Experience</p>
+  </footer>
+
+  <script>
+    const nav = document.getElementById("top-nav");
+
+    function startLogin() {
+      sessionStorage.setItem("returnPage", window.location.pathname);
+      window.location.href = "login.html";
+    }
+
+    function isLoggedIn() {
+      const auth = localStorage.getItem("authenticated");
+      const loginTime = localStorage.getItem("loginTime");
+
+      if (!auth || !loginTime) return false;
+
+      const now = Date.now();
+      const maxSession = 10 * 60 * 1000;
+
+      if (now - parseInt(loginTime, 10) > maxSession) {
+        localStorage.removeItem("authenticated");
+        localStorage.removeItem("loginTime");
+        return false;
+      }
+
+      return true;
+    }
+
+    if (nav) {
+      const loginBtn = document.getElementById("login-btn");
+
+      if (isLoggedIn()) {
+        if (loginBtn) loginBtn.style.display = "none";
+
+        if (!document.getElementById("coordinator-link")) {
+          nav.innerHTML += `
+            <a href="supervisor.html" id="supervisor-link">🧭 Coordinators & Supervisors</a>
+          `;
+        }
+      } else {
+        if (loginBtn) loginBtn.style.display = "inline-block";
+      }
+    }
+  </script>
+</body>
+</html>
