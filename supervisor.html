@@ -524,6 +524,7 @@
 
     // Daidre’s Army Greeters/QR during Student Check-In (guidebook: Marissa, Monte, Jonah, Jae)
     const DAIDRES_ARMY_GREETERS = new Set(["Marissa","Monte","Jonah","Jae"]);
+    
 
     // Directing to Marriott (9:28–10:00 AM) — Color Reps leader vs check-in
     const PERSON_FLOW_ASSIGNMENTS = {
@@ -615,10 +616,15 @@
       ],
       "Marissa": [
         {
-          window: `${DAY2} — WSC Title IX (8:30 AM–12:00 PM)`,
-          role: "Greeter/Counter",
+          window: `${DAY2} — Testing Center Lead (8:30 AM–12:00 PM)`,
+          role: "Coordinator for Testing Center and Hand Out Pennants",
           bullets: [
-            "Greet students and take a count for each session."
+            "Help coordinate temp staff with their roles: Hand out Tests, Conduct Tests, Collect Answer Sheets, Handing out Smarties.",
+            "Hand out Pennants (Your Role): Give everyone a BYU pennant at the bottom of the stairs on their way out the door.",
+            "Hand out Tests: In charge of handing out a test, answer sheet, and pencil to everyone who enters the testing cneter.",
+            "Conduct Tests: In charege of conducting the tests when they sit down in the testing center. All the answers to the test are on the back. Encourage them to keep the test and return the exit sheet on their way out.",
+            "Collect Answer Sheets: In charge of colleting their answer sheets but making sure that they keep their test with all the Testing Center information on it.",
+            "Handing out Smarties: Congratulate all the students on finishing their first test at BYU while handing them a Smartie."
           ]
         }
       ],
@@ -709,7 +715,7 @@
         p,
         `${DAY1} — Welcome to the Y Late Check-In (1:00–3:00 PM)`,
         "Chauffeur",
-        ["Walk students who check in late to their Welcome to the Y classroom."]
+        ["Walk students who check in late to their Welcome to the Y classroom. Be ready to help with any tech issues in classrooms"]
       );
     });
 
@@ -727,9 +733,11 @@
 
     // Day 2 — Ice Cream leads: Marigold = Monte, Maeser = Jonah
     addExtra("Monte", `${DAY2} — Marigold Ice Cream (8:30 AM–12:00 PM)`, "Ice Cream",
-      ["Meet vendor ~8:15, help direct and hand out ice cream."]);
+      ["Meet vendor ~8:15 and they will set up the icecream. Help direct and hand out ice cream."]);
     addExtra("Jonah", `${DAY2} — Maeser Ice Cream (8:30 AM–12:00 PM)`, "Ice Cream",
-      ["Meet vendor ~8:15, help direct and hand out ice cream."]);
+      ["Meet vendor ~8:15 and they will set up the icecream. Help direct and hand out ice cream."]);
+
+    
 
     // Day 2 — Laptop Set Up North/South
     ["Ben","Isaac","Avery","Sage","Emily","Logan"].forEach(p => {
@@ -813,37 +821,74 @@
 
         // (2) Student Check-In
         td.appendChild(boldLabel(CHECKIN_WINDOW_STUDENTS));
-        const student = PERSON_STUDENT_ASSIGNMENTS[person];
-        if (student) {
-          const def = STUDENT_ROLES[student.roleKey];
+        // Army greeters: Marissa, Monte, Jonah, Jae
+        if (DAIDRES_ARMY_GREETERS.has(person)) {
           const t = document.createElement('p');
-          t.innerHTML = `Your student check-in role: <strong>${def.label}</strong>`;
+          t.innerHTML = `Your student check-in role: <strong>${MICRO_ROLES["Greeter / QR Code Holder"].label}</strong>`;
           td.appendChild(t);
-          if (student.note) {
-            const note = document.createElement('p');
-            note.style.margin = '0 0 .25rem';
-            note.textContent = student.note;
-            td.appendChild(note);
-          }
-          td.appendChild(buildList(def.bullets));
+          td.appendChild(buildList(MICRO_ROLES["Greeter / QR Code Holder"].bullets));
         } else {
-          const none = document.createElement('p');
-          none.textContent = "No specific student check-in assignment listed.";
-          td.appendChild(none);
+          const student = PERSON_STUDENT_ASSIGNMENTS[person];
+          if (student) {
+            const def = STUDENT_ROLES[student.roleKey];
+            const t = document.createElement('p');
+            t.innerHTML = `Your student check-in role: <strong>${def.label}</strong>`;
+            td.appendChild(t);
+            if (student.note) {
+              const note = document.createElement('p');
+              note.style.margin = '0 0 .25rem';
+              note.textContent = student.note;
+              td.appendChild(note);
+            }
+            td.appendChild(buildList(def.bullets));
+          } else {
+            const none = document.createElement('p');
+            none.textContent = "No specific student check-in assignment listed.";
+            td.appendChild(none);
+          }
         }
 
         // (3) Direct to Marriott
         td.appendChild(boldLabel(CHECKIN_WINDOW_MARRIOTT));
-        const flow = PERSON_FLOW_ASSIGNMENTS[person];
-        if (flow) {
-          const def = FLOW_ROLES_COLOR[flow.roleKey];
+        // First: Army roles (Marissa, Jonah, Jae, Monte, Jared)
+        if (DAIDRES_ARMY_BACK_OF_LINE.has(person)) {
+          const def = FLOW_ROLES_ARMY["back-of-line"];
           const t = document.createElement('p');
           t.innerHTML = `Your role: <strong>${def.label}</strong>`;
           td.appendChild(t);
-          if (flow.note) { const note = document.createElement('p'); note.style.margin = '0 0 .25rem'; note.textContent = flow.note; td.appendChild(note); }
+          td.appendChild(buildList(def.bullets));
+        } else if (DAIDRES_ARMY_KEY_LOCATIONS.has(person)) {
+          const def = FLOW_ROLES_ARMY["key-locations"];
+          const t = document.createElement('p');
+          t.innerHTML = `Your role: <strong>${def.label}</strong>`;
+          td.appendChild(t);
+          td.appendChild(buildList(def.bullets));
+        } else if (DAIDRES_ARMY_GET_MOVING.has(person)) {
+          const def = FLOW_ROLES_ARMY["get-moving"];
+          const t = document.createElement('p');
+          t.innerHTML = `Your role: <strong>${def.label}</strong>`;
+          td.appendChild(t);
           td.appendChild(buildList(def.bullets));
         } else {
-          const none = document.createElement('p'); none.textContent = "No specific Marriott flow assignment listed."; td.appendChild(none);
+          // Otherwise: Color Rep flow roles
+          const flow = PERSON_FLOW_ASSIGNMENTS[person];
+          if (flow) {
+            const def = FLOW_ROLES_COLOR[flow.roleKey];
+            const t = document.createElement('p');
+            t.innerHTML = `Your role: <strong>${def.label}</strong>`;
+            td.appendChild(t);
+            if (flow.note) {
+              const note = document.createElement('p');
+              note.style.margin = '0 0 .25rem';
+              note.textContent = flow.note;
+              td.appendChild(note);
+            }
+            td.appendChild(buildList(def.bullets));
+          } else {
+            const none = document.createElement('p');
+            none.textContent = "No specific Marriott flow assignment listed.";
+            td.appendChild(none);
+          }
         }
 
         // (4) Lunch (Thu)
