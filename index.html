@@ -137,6 +137,43 @@
       font-weight: bold;
     }
     .btn-primary:hover { text-decoration: underline; }
+
+    .btn-sm {
+      padding: 6px 12px;
+      font-size: 14px;
+      border-radius: 6px;
+    }
+
+    /* Welcome to the Y image grid */
+    .wtty-grid{
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      max-width: 1000px;
+      margin: 1rem auto 0;
+    }
+    .wtty-card{
+      background:#fff;
+      border-radius:10px;
+      box-shadow:0 4px 12px rgba(0,0,0,.12);
+      overflow:hidden;
+      text-align:center;
+    }
+    .wtty-card img{
+      width:100%;
+      height:260px;
+      object-fit:cover;
+      display:block;
+    }
+    .wtty-card figcaption{
+      padding:10px 12px 14px;
+      color:#111;
+      font-weight:600;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:8px;
+    }
   </style>
 </head>
 <body>
@@ -285,28 +322,83 @@
     </div>
   </section>
 
+  <!-- NEW: Welcome to the Y Images section -->
+  <section class="pdf-section" aria-labelledby="wtty-images-heading">
+    <h2 id="wtty-images-heading">🖼️ Welcome to the Y — Images for Icebreakers</h2>
+    <p>Tap an image to view it full-size, or use the download button below each.</p>
+
+    <div class="wtty-grid">
+      <figure class="wtty-card">
+        <a href="images/WtotheYphase1.png" target="_blank" rel="noopener">
+          <img src="images/WtotheYphase1.png" alt="Phase 1: Riddles handout" loading="lazy">
+        </a>
+        <figcaption>
+          Phase 1: Riddles
+          <a class="btn-primary btn-sm" href="images/WtotheYphase1.png" download>Download</a>
+        </figcaption>
+      </figure>
+
+      <figure class="wtty-card">
+        <a href="images/WtotheYphase2.png" target="_blank" rel="noopener">
+          <img src="images/WtotheYphase2.png" alt="Phase 2: Trivia questions" loading="lazy">
+        </a>
+        <figcaption>
+          Phase 2: Trivia
+          <a class="btn-primary btn-sm" href="images/WtotheYphase2.png" download>Download</a>
+        </figcaption>
+      </figure>
+
+      <figure class="wtty-card">
+        <a href="images/WtotheYphase3.png" target="_blank" rel="noopener">
+          <img src="images/WtotheYphase3.png" alt="Phase 3: Memorize — Cougar Song Chorus" loading="lazy">
+        </a>
+        <figcaption>
+          Phase 3: Memorize
+          <a class="btn-primary btn-sm" href="images/WtotheYphase3.png" download>Download</a>
+        </figcaption>
+      </figure>
+
+      <figure class="wtty-card">
+        <a href="images/WtotheYphase4.png" target="_blank" rel="noopener">
+          <img src="images/WtotheYphase4.png" alt="Phase 4: Telephone prompts" loading="lazy">
+        </a>
+        <figcaption>
+          Phase 4: Telephone
+          <a class="btn-primary btn-sm" href="images/WtotheYphase4.png" download>Download</a>
+        </figcaption>
+      </figure>
+
+      <figure class="wtty-card">
+        <a href="images/WtotheYKey.png" target="_blank" rel="noopener">
+          <img src="images/WtotheYKey.png" alt="Answer key for phases 1–2" loading="lazy">
+        </a>
+        <figcaption>
+          Key (Answers)
+          <a class="btn-primary btn-sm" href="images/WtotheYKey.png" download>Download</a>
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
   <section class="pdf-section" aria-labelledby="slides-heading">
-  <h2 id="slides-heading">📑 Welcome to the Y Slides</h2>
-  <p>Download the Slides, or preview the slides below.</p>
+    <h2 id="slides-heading">📑 Welcome to the Y Slides</h2>
+    <p>Download the Slides, or preview the slides below.</p>
 
-  <!-- Download button -->
-  <a
-    class="btn-primary"
-    href="files/Welcome%20to%20the%20Y%20Fall%202025.pptx"
-    download
-  >⬇️ Download Slides</a>
+    <a
+      class="btn-primary"
+      href="files/Welcome%20to%20the%20Y%20Fall%202025.pptx"
+      download
+    >⬇️ Download Slides</a>
 
-  <!-- PDF preview of the slides -->
-  <iframe 
-    src="pdfs/Welcome%20to%20the%20Y%20Fall%202025.pdf"
-    title="Welcome to the Y Slides PDF"
-  ></iframe>
-</section>
+    <iframe 
+      src="pdfs/Welcome%20to%20the%20Y%20Fall%202025.pdf"
+      title="Welcome to the Y Slides PDF"
+    ></iframe>
+  </section>
 
   <section class="pdf-section" aria-labelledby="schedule-heading">
     <h2 id="schedule-heading">📄 NSO Student Schedule</h2>
     <p>View the official student NSO schedule below.</p>
-    <!-- URL-encoded spaces for reliability -->
     <iframe src="pdfs/Fall%202025%20NSO%20Student%20Schedule.pdf" title="Fall 2025 NSO Student Schedule PDF"></iframe>
   </section>
 
@@ -328,7 +420,7 @@
       if (!auth || !loginTime) return false;
 
       const now = Date.now();
-      const maxSession = 10 * 60 * 1000; // 10 minutes
+      const maxSession = 10 * 60 * 1000;
       if (now - parseInt(loginTime, 10) > maxSession) {
         localStorage.removeItem("authenticated");
         localStorage.removeItem("loginTime");
@@ -343,7 +435,6 @@
       if (isLoggedIn()) {
         if (loginBtn) loginBtn.style.display = "none";
 
-        // Fix: check the id we append so it doesn't duplicate
         if (!document.getElementById("supervisor-link")) {
           nav.innerHTML += `
             <a href="supervisor.html" id="supervisor-link">🧭 Coordinators & Supervisors</a>
@@ -351,7 +442,6 @@
         }
       } else {
         if (loginBtn) loginBtn.style.display = "inline-block";
-        // Hide protected link if present
         const supLink = document.getElementById("supervisor-link");
         if (supLink) supLink.remove();
       }
