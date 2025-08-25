@@ -127,14 +127,15 @@
 
     /* Download button style */
     .btn-primary {
-      display: inline-block;
-      margin-top: 1rem;
+      display: block;         /* instead of inline-block */
+      margin: 1rem auto;      /* centers it horizontally */
       padding: 12px 20px;
       background-color: #003087;
       color: white;
       border-radius: 8px;
       text-decoration: none;
       font-weight: bold;
+      width: fit-content;     /* button only as wide as its text */
     }
     .btn-primary:hover { text-decoration: underline; }
 
