@@ -127,15 +127,14 @@
 
     /* Download button style */
     .btn-primary {
-      display: block;         /* instead of inline-block */
-      margin: 1rem auto;      /* centers it horizontally */
+      display: inline-block;
+      margin-top: 1rem;
       padding: 12px 20px;
       background-color: #003087;
       color: white;
       border-radius: 8px;
       text-decoration: none;
       font-weight: bold;
-      width: fit-content;     /* button only as wide as its text */
     }
     .btn-primary:hover { text-decoration: underline; }
 
@@ -381,21 +380,23 @@
     </div>
   </section>
 
-  <section class="pdf-section" aria-labelledby="slides-heading">
-    <h2 id="slides-heading">📑 Welcome to the Y Slides</h2>
-    <p>Download the Slides, or preview the slides below.</p>
+ <section class="pdf-section" aria-labelledby="slides-heading">
+  <h2 id="slides-heading">📑 Welcome to the Y Slides</h2>
+  <p>Download the Slides, or preview the slides below.</p>
 
-    <a
-      class="btn-primary"
-      href="files/Welcome%20to%20the%20Y%20Fall%202025.pptx"
-      download
-    >⬇️ Download Slides</a>
+  <br>
+  <a
+    class="btn-primary"
+    href="files/Welcome%20to%20the%20Y%20Fall%202025.pptx"
+    download
+  >⬇️ Download Slides</a>
+  <br>
 
-    <iframe 
-      src="pdfs/Welcome%20to%20the%20Y%20Fall%202025.pdf"
-      title="Welcome to the Y Slides PDF"
-    ></iframe>
-  </section>
+  <iframe 
+    src="pdfs/Welcome%20to%20the%20Y%20Fall%202025.pdf"
+    title="Welcome to the Y Slides PDF"
+  ></iframe>
+</section>
 
   <section class="pdf-section" aria-labelledby="schedule-heading">
     <h2 id="schedule-heading">📄 NSO Student Schedule</h2>
