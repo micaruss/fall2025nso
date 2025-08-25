@@ -6,9 +6,7 @@
   <title>Fall NSO | Home</title>
   <link rel="stylesheet" href="css/styles.css" />
   <style>
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     html, body {
       margin: 0;
@@ -17,8 +15,6 @@
       color: white;
       scroll-behavior: smooth;
     }
-
-   
 
     nav {
       background-color: navy;
@@ -34,22 +30,20 @@
       font-size: 16px;
     }
 
-    nav a:hover {
-      text-decoration: underline;
-    }
+    nav a:hover { text-decoration: underline; }
 
     .hero {
-        background-image: url('images/yphoto2.jpeg');
-        background-size: cover;
-        background-position: center center;
-        background-repeat: no-repeat;
-        min-height: 90vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        padding: 40px 20px;
-        position: relative;
+      background-image: url('images/yphoto2.jpeg');
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px 20px;
+      position: relative;
     }
 
     .content-overlay {
@@ -57,6 +51,7 @@
       padding: 2rem;
       max-width: 800px;
       border-radius: 12px;
+      color: #fff;
     }
 
     .fadeout {
@@ -83,9 +78,7 @@
       text-align: center;
     }
 
-    .pdf-section h2 {
-      color: #003087;
-    }
+    .pdf-section h2 { color: #003087; }
 
     iframe {
       width: 100%;
@@ -94,6 +87,7 @@
       border: none;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
       margin-top: 1rem;
+      border-radius: 8px;
     }
 
     footer {
@@ -103,11 +97,50 @@
       font-size: 14px;
       color: white;
     }
-    
+
+    /* --- Responsive table wrapper --- */
+    .table-wrap {
+      background: white;
+      color: black;
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 40px 20px;
+    }
+
+    .table-wrap h2 { margin-top: 0; }
+
+    .table-responsive {
+      width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    table { width: 100%; border-collapse: collapse; min-width: 640px; }
+
+    thead tr { border-bottom: 2px solid #ccc; }
+
+    th, td { text-align: left; padding: 10px; white-space: nowrap; }
+
+    /* Make phone links look like normal text but tappable */
+    a.tel { color: inherit; text-decoration: none; }
+    a.tel:hover { text-decoration: underline; }
+
+    /* Download button style */
+    .btn-primary {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 12px 20px;
+      background-color: #003087;
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .btn-primary:hover { text-decoration: underline; }
   </style>
 </head>
 <body>
-  <nav id="top-nav">
+  <nav id="top-nav" aria-label="Primary">
     <a href="index.html">🏠 Home</a>
     <a href="schedule.html">📅 Schedule</a>
     <a href="maps.html">📍 Mentor Maps</a>
@@ -116,145 +149,175 @@
     <a href="#" id="login-btn" onclick="startLogin()">🔐 Login</a>
   </nav>
 
-  <div class="hero">
+  <div class="hero" role="img" aria-label="Y Mountain background">
     <div class="content-overlay">
       <h1>Welcome to Fall 2025 NSO!</h1>
       <p>This is your one-stop hub for everything related to Mentor schedules, maps, assignments, and support tools during BYU's New Student Orientation.</p>
       <p>Use the navigation above to access your schedule, mentor map, help videos, and more. Let’s help new students have the best start possible!</p>
-      <p>NEED TO KNOW THINGS BELOW</p>
+      <p><strong>Need-to-know items are below.</strong></p>
     </div>
   </div>
 
-  <div class="fadeout"></div>
+  <div class="fadeout" aria-hidden="true"></div>
 
-  <div style="background: white; padding: 40px; color: black; max-width: 800px; margin: 2rem auto;">
-  <h2>NSO Team</h2>
-  <table style="width: 100%; border-collapse: collapse; margin-bottom: 40px;">
-    <thead>
-      <tr style="border-bottom: 2px solid #ccc;">
-        <th style="text-align: left; padding: 10px;">Name</th>
-        <th style="text-align: left; padding: 10px;">Role</th>
-        <th style="text-align: left; padding: 10px;">Phone Number</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td style="padding: 10px;">Micah Russell</td>
-        <td style="padding: 10px;">NSO Lead</td>
-        <td style="padding: 10px;">435-705-8277</td>
-      </tr>
-      <tr>
-        <td style="padding: 10px;">Allie Wright</td>
-        <td style="padding: 10px;">Temp Staff Coordaintor</td>
-        <td style="padding: 10px;">208-984-9187</td>
-      </tr>
-      <tr>
-        <td style="padding: 10px;">Jared Phelan</td>
-        <td style="padding: 10px;">Extra Hands Coordinator</td>
-        <td style="padding: 10px;">928-642-0834</td>
-      </tr>
-      <tr>
-        <td style="padding: 10px;">Rachel Olson</td>
-        <td style="padding: 10px;">Color Reps Coordinator</td>
-        <td style="padding: 10px;">801-634-1787</td>
-      </tr>
-    </tbody>
-  </table>
+  <section class="table-wrap" aria-labelledby="team-heading">
+    <h2 id="team-heading">NSO Team</h2>
+    <div class="table-responsive" role="region" aria-label="NSO Team Directory" tabindex="0">
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Role</th>
+            <th>Phone Number</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Micah Russell</td>
+            <td>NSO Lead</td>
+            <td><a class="tel" href="tel:14357058277">435-705-8277</a></td>
+          </tr>
+          <tr>
+            <td>Allie Wright</td>
+            <td>Temp Staff Coordinator</td>
+            <td><a class="tel" href="tel:12089849187">208-984-9187</a></td>
+          </tr>
+          <tr>
+            <td>Jared Phelan</td>
+            <td>Extra Hands Coordinator</td>
+            <td><a class="tel" href="tel:19286420834">928-642-0834</a></td>
+          </tr>
+          <tr>
+            <td>Rachel Olson</td>
+            <td>Color Reps Coordinator</td>
+            <td><a class="tel" href="tel:18016341787">801-634-1787</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
-  <h2>Color Reps</h2>
-  <table style="width: 100%; border-collapse: collapse;">
-    <thead>
-      <tr style="border-bottom: 2px solid #ccc;">
-        <th style="text-align: left; padding: 10px;">Name</th>
-        <th style="text-align: left; padding: 10px;">Color Group</th>
-        <th style="text-align: left; padding: 10px;">Phone Number</th>
-      </tr>
-    </thead>
-    <tbody>
-      <!-- Blue -->
-      <tr>
-        <td style="padding: 10px;">Spencer Harding</td>
-        <td style="padding: 10px; color: #0057b8;">Blue Color Rep</td>
-        <td style="padding: 10px;">208-716-7805</td>
-      </tr>
-      <tr>
-        <td style="padding: 10px;">Madeline McCauley</td>
-        <td style="padding: 10px; color: #0057b8;">Blue Color Rep</td>
-        <td style="padding: 10px;">971-300-8977</td>
-      </tr>
+    <h2 style="margin-top:40px">Color Reps</h2>
+    <div class="table-responsive" role="region" aria-label="Color Representatives Directory" tabindex="0">
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Color Group</th>
+            <th>Phone Number</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Blue -->
+          <tr>
+            <td>Spencer Harding</td>
+            <td style="color:#0057b8">Blue Color Rep</td>
+            <td><a class="tel" href="tel:12087167805">208-716-7805</a></td>
+          </tr>
+          <tr>
+            <td>Madeline McCauley</td>
+            <td style="color:#0057b8">Blue Color Rep</td>
+            <td><a class="tel" href="tel:19713008977">971-300-8977</a></td>
+          </tr>
 
-      <!-- Green -->
-      <tr>
-        <td style="padding: 10px;">Ben Pinnock</td>
-        <td style="padding: 10px; color: #007f3f">Green Color Rep</td>
-        <td style="padding: 10px;">801-707-7182</td>
-      </tr>
-      <tr>
-        <td style="padding: 10px;">Isaac Speirs</td>
-        <td style="padding: 10px; color: #007f3f">Green Color Rep</td>
-        <td style="padding: 10px;">208-849-2305</td>
-      </tr>
+          <!-- Green -->
+          <tr>
+            <td>Ben Pinnock</td>
+            <td style="color:#007f3f">Green Color Rep</td>
+            <td><a class="tel" href="tel:18017077182">801-707-7182</a></td>
+          </tr>
+          <tr>
+            <td>Isaac Speirs</td>
+            <td style="color:#007f3f">Green Color Rep</td>
+            <td><a class="tel" href="tel:12088492305">208-849-2305</a></td>
+          </tr>
 
-      <!-- Orange -->
-      <tr>
-        <td style="padding: 10px;">Emily Knote</td>
-        <td style="padding: 10px; color: #e66100">Orange/Flex GE Color Rep</td>
-        <td style="padding: 10px;">308-760-1129</td>
-      </tr>
+          <!-- Orange -->
+          <tr>
+            <td>Emily Knote</td>
+            <td style="color:#e66100">Orange/Flex GE Color Rep</td>
+            <td><a class="tel" href="tel:13087601129">308-760-1129</a></td>
+          </tr>
 
-      <!-- Pink -->
-      <tr>
-        <td style="padding: 10px;">Katie Githuka</td>
-        <td style="padding: 10px; color: #d6336c">Pink Color Rep</td>
-        <td style="padding: 10px;">801-636-3843</td>
-      </tr>
-      <tr>
-        <td style="padding: 10px;">Nicole Priest</td>
-        <td style="padding: 10px; color: #d6336c">Pink Color Rep</td>
-        <td style="padding: 10px;">760-317-7617</td>
-      </tr>
+          <!-- Pink -->
+          <tr>
+            <td>Katie Githuka</td>
+            <td style="color:#d6336c">Pink Color Rep</td>
+            <td><a class="tel" href="tel:18016363843">801-636-3843</a></td>
+          </tr>
+          <tr>
+            <td>Nicole Priest</td>
+            <td style="color:#d6336c">Pink Color Rep</td>
+            <td><a class="tel" href="tel:17603177617">760-317-7617</a></td>
+          </tr>
 
-      <!-- Purple -->
-      <tr>
-        <td style="padding: 10px;">Matthew Jordan</td>
-        <td style="padding: 10px; color: #8e44ad">Purple Color Rep</td>
-        <td style="padding: 10px;">801-347-3386</td>
-      </tr>
-      <tr>
-        <td style="padding: 10px;">Daisy Bohon</td>
-        <td style="padding: 10px; color: #8e44ad">Purple Color Rep</td>
-        <td style="padding: 10px;">385-236-6353</td>
-      </tr>
+          <!-- Purple -->
+          <tr>
+            <td>Matthew Jordan</td>
+            <td style="color:#8e44ad">Purple Color Rep</td>
+            <td><a class="tel" href="tel:18013473386">801-347-3386</a></td>
+          </tr>
+          <tr>
+            <td>Daisy Bohon</td>
+            <td style="color:#8e44ad">Purple Color Rep</td>
+            <td><a class="tel" href="tel:13852366353">385-236-6353</a></td>
+          </tr>
 
-      <!-- Yellow -->
-      <tr>
-        <td style="padding: 10px;">Avery Jones</td>
-        <td style="padding: 10px; color: #f1c40f">Yellow Color Rep</td>
-        <td style="padding: 10px;">240-848-8376</td>
-      </tr>
-      <tr>
-        <td style="padding: 10px;">Sage Shoell</td>
-        <td style="padding: 10px; color: #f1c40f">Yellow Color Rep</td>
-        <td style="padding: 10px;">385-471-4516</td>
-      </tr>
+          <!-- Yellow -->
+          <tr>
+            <td>Avery Jones</td>
+            <td style="color:#f1c40f">Yellow Color Rep</td>
+            <td><a class="tel" href="tel:12408488376">240-848-8376</a></td>
+          </tr>
+          <tr>
+            <td>Sage Shoell</td>
+            <td style="color:#f1c40f">Yellow Color Rep</td>
+            <td><a class="tel" href="tel:13854714516">385-471-4516</a></td>
+          </tr>
 
-      <!-- Silver/Transfers -->
-      <tr>
-        <td style="padding: 10px;">Logan Felix</td>
-        <td style="padding: 10px; color: #7f8c8d">Silver/Transfers Color Rep</td>
-        <td style="padding: 10px;">208-971-8267</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-
-  <section class="pdf-section">
-    <h2>📄 NSO Student Schedule</h2>
-    <p>View the official student NSO schedule below.</p>
-    <iframe src="pdfs/Fall 2025 NSO Student Schedule.pdf"></iframe>
+          <!-- Silver/Transfers -->
+          <tr>
+            <td>Logan Felix</td>
+            <td style="color:#7f8c8d">Silver/Transfers Color Rep</td>
+            <td><a class="tel" href="tel:12089718267">208-971-8267</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </section>
 
-  <footer>
+  <section class="pdf-section" aria-labelledby="slides-heading">
+  <h2 id="slides-heading">📑 Welcome to the Y Slides</h2>
+  <p>Download the slides or preview the slides below.</p>
+
+  <!-- Download button first -->
+  <a
+    class="btn-primary"
+    href="files/Welcome%20to%20the%20Y%20Fall%202025.pptx"
+    download
+  >⬇️ Download Slides</a>
+
+  <!-- Responsive 16:9 wrapper for Office embed -->
+  <div class="office-embed">
+    <iframe
+      title="Welcome to the Y — PowerPoint Online preview"
+      src="https://byu-my.sharepoint.com/personal/micaruss_byu_edu/_layouts/15/Doc.aspx?sourcedoc={b8be715a-cf7c-4565-8744-4c9fadd1a5b1}&amp;action=embedview&amp;wdAr=1.7777777777777777"
+      frameborder="0"
+      allowfullscreen
+    >
+      This is an embedded <a target="_blank" href="https://office.com">Microsoft Office</a> presentation,
+      powered by <a target="_blank" href="https://office.com/webapps">Office</a>.
+    </iframe>
+  </div>
+</section>
+
+  <section class="pdf-section" aria-labelledby="schedule-heading">
+    <h2 id="schedule-heading">📄 NSO Student Schedule</h2>
+    <p>View the official student NSO schedule below.</p>
+    <!-- URL-encoded spaces for reliability -->
+    <iframe src="pdfs/Fall%202025%20NSO%20Student%20Schedule.pdf" title="Fall 2025 NSO Student Schedule PDF"></iframe>
+  </section>
+
+  <footer role="contentinfo">
     <p>Fall 2025 NSO | BYU First-Year Experience</p>
   </footer>
 
@@ -269,18 +332,15 @@
     function isLoggedIn() {
       const auth = localStorage.getItem("authenticated");
       const loginTime = localStorage.getItem("loginTime");
-
       if (!auth || !loginTime) return false;
 
       const now = Date.now();
-      const maxSession = 10 * 60 * 1000;
-
+      const maxSession = 10 * 60 * 1000; // 10 minutes
       if (now - parseInt(loginTime, 10) > maxSession) {
         localStorage.removeItem("authenticated");
         localStorage.removeItem("loginTime");
         return false;
       }
-
       return true;
     }
 
@@ -290,13 +350,17 @@
       if (isLoggedIn()) {
         if (loginBtn) loginBtn.style.display = "none";
 
-        if (!document.getElementById("coordinator-link")) {
+        // Fix: check the id we append so it doesn't duplicate
+        if (!document.getElementById("supervisor-link")) {
           nav.innerHTML += `
             <a href="supervisor.html" id="supervisor-link">🧭 Coordinators & Supervisors</a>
           `;
         }
       } else {
         if (loginBtn) loginBtn.style.display = "inline-block";
+        // Hide protected link if present
+        const supLink = document.getElementById("supervisor-link");
+        if (supLink) supLink.remove();
       }
     }
   </script>
