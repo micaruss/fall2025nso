@@ -176,54 +176,66 @@
       justify-content:space-between;
       gap:8px;
     }
+
     /* Keep the Download button from getting clipped in narrow cards */
+    .wtty-card figcaption{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      flex-wrap: wrap;              /* allow the button to wrap to a new line */
+    }
+    .wtty-card figcaption .btn-primary{
+      white-space: nowrap;          /* keep "Download" on one line */
+      max-width: 100%;
+    }
+    /* On small screens, stack title over a full-width button */
+    @media (max-width: 560px){
       .wtty-card figcaption{
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 8px;
-        flex-wrap: wrap;              /* allow the button to wrap to a new line */
+        flex-direction: column;
+        align-items: stretch;
       }
-
       .wtty-card figcaption .btn-primary{
-        white-space: nowrap;          /* keep "Download" on one line */
-        max-width: 100%;
+        width: 100%;
+        text-align: center;
       }
+    }
 
-      /* On small screens, stack title over a full-width button */
-      @media (max-width: 560px){
-        .wtty-card figcaption{
-          flex-direction: column;
-          align-items: stretch;
-        }
-        .wtty-card figcaption .btn-primary{
-          width: 100%;
-          text-align: center;
-        }
-      }
-      /* Default figcaptions: title left, button right */
-.wtty-card figcaption {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 8px;
-  flex-wrap: wrap;
-}
+    /* Default figcaptions */
+    .wtty-card figcaption {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
 
-/* Special rule: stack everything inside the QR Reflection card */
-.wtty-card.qr-reflection figcaption {
-  flex-direction: column;
-  align-items: stretch;
-  text-align: center;
-}
+    /* Special rule: stack everything inside the QR Reflection card */
+    .wtty-card.qr-reflection figcaption {
+      flex-direction: column;
+      align-items: stretch;
+      text-align: center;
+    }
+    .wtty-card.qr-reflection figcaption a,
+    .wtty-card.qr-reflection figcaption button,
+    .wtty-card.qr-reflection figcaption input {
+      width: 100%;          /* full-width buttons and input */
+      margin-top: 6px;
+      text-align: center;
+    }
 
-.wtty-card.qr-reflection figcaption a,
-.wtty-card.qr-reflection figcaption button,
-.wtty-card.qr-reflection figcaption input {
-  width: 100%;          /* full-width buttons and input */
-  margin-top: 6px;
-  text-align: center;
-}
+    /* Simple document thumbnail for CCC scripts (no image needed) */
+    .doc-thumb{
+      height: 140px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:#f4f6fb;
+      color:#003087;
+      font-weight:700;
+      font-size: 18px;
+      letter-spacing: .2px;
+    }
 
     /* Accessibility helper */
     .visually-hidden {
@@ -440,23 +452,97 @@
 
       <!-- Updated: QR for Y-BYU Reflection with link + copy -->
       <figure class="wtty-card qr-reflection">
-  <a href="images/QRCodeforYBYUReflectionExercise.png" target="_blank" rel="noopener">
-    <img src="images/QRCodeforYBYUReflectionExercise.png" alt="QR code for Y-BYU Reflection Exercise" loading="lazy">
-  </a>
-  <figcaption>
-    <strong>QR Code for Y-BYU Reflection</strong>
-    <a class="btn-primary btn-sm" href="images/QRCodeforYBYUReflectionExercise.png" download>Download QR</a>
-    <a class="btn-primary btn-sm" href="https://forms.office.com/r/7gSBaDpm6Y" target="_blank" rel="noopener">Open Reflection</a>
-    <input
-      id="reflection-url"
-      type="text"
-      value="https://forms.office.com/r/7gSBaDpm6Y"
-      readonly
-      aria-label="Y-BYU Reflection form URL"
-    />
-    <button id="reflection-copy-btn" class="btn-primary btn-sm" type="button">Copy Link</button>
-  </figcaption>
-</figure>
+        <a href="images/QRCodeforYBYUReflectionExercise.png" target="_blank" rel="noopener">
+          <img src="images/QRCodeforYBYUReflectionExercise.png" alt="QR code for Y-BYU Reflection Exercise" loading="lazy">
+        </a>
+        <figcaption>
+          <strong>QR Code for Y-BYU Reflection</strong>
+          <a class="btn-primary btn-sm" href="images/QRCodeforYBYUReflectionExercise.png" download>Download QR</a>
+          <a class="btn-primary btn-sm" href="https://forms.office.com/r/7gSBaDpm6Y" target="_blank" rel="noopener">Open Reflection</a>
+          <input
+            id="reflection-url"
+            type="text"
+            value="https://forms.office.com/r/7gSBaDpm6Y"
+            readonly
+            aria-label="Y-BYU Reflection form URL"
+          />
+          <button id="reflection-copy-btn" class="btn-primary btn-sm" type="button">Copy Link</button>
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- NEW: CCC Walking Tour Scripts -->
+  <section class="pdf-section" aria-labelledby="ccc-heading">
+    <h2 id="ccc-heading">📜 CCC Walking Tour Scripts</h2>
+    <p>Download and review the CCC Tour Script for your assigned color group below.</p>
+
+    <div class="wtty-grid">
+      <figure class="wtty-card">
+        <div class="doc-thumb">BLUE • CCC SCRIPT</div>
+        <figcaption>
+          Blue Group
+          <div style="display:flex; gap:8px; flex-wrap:wrap;">
+            <a class="btn-primary btn-sm" href="pdfs/Fall%202025%20Script%20for%20CCC%20tour%20-%20Blue.pdf" target="_blank" rel="noopener">View</a>
+            <a class="btn-primary btn-sm" href="pdfs/Fall%202025%20Script%20for%20CCC%20tour%20-%20Blue.pdf" download>Download</a>
+          </div>
+        </figcaption>
+      </figure>
+
+      <figure class="wtty-card">
+        <div class="doc-thumb">GREEN • CCC SCRIPT</div>
+        <figcaption>
+          Green Group
+          <div style="display:flex; gap:8px; flex-wrap:wrap;">
+            <a class="btn-primary btn-sm" href="pdfs/Fall%202025%20Script%20for%20CCC%20tour%20-%20Green.pdf" target="_blank" rel="noopener">View</a>
+            <a class="btn-primary btn-sm" href="pdfs/Fall%202025%20Script%20for%20CCC%20tour%20-%20Green.pdf" download>Download</a>
+          </div>
+        </figcaption>
+      </figure>
+
+      <figure class="wtty-card">
+        <div class="doc-thumb">PINK • CCC SCRIPT</div>
+        <figcaption>
+          Pink Group
+          <div style="display:flex; gap:8px; flex-wrap:wrap;">
+            <a class="btn-primary btn-sm" href="pdfs/Fall%202025%20Script%20for%20CCC%20tour%20-%20Pink.pdf" target="_blank" rel="noopener">View</a>
+            <a class="btn-primary btn-sm" href="pdfs/Fall%202025%20Script%20for%20CCC%20tour%20-%20Pink.pdf" download>Download</a>
+          </div>
+        </figcaption>
+      </figure>
+
+      <figure class="wtty-card">
+        <div class="doc-thumb">YELLOW • CCC SCRIPT</div>
+        <figcaption>
+          Yellow Group
+          <div style="display:flex; gap:8px; flex-wrap:wrap;">
+            <a class="btn-primary btn-sm" href="pdfs/Fall%202025%20Script%20for%20CCC%20tour%20-%20Yellow.pdf" target="_blank" rel="noopener">View</a>
+            <a class="btn-primary btn-sm" href="pdfs/Fall%202025%20Script%20for%20CCC%20tour%20-%20Yellow.pdf" download>Download</a>
+          </div>
+        </figcaption>
+      </figure>
+
+      <figure class="wtty-card">
+        <div class="doc-thumb">ORANGE • CCC SCRIPT</div>
+        <figcaption>
+          Orange Group
+          <div style="display:flex; gap:8px; flex-wrap:wrap;">
+            <a class="btn-primary btn-sm" href="pdfs/Fall%202025%20Script%20for%20CCC%20tour%20-%20Orange.pdf" target="_blank" rel="noopener">View</a>
+            <a class="btn-primary btn-sm" href="pdfs/Fall%202025%20Script%20for%20CCC%20tour%20-%20Orange.pdf" download>Download</a>
+          </div>
+        </figcaption>
+      </figure>
+
+      <figure class="wtty-card">
+        <div class="doc-thumb">PURPLE • CCC SCRIPT</div>
+        <figcaption>
+          Purple Group
+          <div style="display:flex; gap:8px; flex-wrap:wrap;">
+            <a class="btn-primary btn-sm" href="pdfs/Fall%202025%20Script%20for%20CCC%20tour%20-%20Purple.pdf" target="_blank" rel="noopener">View</a>
+            <a class="btn-primary btn-sm" href="pdfs/Fall%202025%20Script%20for%20CCC%20tour%20-%20Purple.pdf" download>Download</a>
+          </div>
+        </figcaption>
+      </figure>
     </div>
   </section>
 
