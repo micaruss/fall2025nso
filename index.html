@@ -125,7 +125,7 @@
     a.tel { color: inherit; text-decoration: none; }
     a.tel:hover { text-decoration: underline; }
 
-    /* Download button style */
+    /* Buttons */
     .btn-primary {
       display: inline-block;
       margin-top: 1rem;
@@ -135,6 +135,8 @@
       border-radius: 8px;
       text-decoration: none;
       font-weight: bold;
+      cursor: pointer;
+      border: none;
     }
     .btn-primary:hover { text-decoration: underline; }
 
@@ -173,6 +175,64 @@
       align-items:center;
       justify-content:space-between;
       gap:8px;
+    }
+    /* Keep the Download button from getting clipped in narrow cards */
+      .wtty-card figcaption{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+        flex-wrap: wrap;              /* allow the button to wrap to a new line */
+      }
+
+      .wtty-card figcaption .btn-primary{
+        white-space: nowrap;          /* keep "Download" on one line */
+        max-width: 100%;
+      }
+
+      /* On small screens, stack title over a full-width button */
+      @media (max-width: 560px){
+        .wtty-card figcaption{
+          flex-direction: column;
+          align-items: stretch;
+        }
+        .wtty-card figcaption .btn-primary{
+          width: 100%;
+          text-align: center;
+        }
+      }
+      /* Default figcaptions: title left, button right */
+.wtty-card figcaption {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* Special rule: stack everything inside the QR Reflection card */
+.wtty-card.qr-reflection figcaption {
+  flex-direction: column;
+  align-items: stretch;
+  text-align: center;
+}
+
+.wtty-card.qr-reflection figcaption a,
+.wtty-card.qr-reflection figcaption button,
+.wtty-card.qr-reflection figcaption input {
+  width: 100%;          /* full-width buttons and input */
+  margin-top: 6px;
+  text-align: center;
+}
+
+    /* Accessibility helper */
+    .visually-hidden {
+      position: absolute !important;
+      height: 1px; width: 1px;
+      overflow: hidden;
+      clip: rect(1px, 1px, 1px, 1px);
+      white-space: nowrap;
+      clip-path: inset(50%);
     }
   </style>
 </head>
@@ -322,9 +382,9 @@
     </div>
   </section>
 
-  <!-- NEW: Welcome to the Y Images section -->
+  <!-- Welcome to the Y Images section -->
   <section class="pdf-section" aria-labelledby="wtty-images-heading">
-    <h2 id="wtty-images-heading">🖼️ Welcome to the Y — Images for Icebreakers</h2>
+    <h2 id="wtty-images-heading">🖼️ Welcome to the Y — Images</h2>
     <p>Tap an image to view it full-size, or use the download button below each.</p>
 
     <div class="wtty-grid">
@@ -377,26 +437,46 @@
           <a class="btn-primary btn-sm" href="images/WtotheYKey.png" download>Download</a>
         </figcaption>
       </figure>
+
+      <!-- Updated: QR for Y-BYU Reflection with link + copy -->
+      <figure class="wtty-card qr-reflection">
+  <a href="images/QRCodeforYBYUReflectionExercise.png" target="_blank" rel="noopener">
+    <img src="images/QRCodeforYBYUReflectionExercise.png" alt="QR code for Y-BYU Reflection Exercise" loading="lazy">
+  </a>
+  <figcaption>
+    <strong>QR Code for Y-BYU Reflection</strong>
+    <a class="btn-primary btn-sm" href="images/QRCodeforYBYUReflectionExercise.png" download>Download QR</a>
+    <a class="btn-primary btn-sm" href="https://forms.office.com/r/7gSBaDpm6Y" target="_blank" rel="noopener">Open Reflection</a>
+    <input
+      id="reflection-url"
+      type="text"
+      value="https://forms.office.com/r/7gSBaDpm6Y"
+      readonly
+      aria-label="Y-BYU Reflection form URL"
+    />
+    <button id="reflection-copy-btn" class="btn-primary btn-sm" type="button">Copy Link</button>
+  </figcaption>
+</figure>
     </div>
   </section>
 
- <section class="pdf-section" aria-labelledby="slides-heading">
-  <h2 id="slides-heading">📑 Welcome to the Y Slides</h2>
-  <p>Download the Slides, or preview the slides below.</p>
+  <section class="pdf-section" aria-labelledby="slides-heading">
+    <h2 id="slides-heading">📑 Welcome to the Y Slides</h2>
+    <p>Download the Slides, or preview the slides below.</p>
 
-  <br>
-  <a
-    class="btn-primary"
-    href="files/Welcome%20to%20the%20Y%20Fall%202025.pptx"
-    download
-  >⬇️ Download Slides</a>
-  <br>
+    <br>
+    <a
+      class="btn-primary"
+      href="files/Welcome%20to%20the%20Y%20Fall%202025.pptx"
+      download
+    >⬇️ Download Slides</a>
+    <br>
 
-  <iframe 
-    src="pdfs/Welcome%20to%20the%20Y%20Fall%202025.pdf"
-    title="Welcome to the Y Slides PDF"
-  ></iframe>
-</section>
+    <iframe 
+      src="pdfs/Welcome%20to%20the%20Y%20Fall%202025.pdf"
+      title="Welcome to the Y Slides PDF"
+    ></iframe>
+  </section>
 
   <section class="pdf-section" aria-labelledby="schedule-heading">
     <h2 id="schedule-heading">📄 NSO Student Schedule</h2>
@@ -448,6 +528,29 @@
         if (supLink) supLink.remove();
       }
     }
+  </script>
+
+  <!-- Copy button for Y-BYU Reflection URL -->
+  <script>
+    (function () {
+      const refCopyBtn = document.getElementById('reflection-copy-btn');
+      const refInput = document.getElementById('reflection-url');
+
+      if (refCopyBtn && refInput) {
+        refCopyBtn.addEventListener('click', async () => {
+          try {
+            await navigator.clipboard.writeText(refInput.value);
+            refCopyBtn.textContent = 'Copied!';
+            setTimeout(() => (refCopyBtn.textContent = 'Copy Link'), 1500);
+          } catch {
+            refInput.select();
+            document.execCommand('copy');
+            refCopyBtn.textContent = 'Copied!';
+            setTimeout(() => (refCopyBtn.textContent = 'Copy Link'), 1500);
+          }
+        });
+      }
+    })();
   </script>
 </body>
 </html>
